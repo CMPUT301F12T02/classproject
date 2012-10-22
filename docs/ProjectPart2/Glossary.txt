@@ -10,7 +10,8 @@ Task Screen: An activity where a user can view a task created by them or somebod
 Similar Projects:
 https://www.mturk.com/mturk/welcome - Amazon Mechanical Turk
 http://www.kickstarter.com/ - Kickstarter
-
+Other useful info:
+http://gitimmersion.com/ - useful github tutorial for github
 
 
    Copyright 2012 Colin Kerr, Mircea Caciula, Peter Qin, and Simon Fessehay
