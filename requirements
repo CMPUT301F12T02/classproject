@@ -1,0 +1,159 @@
+1.)Use Case Name:PostTextEntry_self
+Particpating Actors: Individual 
+Goal: To Define and fufill local  tasks.
+Trigger: User types a entry for a task.
+precondition:User knows what task he is typing.
+PostCondition: On success the user can post or fufill an entry.
+
+Basic Flow:
+1.System prompts individual to define a task.
+2.Individual types a task.
+3.system prompts user to either share locally or with central system.
+4.system time stamps the task.
+5.system lists all tasks among local system and central systems.
+6.users selects a task to fufill which is local.
+7.System prompts the user to fufill the requirements.
+8.user inputs the text required.
+9. system time stamps the task.
+10. System displays result and report of the task.
+11. Task is fufilled. 
+
+Exception:8.If text is incorrect
+	8.1.) Prompts user that it is incorrect and returns to step 5.
+
+
+
+2.)Use Case Name:PostTextEntry_community
+Particpating Actors: Individual,Community 
+Goal: To fufill community tasks.
+Trigger: User searches for a task.
+precondition:There is a task made by the community.
+PostCondition: On success the user can  fufill an entry.
+
+Basic Flow:
+
+1.system lists all tasks among local system and central systems.
+2.users selects a task to fufill from a user of the community.
+3.System prompts the user to fufill the requirements.
+4.user inputs the text required
+5. system time stamps the task.
+6. System sends result and report of the task to the original user of the community.
+7. Task is fufilled. 
+
+Exception:4.If text is incorrect
+	4.1.) Prompts user that it is incorrect and returns to step 1.
+
+
+3.)Use Case Name:PostPhotoEntry_self
+Particpating Actors: Individual 
+Goal: To Define and fufill local tasks.
+Trigger: User takes a photo for a entry for a task.
+precondition:User knows what task he wants as a picture.
+PostCondition: On success the user can post or fufill an entry.
+
+Basic Flow:
+1.System prompts individual to define a task.
+2.Individual types a task describing a picture/sound.
+3.system prompts user to either share locally or with central system.
+4.system time stamps the task.
+5.system lists all tasks among local system and central systems.
+6.users selects a task to fufill which is local.
+7.System prompts the user to fufill the requirements.
+8.user inputs the text required and prompts a photo/sound file of what is asked.  
+9. system time stamps the task.
+10. System displays result and report of the task.
+11. Task is fufilled. 
+
+Exception:8.If photo/sound is not available or not included
+	8.1.) Prompts user that photo/sound is not available and returns to step 5.
+
+4.)Use Case Name:PostPhotoEntry_community
+Particpating Actors: Individual,Community 
+Goal: To fufill community tasks.
+Trigger: User searches for a task.
+precondition:There is a task made by the community.
+PostCondition: On sucess the user can  fufill an entry.
+
+Basic Flow:
+
+1.system lists all tasks among local system and central systems.
+2.users selects a task to fufill from a user of the community.
+3.System prompts the user to fufill the requirements.
+4.user inputs the text required and prompts a photo/sound file of what is asked.
+5. system time stamps the task.
+6. System sends result and report of the task to the original user of the community.
+7. Task is fufilled. 
+
+Exception:4.If photo/sound is not available or not included
+	4.1.) Prompts user that photo/sound is not available and returns to step 1.
+
+Testing:
+1.)As a user, I want to define tasks.
+	1.) Creating a blank task.
+	2.) create a text using any combination of number or letters.
+
+2.)As a user, I want to share tasks.
+	1.) share a blank task.
+	2.) share a text with any combination of number or letters.
+	3.) share multiple tasks in one run of the application.
+
+3.)As a user, I want to fufill tasks.
+	1.) fufill a blank task.
+	2.) fufill a text with any combination of number or letters.
+	3.) fufill multiple tasks in one run of the application.
+
+4.)As a user, I want some tasks to requires photos.
+	1.) create a task that requires a photo of a object and take a picture to fufill the task.
+	2.) take a picture and check if its saved to right directory.
+	3.) fufill multiple tasks in one run of the application.
+
+5.)As a user fufilling a task I want to take photos and attach the photos to the task.
+	1.) take one photo and attach it to a reply of a task.
+	2.) take two photos and attach it to a reply of a task.
+	3.) take three photos and attach it to a reply of a task.
+
+6.)As a user who defines a task I want to receive the results of users fufilling a task.
+	1.) Create a task and fufill your own task to recieve a result.
+	2.) Create a task and allow a other user you controll to fufill the task to recieve a result.
+
+7.)As a user I want to be able to fufill my own tasks.
+	1.) Create a task and fufill your own task which involves typing a text.
+	2.) Create a task and fufill your own task which involves posting a photo/sound file.
+
+8.)As a user fufilling a task I want my actions time stamped.
+	1.) Create a task and fufill your own task which involves typing a text and check on the time stamp.
+	2.) Create a task and fufill your own task which involves posting a photo/sound file and check on the time stamp.
+	3.) fufill another's task which involves typing a text and check on the time stamp.
+	4.) fufill another's task which involves posting a photo/sound file and check on the time stamp.
+
+9.)As a user, I want tasks to be stored so I can view them offline.
+	1.) Create a task while offline which involves typing a text and view it.
+	2.) Create a task while offline which involves posting a photo/sound file and view it.
+	3.) View a task posted by the community while offline(text/photo/sound).
+
+10.)As a user, I want to fufill tasks that require text by entering text.
+	1.) Create a task and then fufill it which involves typing a text.
+	2.) Fufill another's task from the community which involves typing a text.
+
+11.)As a user fufilling a task, I want to be able to attach multiple photos.
+	1.) Create a task and then fufill it which involves posting one photo.
+	2.) Create a task and then fufill it which involves posting more than one photos.
+	3.) Fufill another's task from the community which involves posting a photo.
+	4.) Fufill another's task from the community which involves posting more than one photos.
+
+12.)As a user, I should be able to retake photos I am taking, if I fail to take the photo I want to correct, so that I don't have erroneous photos.
+	1.) Create a task and then fufill it which involves posting one photo by retaking a photo.
+	2.) Create a task and then fufill it which involves posting more than one photos by retaking a photo.
+	3.) Fufill another's task from the community which involves posting a photo by retaking a photo.
+	4.) Fufill another's task from the community which involves posting more than one photos by retaking a photo.
+	5.) Any of the previous tests but retaking more than one photo.
+
+13.)As a user I should be able to get tasks from other users somehow.
+	1.) Create task as one user and view it as a different user of the community.
+
+14.)As a user fufilling a task I should be able to send the fufilled report back to the task writing user somehow.
+	1.) Create a task and allow another user to fufill the task to recieve a result and report.
+
+15.)As a user creating a task I want some tasks to be local only to myself.
+	1.) Create a task which involves typing a text and store it as local only.
+	2.) Create a task which involves posting a photo/sound file and store it as local only.
