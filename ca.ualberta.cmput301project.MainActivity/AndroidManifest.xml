@@ -34,6 +34,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ca.ualberta.cmput301project.MainActivity" />
         </activity>
+        <activity
+            android:name=".RequestSummary"
+            android:label="@string/title_activity_request_summary" >
+        </activity>
+        <activity
+            android:name=".FulfillTask"
+            android:label="@string/title_activity_fulfill_task" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.cmput301project.StoredTasks" />
+        </activity>
     </application>
 
 </manifest>
