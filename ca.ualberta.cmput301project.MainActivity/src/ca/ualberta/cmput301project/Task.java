@@ -1,3 +1,5 @@
+package ca.ualberta.cmput301project;
+
 
 
 public class Task
@@ -10,7 +12,7 @@ public class Task
     private String result_photofile = "none";
     private String result_audiofile = "none";
     
-    public Task (String description = "No Description", boolean req_photo = 0, boolean req_audio = 0){
+    public Task (String description, boolean req_photo, boolean req_audio){
         this.description = description;
         this.req_photo = req_photo;
         this.req_audio = req_audio;
@@ -34,12 +36,13 @@ public class Task
     public String getResAudioName(){
         return result_audiofile;
     }
-    public void setResult(String desc, String photo = "none", String audio = "none"){
+    
+    public void setResult(String desc, String photo, String audio){
         result_description = desc;
         if (photo != "none"){
-            req_photo = photo
+            result_photofile = photo;
         }
         if (audio != "none")
-            req_audio = audio;
+            result_audiofile = audio;
     }
 }
