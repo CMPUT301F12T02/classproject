@@ -7,6 +7,7 @@ public class Task
     private String description;
     private boolean req_photo;
     private boolean req_audio;
+    private boolean complete;
     
     private String result_description = "No description";
     private String result_photofile = "none";
