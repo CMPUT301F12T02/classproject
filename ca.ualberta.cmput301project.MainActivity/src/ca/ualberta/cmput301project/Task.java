@@ -1,9 +1,15 @@
 package ca.ualberta.cmput301project;
 
+import java.io.Serializable;
 
 
-public class Task
+
+public class Task implements Serializable
 {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     private String description;
     private boolean req_photo;
     private boolean req_audio;
@@ -21,6 +27,9 @@ public class Task
     
     public String getDescription(){
         return description;
+    }
+    public boolean getcomplete(){
+        return complete;
     }
     public boolean getReqPhoto(){
         return req_photo;
