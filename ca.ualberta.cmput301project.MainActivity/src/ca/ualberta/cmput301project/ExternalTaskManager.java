@@ -15,7 +15,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.Log;
 
 
 public class ExternalTaskManager
@@ -40,8 +39,6 @@ public class ExternalTaskManager
               while ((line = reader.readLine()) != null) {
                 builder.append(line);
               }
-            } else {
-              Log.e(Activity_placeholder.class.toString(), "Failed to download file");
             }
           } catch (ClientProtocolException e) {
             e.printStackTrace();
@@ -88,7 +85,7 @@ public class ExternalTaskManager
         internetFetch(httpGet);
     }
     public void updateTask(Task task, String id){
-        JSONObject object;
+        JSONObject object = null;
         try
         {
             object = new JSONObject(readTask(id));
@@ -97,7 +94,7 @@ public class ExternalTaskManager
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-        JSONObject oldContent;
+        JSONObject oldContent = null;
         try
         {
             oldContent = new JSONObject(object.getString("content"));
