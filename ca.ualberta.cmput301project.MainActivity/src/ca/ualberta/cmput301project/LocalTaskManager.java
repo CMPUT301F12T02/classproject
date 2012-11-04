@@ -1,6 +1,7 @@
 package ca.ualberta.cmput301project;
 
 import java.io.EOFException;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -14,20 +15,20 @@ public class LocalTaskManager {
 	
 	//saves a local task to file
 	public void saveLocalTask(Task task) {
-		String file = "localtask";
-		saveToFile(task, file);
+		String filename = "localtask";
+		saveToFile(task, filename);
 	}
 	
 	//saves a draft to file
 	public void saveDraft(Task task) {
-		String file = "draft";
-		saveToFile(task, file);
+		String filename = "draft";
+		saveToFile(task, filename);
 	}
 	
 	//opens a file and appends a serialized object to it
-	private void saveToFile(Task task, String file) {
+	private void saveToFile(Task task, String filename) {
 		try {
-			FileOutputStream fos = new FileOutputStream(file);
+			FileOutputStream fos = new FileOutputStream(filename);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			oos.writeObject(task);
 			oos.close();
@@ -40,22 +41,23 @@ public class LocalTaskManager {
 	
 	//retrieves a list of all local tasks
 	public List<Task> loadLocalTasks() {
-		String file = "localtask";
-		return readFromFile(file);
+		String filename = "localtask";
+		return readFromFile(filename);
 	}
 	
 	//retrieves a list of all saved drafts
 	public List<Task> loadDrafts() {
-		String file = "draft";
-		return readFromFile(file);
+		String filename = "draft";
+		return readFromFile(filename);		//compare all tasks to the input task
+		//write all tasks back except the one that matches input task
 	}
 	
 	//opens a file and reads all serialized objects in it
-	private List<Task> readFromFile(String file) {
+	private List<Task> readFromFile(String filename) {
 		List<Task> tasks = new ArrayList<Task>();
 		
 		try {
-			FileInputStream fin = new FileInputStream(file);
+			FileInputStream fin = new FileInputStream(filename);
 			ObjectInputStream ois = new ObjectInputStream(fin);
 			
 			//keeps reading from the file until the EOF is hit, at which point
@@ -80,23 +82,27 @@ public class LocalTaskManager {
 		return tasks;
 	}
 	
-	/*
 	public void deleteLocalTask(Task task) {
-		String file = "localtask";
-		deleteTask(task, file);
+		String filename = "localtask";
+		deleteTask(task, filename);
 	}
 	
 	public void deleteDraft(Task task) {
-		String file = "draft";
-		deleteTask(task, file);
+		String filename = "draft";
+		deleteTask(task, filename);
 	}
 	
-	private void deleteTask(Task task, String file) {
-		List<Task> oldTasks = readFromFile(file);
-		List<Task> newTasks = new ArrayList<Task>();
+	private void deleteTask(Task task, String filename) {
+		List<Task> tasks = readFromFile(filename);
 		
-		//compare all tasks to the input task
-		//write all tasks back except the one that matches input task
+		File file = new File(filename);
+		file.delete();
+		
+		for (Task taskInList : tasks) {
+			if (taskInList.equals(task) == false) {
+				saveToFile(taskInList, filename);
+			}
+		}
 	}
-	*/
+	
 }
