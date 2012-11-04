@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.app.Activity;
 import android.content.Intent;
@@ -46,7 +47,16 @@ public class NewRequest extends Activity implements OnClickListener {
         String desc = destxt.getText().toString();
         
         boolean photo_needed = false;
+        final CheckBox checkphoto = (CheckBox) findViewById(R.id.require_photos);
+        if (checkphoto.isChecked()) {
+             photo_needed = true;
+        }
+        
         boolean audio_needed = false;
+        final CheckBox checkaudio = (CheckBox) findViewById(R.id.require_audio);
+        if (checkaudio.isChecked()) {
+             audio_needed = true;
+        }
         
         Date today = new Date(System.currentTimeMillis());
         
