@@ -42,6 +42,10 @@
         <activity
             android:name=".FulfillTask"
             android:label="@string/title_activity_fulfill_task" >
+        </activity>
+        <activity
+            android:name=".ViewLocalTask"
+            android:label="@string/title_activity_local_task" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ca.ualberta.cmput301project.StoredTasks" />
