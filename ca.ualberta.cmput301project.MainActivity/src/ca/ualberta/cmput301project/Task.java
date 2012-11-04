@@ -66,4 +66,16 @@ public class Task implements Serializable
         if (audio != "none")
             result_audiofile = audio;
     }
+    
+    public boolean equals(Task task) {
+    	if (((this.getDescription()).equals(task.getDescription()))
+    			&&(((this.gettimestamp()).toString()).equals((task.gettimestamp()).toString()))
+    			&&(this.getcomplete() == task.getcomplete())
+    			&&(this.getReqPhoto() == task.getReqPhoto())
+    			&&(this.getReqAudio() == task.getReqAudio())) {
+    		return true;
+    	} else {
+    		return false;
+    	}
+    }
 }
