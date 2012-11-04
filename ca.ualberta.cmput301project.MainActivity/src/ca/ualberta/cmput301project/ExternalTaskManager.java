@@ -55,14 +55,25 @@ public class ExternalTaskManager
     public static String readTask(String id){
         HttpGet httpGet = new HttpGet(baseURL+"?action=get&id="+id);
         internetFetch(httpGet);
-        return builder.toString();
+        JSONObject obj;
+        String content = null;
+        try
+        {
+            obj = new JSONObject(builder.toString());
+            content = obj.getString("content");
+        } catch (JSONException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return content;
     }
     public static String removeTask(String id){
         HttpGet httpGet = new HttpGet(baseURL+"?action=remove&id="+id);
         internetFetch(httpGet);
         return builder.toString();
     }
-    public static void addTask(Task task){
+    public static String addTask(Task task){
         String reqPhoto, reqAudio;
         if(task.getReqPhoto()){
             reqPhoto = "true";
@@ -83,6 +94,7 @@ public class ExternalTaskManager
           }
         HttpGet httpGet = new HttpGet(baseURL+"?action=post&summary=taskrequest&content="+object.toString()+"&description=sampledescription");
         internetFetch(httpGet);
+        return builder.toString();
     }
     public static void updateTask(Task task, String id){
         JSONObject object = null;
