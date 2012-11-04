@@ -88,8 +88,24 @@ public class ExternalTaskManager
         internetFetch(httpGet);
     }
     public void updateTask(Task task, String id){
-        JSONObject object = new JSONObject(readTask(id));
-        JSONObject oldContent = new JSONObject(object.getString("content"));
+        JSONObject object;
+        try
+        {
+            object = new JSONObject(readTask(id));
+        } catch (JSONException e1)
+        {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        JSONObject oldContent;
+        try
+        {
+            oldContent = new JSONObject(object.getString("content"));
+        } catch (JSONException e1)
+        {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
         try {
             oldContent.put("updatesummary", task.getResDescription());
             oldContent.put("photofile", task.getResPhotoName());
