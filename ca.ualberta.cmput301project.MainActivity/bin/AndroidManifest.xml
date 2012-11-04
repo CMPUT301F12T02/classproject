@@ -2,6 +2,7 @@
     package="ca.ualberta.cmput301project"
     android:versionCode="1"
     android:versionName="1.0" >
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-sdk
         android:minSdkVersion="8"
