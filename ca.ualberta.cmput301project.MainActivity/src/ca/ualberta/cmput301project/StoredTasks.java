@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.app.Activity;
-//import android.content.Intent;
 import android.content.Intent;
 
 public class StoredTasks extends Activity implements OnClickListener {
@@ -23,17 +22,16 @@ public class StoredTasks extends Activity implements OnClickListener {
     public void onClick(View v){
         Intent intent;
         switch (v.getId()){
-                        case R.id.local_button:
-                                intent = new Intent(this, ViewLocalTask.class);
-                                break;
-                        case R.id.com_button:
-                                intent = new Intent(this, ViewLocalTask.class);
-                                break;
-                        default:
-                                intent = new Intent();
-                                break;
+	        case R.id.local_button:
+	        	intent = new Intent(this, ViewLocalTask.class);
+	        	break;
+	        case R.id.com_button:
+	        	intent = new Intent(this, ViewLocalTask.class);
+	        	break;
+	        default:
+	        	intent = new Intent();
+	        	break;
         }
-        
-                startActivity(intent);
+            startActivity(intent); //open the ListActivity ViewLocalTask.class
     }
 }
