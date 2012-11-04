@@ -10,7 +10,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaskManager {
+public class LocalTaskManager {
 	
 	//saves a local task to file
 	public void saveLocalTask(Task task) {
@@ -80,15 +80,23 @@ public class TaskManager {
 		return tasks;
 	}
 	
-	public void sendCommunityTask() { //JSON
-		
+	/*
+	public void deleteLocalTask(Task task) {
+		String file = "localtask";
+		deleteTask(task, file);
 	}
 	
-	public void loadListOfTasks() { //JSON
-		
+	public void deleteDraft(Task task) {
+		String file = "draft";
+		deleteTask(task, file);
 	}
 	
-	public void loadSingleTask() { //JSON
+	private void deleteTask(Task task, String file) {
+		List<Task> oldTasks = readFromFile(file);
+		List<Task> newTasks = new ArrayList<Task>();
 		
+		//compare all tasks to the input task
+		//write all tasks back except the one that matches input task
 	}
+	*/
 }
