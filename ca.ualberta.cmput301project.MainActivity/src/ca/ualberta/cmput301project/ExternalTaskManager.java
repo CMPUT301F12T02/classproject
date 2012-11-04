@@ -19,12 +19,12 @@ import org.json.JSONObject;
 
 public class ExternalTaskManager
 {
-    private String baseURL = "http://crowdsourcer.softwareprocess.es/F12/CMPUT301F12T02/";
-    StringBuilder builder = new StringBuilder();
+    static private String baseURL = "http://crowdsourcer.softwareprocess.es/F12/CMPUT301F12T02/";
+    static StringBuilder builder = new StringBuilder();
     public ExternalTaskManager(){
         
     }
-    private void internetFetch(HttpGet httpGet){
+    private static void internetFetch(HttpGet httpGet){
         try {
 
             HttpClient client = new DefaultHttpClient();
@@ -46,23 +46,23 @@ public class ExternalTaskManager
             e.printStackTrace();
           }
     }
-    public String readAllTasks() {
+    public static String readAllTasks() {
         HttpGet httpGet = new HttpGet(baseURL+"?action=list");
         internetFetch(httpGet);
         return builder.toString();
     }
     
-    public String readTask(String id){
+    public static String readTask(String id){
         HttpGet httpGet = new HttpGet(baseURL+"?action=get&id="+id);
         internetFetch(httpGet);
         return builder.toString();
     }
-    public String removeTask(String id){
+    public static String removeTask(String id){
         HttpGet httpGet = new HttpGet(baseURL+"?action=remove&id="+id);
         internetFetch(httpGet);
         return builder.toString();
     }
-    public void addTask(Task task){
+    public static void addTask(Task task){
         String reqPhoto, reqAudio;
         if(task.getReqPhoto()){
             reqPhoto = "true";
@@ -84,7 +84,7 @@ public class ExternalTaskManager
         HttpGet httpGet = new HttpGet(baseURL+"?action=post&summary=taskrequest&content="+object.toString()+"&description=sampledescription");
         internetFetch(httpGet);
     }
-    public void updateTask(Task task, String id){
+    public static void updateTask(Task task, String id){
         JSONObject object = null;
         try
         {
