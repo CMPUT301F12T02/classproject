@@ -14,19 +14,19 @@ import java.util.List;
 public class LocalTaskManager {
 	
 	//saves a local task to file
-	public void saveLocalTask(Task task) {
+	public static void saveLocalTask(Task task) {
 		String filename = "localtask";
 		saveToFile(task, filename);
 	}
 	
 	//saves a draft to file
-	public void saveDraft(Task task) {
+	public static void saveDraft(Task task) {
 		String filename = "draft";
 		saveToFile(task, filename);
 	}
 	
 	//opens a file and appends a serialized object to it
-	private void saveToFile(Task task, String filename) {
+	private static void saveToFile(Task task, String filename) {
 		try {
 			FileOutputStream fos = new FileOutputStream(filename);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -40,20 +40,20 @@ public class LocalTaskManager {
 	}
 	
 	//retrieves a list of all local tasks
-	public List<Task> loadLocalTasks() {
+	public static List<Task> loadLocalTasks() {
 		String filename = "localtask";
 		return readFromFile(filename);
 	}
 	
 	//retrieves a list of all saved drafts
-	public List<Task> loadDrafts() {
+	public static List<Task> loadDrafts() {
 		String filename = "draft";
 		return readFromFile(filename);		//compare all tasks to the input task
 		//write all tasks back except the one that matches input task
 	}
 	
 	//opens a file and reads all serialized objects in it
-	private List<Task> readFromFile(String filename) {
+	private static List<Task> readFromFile(String filename) {
 		List<Task> tasks = new ArrayList<Task>();
 		
 		try {
@@ -82,17 +82,17 @@ public class LocalTaskManager {
 		return tasks;
 	}
 	
-	public void deleteLocalTask(Task task) {
+	public static void deleteLocalTask(Task task) {
 		String filename = "localtask";
 		deleteTask(task, filename);
 	}
 	
-	public void deleteDraft(Task task) {
+	public static void deleteDraft(Task task) {
 		String filename = "draft";
 		deleteTask(task, filename);
 	}
 	
-	private void deleteTask(Task task, String filename) {
+	private static void deleteTask(Task task, String filename) {
 		List<Task> tasks = readFromFile(filename);
 		
 		File file = new File(filename);
