@@ -8,7 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class ViewLocalTask extends ListActivity{
-	public final static String EXTRA_MESSAGE = "ca.ualberta.cmput301project.MESSAGE";
+	public final static String REQDESCRIPTION = "ca.ualberta.cmput301project.DESCRIPTION";
+	public final static String REQPHOTO = "ca.ualberta.cmput301project.PHOTO";
+	public final static String REQAUDIO = "ca.ualberta.cmput301project.AUDIO";
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,11 +24,13 @@ public class ViewLocalTask extends ListActivity{
     	//find task that was clicked
     	Task clickedTask = MainActivity.thelist.get(MainActivity.list_index);
     	//get task requirements
-    	String requirements = clickedTask.getDescription();
+    	//String requirements = clickedTask.getDescription();
     	
         Intent intent = new Intent (this, FulfillTask.class);
         //send requirements with intent
-        intent.putExtra(EXTRA_MESSAGE, requirements);
+        intent.putExtra(REQDESCRIPTION, clickedTask.getDescription());
+        intent.putExtra(REQPHOTO, clickedTask.getReqPhoto());
+        intent.putExtra(REQAUDIO, clickedTask.getReqAudio());
         
         startActivity(intent);
     }

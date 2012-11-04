@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.app.Activity;
@@ -17,12 +18,25 @@ public class FulfillTask extends Activity implements OnClickListener {
         setContentView(R.layout.activity_fulfilltask);
         printinfo();
         
-        //Get task description from intent
+        //Get task requirements from intent
         Intent intent = getIntent();
-        String requestDescription = intent.getStringExtra(ViewLocalTask.EXTRA_MESSAGE);
-        
+        String requestDescription = intent.getStringExtra(ViewLocalTask.REQDESCRIPTION);
+        boolean requestPhotos = intent.getBooleanExtra(ViewLocalTask.REQPHOTO, false);
+        boolean requestAudio = intent.getBooleanExtra(ViewLocalTask.REQAUDIO, false);
+        //display requirements in TextView
         TextView requirements = (TextView) findViewById(R.id.requirements);
         requirements.setText(requestDescription);
+        Button photoButton = (Button) findViewById(R.id.get_image);
+        photoButton.setClickable(requestPhotos);
+        Button audioButton = (Button) findViewById(R.id.get_audio);
+        audioButton.setClickable(requestAudio);
+      //gray out button if false
+        if (!requestPhotos){
+        	photoButton.setTextColor(0xF0F0F0);
+        }
+        if (!requestAudio){
+        	audioButton.setTextColor(0xF0F0F0);
+        }
     }
     
     public void onClick(View v){

@@ -23,8 +23,7 @@ public class RequestSummary extends Activity implements OnClickListener {
         Button shareRequest = (Button) findViewById(R.id.post_button);
         saveLocal.setOnClickListener(this);
         shareRequest.setOnClickListener(this);
-        
-        
+
     }
 
     public void onClick(View v){
