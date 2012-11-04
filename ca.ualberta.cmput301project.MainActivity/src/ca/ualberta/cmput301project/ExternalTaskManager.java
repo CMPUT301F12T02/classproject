@@ -19,12 +19,12 @@ import org.json.JSONObject;
 
 public class ExternalTaskManager
 {
-    private String baseURL = "http://crowdsourcer.softwareprocess.es/F12/CMPUT301F12T02/";
-    StringBuilder builder = new StringBuilder();
+    static private String baseURL = "http://crowdsourcer.softwareprocess.es/F12/CMPUT301F12T02/";
+    static StringBuilder builder = new StringBuilder();
     public ExternalTaskManager(){
         
     }
-    private void internetFetch(HttpGet httpGet){
+    private static void internetFetch(HttpGet httpGet){
         try {
 
             HttpClient client = new DefaultHttpClient();
