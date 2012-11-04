@@ -63,7 +63,6 @@ public class ExternalTaskManager
             content = obj.getString("content");
         } catch (JSONException e)
         {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return content;
@@ -103,7 +102,6 @@ public class ExternalTaskManager
             object = new JSONObject(readTask(id));
         } catch (JSONException e1)
         {
-            // TODO Auto-generated catch block
             e1.printStackTrace();
         }
         JSONObject oldContent = null;
@@ -112,7 +110,6 @@ public class ExternalTaskManager
             oldContent = new JSONObject(object.getString("content"));
         } catch (JSONException e1)
         {
-            // TODO Auto-generated catch block
             e1.printStackTrace();
         }
         try {

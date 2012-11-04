@@ -22,6 +22,7 @@
     <string name="my_tasks">My Tasks</string>
     <string name="com_button">COMMUNITY</string>
     <string name="local_button">LOCAL</string>
+    <string name="empty_list">No tasks found.</string>
     <string name="title_activity_com_task">Community Tasks</string>
     <string name="title_activity_local_task">Local Tasks</string>
     <!-- Create Task to fulfill Request -->

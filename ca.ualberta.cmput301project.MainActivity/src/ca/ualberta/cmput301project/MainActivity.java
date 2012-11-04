@@ -42,7 +42,6 @@ public class MainActivity extends Activity implements OnClickListener {
 				intent = new Intent();
 				break;
     	}
-    	
 		startActivity(intent);
     }
 }
