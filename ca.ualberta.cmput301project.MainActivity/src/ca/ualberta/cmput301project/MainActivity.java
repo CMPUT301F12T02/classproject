@@ -1,5 +1,7 @@
 package ca.ualberta.cmput301project;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -8,7 +10,15 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class MainActivity extends Activity implements OnClickListener {
-    @Override
+    
+    static ArrayList<Task> thelist = new ArrayList<Task>();
+    static ArrayList<Task> locallist = new ArrayList<Task>();
+    static ArrayList<Task> communitylist = new ArrayList<Task>();
+    static int task_count = 0;
+    static int local_count = 0;
+    static int community_count = 0;
+    static int list_index = 0;
+    
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
