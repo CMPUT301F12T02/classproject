@@ -9,8 +9,7 @@
         android:id="@+id/requirements"
         android:layout_weight="0.5"
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:text="@string/task_description" />
+        android:layout_height="0dip" />
     <EditText
         android:id="@+id/task_text"
         android:layout_weight="0.5"
