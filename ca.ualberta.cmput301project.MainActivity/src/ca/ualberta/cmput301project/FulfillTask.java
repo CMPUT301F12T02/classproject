@@ -18,12 +18,14 @@ public class FulfillTask extends Activity implements OnClickListener {
         setContentView(R.layout.activity_fulfilltask);
         //printinfo();
         
-<<<<<<< HEAD
         Task task = (Task) getIntent().getSerializableExtra("task");
         
         TextView requirements = (TextView) findViewById(R.id.requirements);
         requirements.setText(task.getDescription());
-=======
+        
+        //Note from Gabe: this commented part below was added before a commit I made that just obtains a task
+        //from the caller; I commented it so that whoever made this change didn't lose their progress!
+		/*
         //Get task requirements from intent
         Intent intent = getIntent();
         String requestDescription = intent.getStringExtra(ViewLocalTask.REQDESCRIPTION);
@@ -43,7 +45,7 @@ public class FulfillTask extends Activity implements OnClickListener {
         if (!requestAudio){
         	audioButton.setTextColor(0xF0F0F0);
         }
->>>>>>> d830425667983a62216bd0cccf2a4cdbf097cc07
+		 */
     }
     
     public void onClick(View v){
