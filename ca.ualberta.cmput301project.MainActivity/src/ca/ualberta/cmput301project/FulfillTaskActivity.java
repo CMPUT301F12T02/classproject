@@ -61,12 +61,6 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     }
     
     public void onClick(View v){
-    	//Note from Gabe to Simon/whoever works on this: because of the way that saving serialized objects works,
-    	//there is no possible way to add an object to the middle of a file that contains other objects. so if
-    	//a user opens a local task, modifies it, and then saves the result, the object would have to be first
-    	//deleted and then saved. please ensure that, whenever a user wants to save their progress, there is a
-    	//deleteLocalTask(task) call followed by a saveLocalTask(task) call. this will change the order of tasks
-    	//in the ViewLocalTask activity, but there's no way to get around it :/
     	Task oldtask = (Task) getIntent().getSerializableExtra("task");
     	String photofile = oldtask.getResPhotoName();
     	String audiofile = oldtask.getResAudioName();
@@ -90,7 +84,6 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			newtask.setComplete(true);
     			newtask.setResult(answer, photofile, audiofile);
     			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
-    			//LocalTaskManager.saveLocalTask(newtask, this);
     			finish();
     		case R.id.save_draft:
     			finish();

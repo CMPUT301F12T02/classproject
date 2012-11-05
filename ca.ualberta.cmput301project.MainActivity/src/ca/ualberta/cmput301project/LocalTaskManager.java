@@ -167,7 +167,7 @@ public class LocalTaskManager {
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			
 			for (Task taskInList: tasks) {
-				if (taskInList.equals(task) == false) {
+				if (taskInList.isEqualTo(task) == false) {
 					oos.writeObject(taskInList);
 				}
 			}
@@ -221,7 +221,7 @@ public class LocalTaskManager {
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			
 			for (Task taskInList: tasks) {
-				if (taskInList.equals(oldTask) == false) {
+				if (taskInList.isEqualTo(oldTask) == false) {
 					oos.writeObject(taskInList);
 				} else {
 					oos.writeObject(newTask);
