@@ -16,26 +16,28 @@ public class FulfillTask extends Activity implements OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fulfilltask);
+        //display requirements in TextView
         printinfo();
         
         //Get task requirements from intent
         Intent intent = getIntent();
-        String requestDescription = intent.getStringExtra(ViewLocalTask.REQDESCRIPTION);
         boolean requestPhotos = intent.getBooleanExtra(ViewLocalTask.REQPHOTO, false);
         boolean requestAudio = intent.getBooleanExtra(ViewLocalTask.REQAUDIO, false);
-        //display requirements in TextView
-        TextView requirements = (TextView) findViewById(R.id.requirements);
-        requirements.setText(requestDescription);
+
         Button photoButton = (Button) findViewById(R.id.get_image);
-        photoButton.setClickable(requestPhotos);
         Button audioButton = (Button) findViewById(R.id.get_audio);
-        audioButton.setClickable(requestAudio);
-      //gray out button if false
-        if (!requestPhotos){
-        	photoButton.setTextColor(0xF0F0F0);
+        photoButton.setClickable(false);
+        audioButton.setClickable(false);
+        
+        if (requestPhotos){
+        	photoButton.setOnClickListener(this);
+        } else {
+        	photoButton.setTextColor(0xF7F7F7);
         }
-        if (!requestAudio){
-        	audioButton.setTextColor(0xF0F0F0);
+        if (requestAudio){
+        	audioButton.setOnClickListener(this);
+        } else {
+        	audioButton.setTextColor(0xF7F7F7);
         }
     }
     
@@ -43,20 +45,26 @@ public class FulfillTask extends Activity implements OnClickListener {
     	Intent intent;
     	switch (v.getId()){
     		case R.id.get_audio:
+    			intent = new Intent();
     			break;
     		case R.id.get_image:
+    			intent = new Intent(this, TakePhoto.class);
     			break;
     		case R.id.taskdone:
     			//save changes
     			//return to list
+    			intent = new Intent();
     			break;
     		case R.id.save_draft:
     			//save changes
     			//return to list
+    			intent = new Intent();
     			break;
     		default:
-    			return;
+    			intent = new Intent();
+    			break;
     	}
+    	startActivity(intent);
     }
     
     public void printinfo()

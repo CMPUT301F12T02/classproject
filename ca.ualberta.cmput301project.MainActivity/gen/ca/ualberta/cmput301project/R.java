@@ -16,6 +16,8 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout1=0x7f060000;
+        public static final int TakeAPhoto=0x7f060014;
+        public static final int camera_status=0x7f060015;
         public static final int com_button=0x7f060011;
         public static final int createrequest_button=0x7f06000c;
         public static final int get_audio=0x7f060003;
@@ -42,10 +44,13 @@ public final class R {
         public static final int activity_newrequest=0x7f030002;
         public static final int activity_requestsummary=0x7f030003;
         public static final int activity_storedtasks=0x7f030004;
-        public static final int activity_tasklist=0x7f030005;
+        public static final int activity_takephoto=0x7f030005;
+        public static final int activity_tasklist=0x7f030006;
     }
     public static final class string {
+        public static final int TakeAPhoto=0x7f04001e;
         public static final int app_name=0x7f040000;
+        public static final int camera_status=0x7f04001f;
         public static final int com_button=0x7f040010;
         public static final int createrequest_button=0x7f040008;
         /**  Filfill Non-text Requirements 
@@ -85,6 +90,10 @@ public final class R {
         /**  Show Stored Tasks 
          */
         public static final int title_activity_stored_tasks=0x7f04000d;
+        /**  Record Audio 
+ Take Photo(s) 
+         */
+        public static final int title_activity_take_photo=0x7f04001d;
         public static final int viewstored_button=0x7f040002;
     }
     public static final class style {
