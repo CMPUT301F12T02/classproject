@@ -10,49 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/other_requests" />
-    <ScrollView
-        android:id="@+id/otherlist"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-        <LinearLayout
-            android:id="@+id/otherlayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-            <!-- Hardcoded example tasks
-                 BECAUSE dynamic attempt crashed app -->
-            <TextView
-                android:text="Task 1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onClick" />
-            <TextView
-                android:text="Task 2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onClick" />
-            <TextView
-                android:text="Task 3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onClick" />
-            <TextView
-                android:text="Task 4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onClick" />
-            <TextView
-                android:text="Task 5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onClick" />
-        </LinearLayout>
-    </ScrollView>
 	<Button
 	    android:id="@+id/com_button"
 	    android:layout_width="match_parent"
