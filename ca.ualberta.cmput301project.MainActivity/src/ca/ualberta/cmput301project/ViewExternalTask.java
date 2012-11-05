@@ -16,17 +16,19 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class ViewExternalTask extends ListActivity{
-        public final static String EXTRA_MESSAGE = "ca.ualberta.cmput301project.MESSAGE";
+    //public final static String EXTRA_MESSAGE = "ca.ualberta.cmput301project.MESSAGE";
         
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasklist);
-        Task[] taskList = readAllExtTasks();
         
+        Task[] taskList = readAllExtTasks();
         setListAdapter(new ArrayAdapter<Task>(this,android.R.layout.simple_list_item_1, Arrays.asList(taskList)));
     }
     public void onListItemClick(ListView parent,View v, int position,long id){
-        /*//list index set to position of clicked entry
+        /* Backup, trying to get it to work with ArrayList<Task>
+         * 
+        //list index set to position of clicked entry
         MainActivity.list_index = position;
         //find task that was clicked
         Task clickedTask = MainActivity.thelist.get(MainActivity.list_index);
@@ -36,8 +38,9 @@ public class ViewExternalTask extends ListActivity{
         Intent intent = new Intent (this, FulfillTask.class);
         //send requirements with intent
         intent.putExtra(EXTRA_MESSAGE, requirements);
-        startActivity(intent);*/
-    	
+        startActivity(intent);
+        */
+    	//Attempt to create ArrayList<Task> from array Task[]
     	ArrayList<Task> tasks = (ArrayList<Task>) Arrays.asList(readAllExtTasks());
     	Task clickedTask = tasks.get(position);
     	
