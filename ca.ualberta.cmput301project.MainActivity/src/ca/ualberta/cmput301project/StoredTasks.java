@@ -24,14 +24,11 @@ public class StoredTasks extends Activity implements OnClickListener {
 	//http://www.mkyong.com/android/android-listview-example/
     
     public void onClick(View v){
-<<<<<<< HEAD
     	//Needs to get request information,
     	// to populate task description box
     	// to gray out appropriate get media button
-    	Intent intent = new Intent(this, FulfillTask.class);
-    	startActivity(intent);
-=======
-        Intent intent;
+    	Intent intent;
+    	
         switch (v.getId()){
 	        case R.id.local_button:
 	        	intent = new Intent(this, ViewLocalTask.class);
@@ -47,6 +44,5 @@ public class StoredTasks extends Activity implements OnClickListener {
 	        	break;
         }
             startActivity(intent);
->>>>>>> 8b4903df76793ae1e364690b4a2306903298c7f4
     }
 }
