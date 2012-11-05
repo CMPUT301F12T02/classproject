@@ -73,28 +73,18 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			intent = new Intent(this, TakePhotoActivity.class);
     			startActivity(intent);
     			break;
-<<<<<<< HEAD
-    		case R.id.taskdone:
-    			newtask.setComplete(true);
-    		case R.id.save_draft:
-    			EditText answerBox = (EditText) findViewById(R.id.answer_text);
-    			String answer = answerBox.getText().toString();
-
-    			newtask.setResult(answer, photofile, audiofile);
-    			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
-    			finish();
-=======
     		case R.id.save_draft:
     			EditText answerBox = (EditText) findViewById(R.id.answer_text);
     			String answer = answerBox.getText().toString();
     			newtask.setResult(answer, photofile, audiofile);
     			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
     			finish();
+    			break;
     		case R.id.taskdone:
     			//pop up message
     			LocalTaskManager.deleteLocalTask(oldtask, this);
     			finish();
->>>>>>> dcf1185b86840a14114444bd1fb3fd31e18e2006
+    			break;
     	}
     	
     }
