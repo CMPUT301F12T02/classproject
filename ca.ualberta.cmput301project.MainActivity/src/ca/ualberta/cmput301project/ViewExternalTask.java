@@ -1,6 +1,5 @@
 package ca.ualberta.cmput301project;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 import org.json.JSONArray;

@@ -6,12 +6,12 @@
     android:orientation="vertical" >
     
     <TextView
-        android:id="@+id/requirements"
+        android:id="@+id/question_text"
         android:layout_weight="0.5"
         android:layout_width="match_parent"
         android:layout_height="0dip" />
     <EditText
-        android:id="@+id/task_text"
+        android:id="@+id/answer_text"
         android:layout_weight="0.5"
         android:layout_width="match_parent"
         android:layout_height="0dip"
