@@ -30,9 +30,9 @@ public class FulfillTask extends Activity implements OnClickListener {
         boolean requestAudio = oldtask.getReqAudio();
 
         Button photoButton = (Button) findViewById(R.id.get_image);
-        Button audioButton = (Button) findViewById(R.id.get_audio);
+        //Button audioButton = (Button) findViewById(R.id.get_audio);
         photoButton.setClickable(false);
-        audioButton.setClickable(false);
+        //audioButton.setClickable(false);
         //Logic to gray-out Button so it's non-selectable
         if (requestPhotos){
         	photoButton.setOnClickListener(this);
@@ -41,10 +41,10 @@ public class FulfillTask extends Activity implements OnClickListener {
         	photoButton.setTextColor(getResources().getColor(R.color.White));
         }
         if (requestAudio){
-        	audioButton.setOnClickListener(this);
-        	audioButton.setClickable(true);
+        //	audioButton.setOnClickListener(this);
+        //	audioButton.setClickable(true);
         } else {
-        	audioButton.setTextColor(getResources().getColor(R.color.White));
+        //	audioButton.setTextColor(getResources().getColor(R.color.White));
         } 
     }
     
