@@ -12,7 +12,19 @@ import java.util.ArrayList;
 
 import android.content.Context;
 
+/* The purpose of this class is to enable the saving, loading, and deleting of
+ * tasks on the local storage. The only issue is that the caller has to supply
+ * the context, which is used to find the absolute directory path to where the
+ * application can write. If the context wasn't supplied, the methods below
+ * would try to write to the root directory, which is read-only and would throw
+ * exceptions. I chose to hide the constructor and make the methods static
+ * because this class consists only of helper methods; it wouldn't make sense
+ * to instantiate a LocalTaskManager object.
+ */
+
 public class LocalTaskManager {
+	
+	private LocalTaskManager() {}
 	
 	//saves a local task to file
 	public static void saveLocalTask(Task task, Context context) {
@@ -26,7 +38,8 @@ public class LocalTaskManager {
 		saveToFile(task, context, filename);
 	}
 	
-	//opens a file and appends a serialized object to it
+	//obtains the list of all tasks saved to file, appends the user inputted task
+	//to the list and then saves the array back to file
 	private static void saveToFile(Task task, Context context, String filename) {
 		try {
 			ArrayList<Task> tasks = readFromFile(context, filename);
