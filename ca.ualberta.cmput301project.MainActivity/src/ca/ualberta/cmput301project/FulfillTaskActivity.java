@@ -86,12 +86,9 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     		case R.id.taskdone:
     			EditText answerBox = (EditText) findViewById(R.id.answer_text);
     			String answer = answerBox.getText().toString();
-<<<<<<< HEAD:ca.ualberta.cmput301project.MainActivity/src/ca/ualberta/cmput301project/FulfillTask.java
-    			
-=======
+
     			newtask.setComplete(true);
     			newtask.setResult(answer, photofile, audiofile);
->>>>>>> 07f6263fb21d01a32d358f13be51d1c0a503be0a:ca.ualberta.cmput301project.MainActivity/src/ca/ualberta/cmput301project/FulfillTaskActivity.java
     			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
     			//LocalTaskManager.saveLocalTask(newtask, this);
     			finish();

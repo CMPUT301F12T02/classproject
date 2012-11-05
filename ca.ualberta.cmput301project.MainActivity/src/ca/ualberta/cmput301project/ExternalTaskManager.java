@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -34,14 +36,14 @@ import android.os.AsyncTask;
 public class ExternalTaskManager
 {
     static private String baseURL = "http://crowdsourcer.softwareprocess.es/F12/CMPUT301F12T02/";
-    static StringBuilder builder = new StringBuilder();
+    static private StringBuilder builder = new StringBuilder();
     private static HttpClient httpclient = new DefaultHttpClient();
     public ExternalTaskManager(){
         
     }
     /** convertStreamToString converts an InputStream object to a
      * String object.
-     * @param is
+     * @param InputStream is
      * @return String
      */
     private static  String convertStreamToString(InputStream is) {
@@ -165,7 +167,7 @@ public class ExternalTaskManager
     /** readTask uses the get action from
      * Crowdsourcer to return an action given a
      * string id.
-     * @param id
+     * @param String id
      * @return
      */
     public static String readTask(String id){
@@ -188,6 +190,12 @@ public class ExternalTaskManager
         }
         return content;
     }
+    /** removeTask uses the remove action from
+     * Crowdsourcer to remove a task from the
+     * service when given a string id.
+     * @param String id
+     * @return String
+     */
     public static String removeTask(String id){
         List <NameValuePair> nvps = new ArrayList <NameValuePair>();
         nvps.add(new BasicNameValuePair("action", "list"));
@@ -198,7 +206,12 @@ public class ExternalTaskManager
         String rtv = ifetch.execute(c).toString();
         return rtv;
     }
-    
+    /** addTask uses the post action from
+     * Crowdsourcer to add a task to the
+     * service when given a Task object
+     * @param Task task
+     * @return String
+     */
     public static String addTask(Task task) {
         String reqPhoto, reqAudio;
         if(task.getReqPhoto()){
@@ -229,7 +242,13 @@ public class ExternalTaskManager
             String rtv = ifetch.execute(c).toString();
             return rtv;
     }
-        
+    /** updateTask uses the update action from
+     * Crowdsourcer, and updates a task from the
+     * service when given the updated Task object
+     * and the string id.
+     * @param Task task
+     * @param String id
+     */
     public static void updateTask(Task task, String id){
         JSONObject object = null;
         try
