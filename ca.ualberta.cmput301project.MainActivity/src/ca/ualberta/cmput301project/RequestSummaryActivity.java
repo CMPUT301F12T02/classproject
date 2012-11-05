@@ -10,7 +10,12 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
+/**
+ * Gives a preview of the request and lets users
+ * decide where to save it
+ * @author pqin
+ *
+ */
 public class RequestSummaryActivity extends Activity implements OnClickListener {
 
     @Override
@@ -47,6 +52,10 @@ public class RequestSummaryActivity extends Activity implements OnClickListener 
 		startActivity(intent);
 		finish();
     }
+    /**
+     * The point of the post_description is it posts the description of the task to the top of the screen
+     * @author fessehay
+     */
     public void post_description(){
     	Task current_task = (Task) getIntent().getSerializableExtra("task");
         String details = current_task.getDescription();

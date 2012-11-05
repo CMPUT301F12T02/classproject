@@ -8,7 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
+/**
+ * Arranges local tasks into a clickable list,
+ * clicking displays the specific task
+ * @author fessehay
+ *
+ */
 public class ViewLocalTaskActivity extends ListActivity {
 	@Override
     public void onCreate(Bundle savedInstanceState) {

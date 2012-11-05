@@ -9,7 +9,12 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+/**
+ * FulfillTaskActivity is the interface to submit all
+ * required media for the task, 'fulfilling' the task
+ * @author pqin
+ *
+ */
 public class FulfillTaskActivity extends Activity implements OnClickListener {
 
     @Override

@@ -41,7 +41,12 @@ public class NewRequestActivity extends Activity implements OnClickListener {
 		startActivity(intent);
 		finish();
     }
-    
+    /** create_task creates an object task using the checkboxes and description as
+     * the variables and then constructing the Object.
+     * 
+     *  @return Task
+     *  @author fessehay
+     */
     public Task create_task(){
         
         EditText destxt = (EditText) findViewById(R.id.task_description); 
