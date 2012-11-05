@@ -19,13 +19,13 @@ public final class R {
         public static final int createrequest_button=0x7f06000c;
         public static final int get_audio=0x7f060003;
         public static final int get_image=0x7f060004;
-        public static final int locallayout=0x7f060015;
-        public static final int locallist=0x7f060014;
-        public static final int my_tasks=0x7f060013;
+        public static final int locallayout=0x7f060016;
+        public static final int locallist=0x7f060015;
+        public static final int my_tasks=0x7f060014;
         public static final int newrequest_button=0x7f060008;
-        public static final int other_requests=0x7f060010;
-        public static final int otherlayout=0x7f060012;
-        public static final int otherlist=0x7f060011;
+        public static final int other_requests=0x7f060011;
+        public static final int otherlayout=0x7f060013;
+        public static final int otherlist=0x7f060012;
         public static final int post_button=0x7f06000f;
         public static final int requestsummary=0x7f06000d;
         public static final int require_audio=0x7f06000b;
@@ -33,6 +33,7 @@ public final class R {
         public static final int requirements=0x7f060001;
         public static final int save_draft=0x7f060006;
         public static final int savelocal_button=0x7f06000e;
+        public static final int storetaskParentLayout=0x7f060010;
         public static final int task_description=0x7f060009;
         public static final int task_text=0x7f060002;
         public static final int taskdone=0x7f060005;
