@@ -50,8 +50,8 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         }
         
         if (requestAudio){
-        //	audioButton.setOnClickListener(this);
-        //	audioButton.setClickable(true);
+         	audioButton.setOnClickListener(this);
+        	audioButton.setClickable(true);
         } else {
         	audioButton.setTextColor(getResources().getColor(R.color.White));
         }
@@ -84,11 +84,11 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			startActivity(intent);
     			break;
     		case R.id.taskdone:
+    			newtask.setComplete(true);
     		case R.id.save_draft:
     			EditText answerBox = (EditText) findViewById(R.id.answer_text);
     			String answer = answerBox.getText().toString();
 
-    			newtask.setComplete(true);
     			newtask.setResult(answer, photofile, audiofile);
     			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
     			//LocalTaskManager.saveLocalTask(newtask, this);
