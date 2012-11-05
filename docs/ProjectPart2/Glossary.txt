@@ -4,7 +4,7 @@ Request: A  description of the photo, text, or audio that needs to be uploaded t
 Request Screen: An activity where a user outlines the request for their task.
 Task: An optional assignment that can be completed by an individual or the community.  Contains a request.
 Task Screen: An activity where a user can view a task created by them or somebody else, and can fulfill the task.
-
+Crowdsourcer: The service which stores the tasks online; accessible manually by URL manipulation.
 
 
 Similar Projects:
@@ -12,6 +12,7 @@ https://www.mturk.com/mturk/welcome - Amazon Mechanical Turk
 http://www.kickstarter.com/ - Kickstarter
 Other useful info:
 http://gitimmersion.com/ - useful github tutorial for github
+http://vogella.com/ - information relating to Java and Android topics, with useful code examples.
 
 
    Copyright 2012 Colin Kerr, Mircea Caciula, Peter Qin, and Simon Fessehay
