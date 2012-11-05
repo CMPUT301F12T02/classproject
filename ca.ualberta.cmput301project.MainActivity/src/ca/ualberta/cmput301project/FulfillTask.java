@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.app.Activity;
 import android.content.Intent;
@@ -16,17 +17,17 @@ public class FulfillTask extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fulfilltask);
 
-        Task task = (Task) getIntent().getSerializableExtra("task");
+        Task oldtask = (Task) getIntent().getSerializableExtra("task");
         
         TextView requirements = (TextView) findViewById(R.id.requirements);
-        requirements.setText(task.getDescription());
+        requirements.setText(oldtask.getDescription());
         
         //Note from Gabe: this commented part below was added before a commit I made that just obtains a task
         //from the caller; I commented it so that whoever made this change didn't lose their progress!
 
         //If image/audio required, make button clickable.
-        boolean requestPhotos = task.getReqPhoto();
-        boolean requestAudio = task.getReqAudio();
+        boolean requestPhotos = oldtask.getReqPhoto();
+        boolean requestAudio = oldtask.getReqAudio();
 
         Button photoButton = (Button) findViewById(R.id.get_image);
         Button audioButton = (Button) findViewById(R.id.get_audio);
@@ -44,8 +45,7 @@ public class FulfillTask extends Activity implements OnClickListener {
         	audioButton.setClickable(true);
         } else {
         	audioButton.setTextColor(getResources().getColor(R.color.White));
-        }
-		 
+        } 
     }
     
     public void onClick(View v){
@@ -55,6 +55,9 @@ public class FulfillTask extends Activity implements OnClickListener {
     	//deleted and then saved. please ensure that, whenever a user wants to save their progress, there is a
     	//deleteLocalTask(task) call followed by a saveLocalTask(task) call. this will change the order of tasks
     	//in the ViewLocalTask activity, but there's no way to get around it :/
+    	Task oldtask = (Task) getIntent().getSerializableExtra("task");
+    	
+    	Task newtask = oldtask.clone();
     	
     	Intent intent;
     	switch (v.getId()){
@@ -66,6 +69,12 @@ public class FulfillTask extends Activity implements OnClickListener {
     			break;
     		case R.id.taskdone:
     			
+    			EditText answerBox = (EditText) findViewById(R.id.task_text);
+    			String answer = answerBox.getText().toString();
+    			asdfasdf asdfsdfa
+    			//ATRRIBUTE FOR ANSWER STRING????
+    			newtask.setDescription(answer);
+    			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
     			intent = new Intent();
     			break;
     		case R.id.save_draft:
@@ -78,19 +87,4 @@ public class FulfillTask extends Activity implements OnClickListener {
     	}
     	startActivity(intent);
     }
-    /*
-    public void printinfo()
-    {
-        TextView textdes;
-        textdes =  (TextView)findViewById(R.id.requirements); 
-        textdes.setText(MainActivity.locallist.get(MainActivity.list_index).getDescription());
-        
-        if (MainActivity.locallist.get(MainActivity.list_index).getReqAudio() == true){
-            Toast.makeText(getApplicationContext(), "Audio Required", Toast.LENGTH_SHORT).show();
-        }
-        if (MainActivity.locallist.get(MainActivity.list_index).getReqPhoto() == true){
-            Toast.makeText(getApplicationContext(), "Photo Required", Toast.LENGTH_SHORT).show();
-        }
-    }
-    */
 }
