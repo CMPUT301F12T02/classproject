@@ -2,6 +2,9 @@ package ca.ualberta.cmput301project;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -87,10 +90,17 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			break;
     		case R.id.taskdone:
     			//pop up message
+    			Dialog dialog = new Dialog(this);
+    	    	dialog.setTitle(newtask.getDescription());
+    	    	TextView tv = new TextView(this);
+    	    	tv.setText(((EditText)findViewById(R.id.answer_text)).getText().toString());
+    	    	dialog.setContentView(tv);
+    	    	dialog.show();
     			LocalTaskManager.deleteLocalTask(oldtask, this);
     			finish();
     			break;
     	}
     	
     }
+
 }
