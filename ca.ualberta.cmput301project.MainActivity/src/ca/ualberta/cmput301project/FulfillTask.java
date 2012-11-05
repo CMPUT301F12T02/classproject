@@ -57,7 +57,7 @@ public class FulfillTask extends Activity implements OnClickListener {
     	//in the ViewLocalTask activity, but there's no way to get around it :/
     	Task oldtask = (Task) getIntent().getSerializableExtra("task");
     	
-    	Task newtask = oldtask.clone();
+    	Task newtask = oldtask.cloneTask();
     	
     	Intent intent;
     	switch (v.getId()){

@@ -162,15 +162,7 @@ public class ExternalTaskManager
         return rtv;
     }
     
-<<<<<<< HEAD
     public static String addTask(Task task) {
-=======
-    public static class addTask extends AsyncTask<Task, Void, String>{
-        @Override
-        protected String doInBackground(Task... tasks) {
-        HttpResponse response = null;
-        String rtv = null;
->>>>>>> 46ff95540b8dcf37d40253c6851898bcb7453ef1
         String reqPhoto, reqAudio;
         if(task.getReqPhoto()){
             reqPhoto = "true";
@@ -185,7 +177,7 @@ public class ExternalTaskManager
             object.put("description", task.getDescription());
             object.put("reqPhoto", reqPhoto);
             object.put("reqAudio", reqAudio);
-            object.put("timestamp", task.gettimestamp());
+            object.put("timestamp", task.getTimestamp());
           } catch (JSONException e) {
             e.printStackTrace();
           }
@@ -219,7 +211,7 @@ public class ExternalTaskManager
             e1.printStackTrace();
         }
         try {
-            oldContent.put("updatesummary", task.getResDescription());
+            oldContent.put("updatesummary", task.getResAnswer());
             oldContent.put("photofile", task.getResPhotoName());
             oldContent.put("audiofile", task.getResAudioName());
         } catch (JSONException e) {
