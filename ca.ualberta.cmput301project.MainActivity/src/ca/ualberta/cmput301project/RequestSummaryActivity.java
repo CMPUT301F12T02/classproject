@@ -43,7 +43,6 @@ public class RequestSummaryActivity extends Activity implements OnClickListener 
 			default:
 				return;
     	}
-    	
 		startActivity(intent);
 		finish();
     }
