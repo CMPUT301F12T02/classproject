@@ -26,12 +26,15 @@ public class StoredTasks extends Activity implements OnClickListener {
 	        	intent = new Intent(this, ViewLocalTask.class);
 	        	break;
 	        case R.id.com_button:
-	        	intent = new Intent(this, ViewLocalTask.class);
+	        	/* Peter:
+	        	 * Clicking this button crashes app
+	        	 * */
+	        	intent = new Intent(this, ViewExternalTask.class);
 	        	break;
 	        default:
 	        	intent = new Intent();
 	        	break;
         }
-            startActivity(intent); //open the ListActivity ViewLocalTask.class
+            startActivity(intent);
     }
 }

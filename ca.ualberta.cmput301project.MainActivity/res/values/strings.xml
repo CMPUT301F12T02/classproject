@@ -37,5 +37,8 @@
     <string name="save">Save</string>
     <!-- Record Audio -->
     <!-- Take Photo(s) -->
+    <string name="title_activity_take_photo">Take a Photo</string>
+    <string name="TakeAPhoto">Camera</string>
+    <string name="camera_status"></string>
 
 </resources>

@@ -1,12 +1,11 @@
 package ca.ualberta.cmput301project;
 
-import android.os.Bundle;
 
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.app.Activity;
 import android.content.Intent;
 
@@ -16,8 +15,7 @@ public class FulfillTask extends Activity implements OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fulfilltask);
-        //printinfo();
-        
+
         Task task = (Task) getIntent().getSerializableExtra("task");
         
         TextView requirements = (TextView) findViewById(R.id.requirements);
@@ -25,27 +23,29 @@ public class FulfillTask extends Activity implements OnClickListener {
         
         //Note from Gabe: this commented part below was added before a commit I made that just obtains a task
         //from the caller; I commented it so that whoever made this change didn't lose their progress!
-		/*
-        //Get task requirements from intent
-        Intent intent = getIntent();
-        String requestDescription = intent.getStringExtra(ViewLocalTask.REQDESCRIPTION);
-        boolean requestPhotos = intent.getBooleanExtra(ViewLocalTask.REQPHOTO, false);
-        boolean requestAudio = intent.getBooleanExtra(ViewLocalTask.REQAUDIO, false);
-        //display requirements in TextView
-        TextView requirements = (TextView) findViewById(R.id.requirements);
-        requirements.setText(requestDescription);
+
+        //If image/audio required, make button clickable.
+        boolean requestPhotos = task.getReqPhoto();
+        boolean requestAudio = task.getReqAudio();
+
         Button photoButton = (Button) findViewById(R.id.get_image);
-        photoButton.setClickable(requestPhotos);
         Button audioButton = (Button) findViewById(R.id.get_audio);
-        audioButton.setClickable(requestAudio);
-      //gray out button if false
-        if (!requestPhotos){
-        	photoButton.setTextColor(0xF0F0F0);
+        photoButton.setClickable(false);
+        audioButton.setClickable(false);
+        //Logic to gray-out Button so it's non-selectable
+        if (requestPhotos){
+        	photoButton.setOnClickListener(this);
+        	photoButton.setClickable(true);
+        } else {
+        	photoButton.setTextColor(getResources().getColor(R.color.White));
         }
-        if (!requestAudio){
-        	audioButton.setTextColor(0xF0F0F0);
+        if (requestAudio){
+        	audioButton.setOnClickListener(this);
+        	audioButton.setClickable(true);
+        } else {
+        	audioButton.setTextColor(getResources().getColor(R.color.White));
         }
-		 */
+		 
     }
     
     public void onClick(View v){
@@ -59,20 +59,24 @@ public class FulfillTask extends Activity implements OnClickListener {
     	Intent intent;
     	switch (v.getId()){
     		case R.id.get_audio:
+    			intent = new Intent();
     			break;
     		case R.id.get_image:
+    			intent = new Intent(this, TakePhoto.class);
     			break;
     		case R.id.taskdone:
-    			//save changes
-    			//return to list
+    			
+    			intent = new Intent();
     			break;
     		case R.id.save_draft:
-    			//save changes
-    			//return to list
+    			
+    			intent = new Intent();
     			break;
     		default:
-    			return;
+    			intent = new Intent();
+    			break;
     	}
+    	startActivity(intent);
     }
     /*
     public void printinfo()
