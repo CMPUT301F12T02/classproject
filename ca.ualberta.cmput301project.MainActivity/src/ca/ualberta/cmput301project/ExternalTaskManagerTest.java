@@ -11,6 +11,10 @@ import junit.framework.TestCase;
 
 public class ExternalTaskManagerTest extends TestCase
 {
+    private Task task;
+    protected void setUp(){
+        task = new Task("JUnit test", false, false);
+    }
 
     public void testReadAllTasks()
     {
@@ -24,9 +28,6 @@ public class ExternalTaskManagerTest extends TestCase
 
     public void testReadTask()
     {
-        ExternalTaskManager ext = new ExternalTaskManager();
-        Date today = new Date(System.currentTimeMillis());
-        Task task = new Task("JUnit test", false, false);
         JSONObject jobj = null;
         try
         {
@@ -40,9 +41,6 @@ public class ExternalTaskManagerTest extends TestCase
 
     public void testRemoveTask()
     {
-        ExternalTaskManager ext = new ExternalTaskManager();
-        Date today = new Date(System.currentTimeMillis());
-        Task task = new Task("JUnit test", false, false);
         JSONObject jobj = null;
         try
         {
@@ -56,17 +54,21 @@ public class ExternalTaskManagerTest extends TestCase
 
     public void testAddTask()
     {
-        ExternalTaskManager ext = new ExternalTaskManager();
-        Date today = new Date(System.currentTimeMillis());
-        Task task = new Task("JUnit test", false, false);
         assert(ExternalTaskManager.addTask(task) != null);
 
     }
 
     public void testUpdateTask()
     {
-
-        fail("Not yet implemented");
+        JSONObject jobj = null;
+        try{
+            jobj = new JSONObject(ExternalTaskManager.addTask(task));
+            String id = jobj.getString("id");
+            
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+        fail("UpdateTask does not currently return any values");
     }
 
 }
