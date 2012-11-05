@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class FulfillTask extends Activity implements OnClickListener {
+public class FulfillTaskActivity extends Activity implements OnClickListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,6 +48,7 @@ public class FulfillTask extends Activity implements OnClickListener {
         } else {
         	photoButton.setTextColor(getResources().getColor(R.color.White));
         }
+        
         if (requestAudio){
         //	audioButton.setOnClickListener(this);
         //	audioButton.setClickable(true);
@@ -79,12 +80,13 @@ public class FulfillTask extends Activity implements OnClickListener {
     			startActivity(intent);
     			break;
     		case R.id.get_image:
-    			intent = new Intent(this, TakePhoto.class);
+    			intent = new Intent(this, TakePhotoActivity.class);
     			startActivity(intent);
     			break;
     		case R.id.taskdone:
     			EditText answerBox = (EditText) findViewById(R.id.answer_text);
     			String answer = answerBox.getText().toString();
+
     			newtask.setComplete(true);
     			newtask.setResult(answer, photofile, audiofile);
     			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);

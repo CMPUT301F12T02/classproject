@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -22,16 +24,28 @@ import org.json.JSONObject;
 import android.content.Context;
 import android.os.AsyncTask;
 
-
+/** ExternalTaskManager handles all online access for storing and
+ * accessing tasks.  It has functions for each of the Crowdsourcer
+ * commands, except for nuke, in the interest of not setting it off
+ * accidentally.  It also contains a private class that handles http
+ * access by starting a new stream to access the internet.
+ * @author kerr2
+ *
+ */
 
 public class ExternalTaskManager
 {
     static private String baseURL = "http://crowdsourcer.softwareprocess.es/F12/CMPUT301F12T02/";
-    static StringBuilder builder = new StringBuilder();
+    static private StringBuilder builder = new StringBuilder();
     private static HttpClient httpclient = new DefaultHttpClient();
     public ExternalTaskManager(){
         
     }
+    /** convertStreamToString converts an InputStream object to a
+     * String object.
+     * @param InputStream is
+     * @return String
+     */
     private static  String convertStreamToString(InputStream is) {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
@@ -56,6 +70,14 @@ public class ExternalTaskManager
         }
         return sb.toString();
 }
+    /** internetFetch is a class that extends the AsyncTask
+     * class to be able to access the internet in a separate
+     * stream.  It assembles the URL from the NameValuePair
+     * given in other classes, with actions such as action,
+     * summary, description, content, and id.
+     * @author kerr2
+     *
+     */
     private class internetFetch extends AsyncTask<Context, Void, String>{
         private HttpPost httpPost = new HttpPost("http://crowdsourcer.softwareprocess.es/F12/CMPUT301F12T02/");
         public internetFetch(List <NameValuePair> nvps){
@@ -115,16 +137,39 @@ public class ExternalTaskManager
         protected void onPostExecute(String rtv){
         }
     }
+    /** readAllTasks implements the list action of
+     * Crowdsourcer, and returns all tasks listed on
+     * the Crowdsourcer site.
+     * @return String
+     */
     public static String readAllTasks() {
         List <NameValuePair> nvps = new ArrayList <NameValuePair>();
         nvps.add(new BasicNameValuePair("action", "list"));
         ExternalTaskManager ext = new ExternalTaskManager();
         internetFetch ifetch = ext.new internetFetch(nvps);
         Context c = null;
-        String rtv = ifetch.execute(c).toString();
+        String rtv = null;
+        try
+        {
+            rtv = ifetch.execute(c).get();
+        } catch (InterruptedException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (ExecutionException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        System.out.println(rtv);
         return rtv;
     }
-    
+    /** readTask uses the get action from
+     * Crowdsourcer to return an action given a
+     * string id.
+     * @param String id
+     * @return
+     */
     public static String readTask(String id){
         List <NameValuePair> nvps = new ArrayList <NameValuePair>();
         nvps.add(new BasicNameValuePair("action", "list"));
@@ -145,6 +190,12 @@ public class ExternalTaskManager
         }
         return content;
     }
+    /** removeTask uses the remove action from
+     * Crowdsourcer to remove a task from the
+     * service when given a string id.
+     * @param String id
+     * @return String
+     */
     public static String removeTask(String id){
         List <NameValuePair> nvps = new ArrayList <NameValuePair>();
         nvps.add(new BasicNameValuePair("action", "list"));
@@ -155,7 +206,12 @@ public class ExternalTaskManager
         String rtv = ifetch.execute(c).toString();
         return rtv;
     }
-    
+    /** addTask uses the post action from
+     * Crowdsourcer to add a task to the
+     * service when given a Task object
+     * @param Task task
+     * @return String
+     */
     public static String addTask(Task task) {
         String reqPhoto, reqAudio;
         if(task.getReqPhoto()){
@@ -178,15 +234,21 @@ public class ExternalTaskManager
             List <NameValuePair> nvps = new ArrayList <NameValuePair>();
             nvps.add(new BasicNameValuePair("action", "post"));
             nvps.add(new BasicNameValuePair("summary", "TaskFinished"));
-            nvps.add(new BasicNameValuePair("content", object.toString()));
             nvps.add(new BasicNameValuePair("description", "TaskPosted"));
+            nvps.add(new BasicNameValuePair("content", object.toString()));
             Context c = null;
             ExternalTaskManager ext = new ExternalTaskManager();
             internetFetch ifetch = ext.new internetFetch(nvps);
             String rtv = ifetch.execute(c).toString();
             return rtv;
     }
-        
+    /** updateTask uses the update action from
+     * Crowdsourcer, and updates a task from the
+     * service when given the updated Task object
+     * and the string id.
+     * @param Task task
+     * @param String id
+     */
     public static void updateTask(Task task, String id){
         JSONObject object = null;
         try
