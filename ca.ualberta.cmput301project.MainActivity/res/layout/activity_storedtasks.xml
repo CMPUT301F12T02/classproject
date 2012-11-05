@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/other_requests" />
+<<<<<<< HEAD
     <ScrollView
         android:id="@+id/otherlist"
         android:layout_width="match_parent"
@@ -53,52 +54,23 @@
                 android:onClick="onClick" />
         </LinearLayout>
     </ScrollView>
+=======
+	<Button
+	    android:id="@+id/com_button"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="@string/com_button" />
+>>>>>>> 8b4903df76793ae1e364690b4a2306903298c7f4
 
     <TextView
         android:id="@+id/my_tasks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/my_tasks" />
-    <ScrollView
-        android:id="@+id/locallist"
+    <Button
+        android:id="@+id/local_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-        <LinearLayout
-            android:id="@+id/locallayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-            <TextView
-                android:text="Task 1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onClick" />
-            <TextView
-                android:text="Task 2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onClick" />
-            <TextView
-                android:text="Task 3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onClick" />
-            <TextView
-                android:text="Task 4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onClick" />
-            <TextView
-                android:text="Task 5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:onClick="onClick" />
-        </LinearLayout>
-    </ScrollView>
+	    android:layout_height="wrap_content"
+        android:text="@string/local_button" />
 
 </LinearLayout>
