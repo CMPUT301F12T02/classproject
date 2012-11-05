@@ -66,15 +66,8 @@ public class Task implements Serializable
     	this.result_audiofile = audiofile;
     }
     
-    public boolean equals(Task task) {
-    	if (((this.description).equals(task.description))
-    			&&(((this.timestamp).toString()).equals((task.timestamp).toString()))
-    			&&(this.isComplete == task.isComplete)
-    			&&(this.isPhotoRequired == task.isPhotoRequired)
-    			&&(this.isAudioRequired == task.isAudioRequired)
-    			&&(this.result_answer == task.result_answer)
-    			&&(this.result_photofile == task.result_photofile)
-    			&&(this.result_audiofile == task.result_audiofile)) {
+    public boolean isEqualTo(Task task) {
+    	if ((this.timestamp.toString()).equals(task.timestamp.toString())) {
     		return true;
     	} else {
     		return false;
