@@ -27,7 +27,7 @@ public class Task implements Serializable
     }
     
     public Task (String description, boolean req_photo, boolean req_audio, Date timestamp){
-        this.description = description;
+        this.description = description;	//question posed by requester
         this.req_photo = req_photo;
         this.req_audio = req_audio;
         this.timestamp = timestamp;
@@ -57,6 +57,9 @@ public class Task implements Serializable
     public String getResAudioName(){
         return result_audiofile;
     }
+    public void setDescription(String answer){
+    	
+    }
     // I don't think we need this atm.....
     public void setResult(String desc, String photo, String audio){
         result_description = desc;
@@ -77,5 +80,13 @@ public class Task implements Serializable
     	} else {
     		return false;
     	}
+    }
+    public Task clone(){
+    	String description = this.getDescription();
+    	boolean reqPhoto = this.getReqPhoto();
+    	boolean reqAudio = this.getReqAudio();
+    	Date timestamp = this.gettimestamp();
+    	Task newTask = new Task(description, reqPhoto, reqAudio, timestamp);
+    	return newTask;
     }
 }

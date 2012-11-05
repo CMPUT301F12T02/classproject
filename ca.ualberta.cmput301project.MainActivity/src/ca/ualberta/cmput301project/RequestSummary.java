@@ -37,6 +37,7 @@ public class RequestSummary extends Activity implements OnClickListener {
 				intent = new Intent(this, StoredTasks.class);
 				break;
 			case R.id.post_button:
+				//ExternalTaskManager extMan = new ExternalTaskManager();
 			    addTask at = new addTask();
 			    at.execute(current_task);
 			        Toast.makeText(getApplicationContext(), "Task Added To System(Community)", Toast.LENGTH_SHORT).show();

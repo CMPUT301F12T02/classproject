@@ -107,7 +107,7 @@ public class ExternalTaskManager
         return builder.toString();
     }
     
-    public class addTask extends AsyncTask<Task, Void, String>{
+    public static class addTask extends AsyncTask<Task, Void, String>{
         @Override
         protected String doInBackground(Task... tasks) {
         HttpResponse response = null;
