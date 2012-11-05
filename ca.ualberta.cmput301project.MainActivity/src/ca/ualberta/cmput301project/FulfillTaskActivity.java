@@ -83,14 +83,13 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			startActivity(intent);
     			break;
     		case R.id.taskdone:
+    		case R.id.save_draft:
     			EditText answerBox = (EditText) findViewById(R.id.answer_text);
     			String answer = answerBox.getText().toString();
     			newtask.setComplete(true);
     			newtask.setResult(answer, photofile, audiofile);
     			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
     			//LocalTaskManager.saveLocalTask(newtask, this);
-    			finish();
-    		case R.id.save_draft:
     			finish();
     	}
     	
