@@ -2,7 +2,6 @@ package ca.ualberta.cmput301project;
 
 
 
-import ca.ualberta.cmput301project.ExternalTaskManager.addTask;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,8 +36,7 @@ public class RequestSummary extends Activity implements OnClickListener {
 				intent = new Intent(this, StoredTasks.class);
 				break;
 			case R.id.post_button:
-			    addTask at = new addTask();
-			    at.execute(current_task);
+			        ExternalTaskManager.addTask(current_task);
 			        Toast.makeText(getApplicationContext(), "Task Added To System(Community)", Toast.LENGTH_SHORT).show();
 				intent = new Intent(this, StoredTasks.class);
 				break;
