@@ -26,11 +26,16 @@ public class NewRequest extends Activity implements OnClickListener {
     }
 
     public void onClick(View v){
-    	Intent intent;
+    	Intent intent = new Intent();
     	switch (v.getId()){
 			case R.id.createrequest_button:
-			        create_task();
-				intent = new Intent(this, RequestSummary.class);
+			        Task task = create_task();
+			        
+			    Bundle b = new Bundle();
+				b.putSerializable("task", task);
+				intent.putExtras(b);
+				intent.setClass(this, RequestSummary.class);
+				startActivity(intent);
 				break;
 			default:
 				intent = new Intent();
@@ -41,7 +46,7 @@ public class NewRequest extends Activity implements OnClickListener {
 		finish();
     }
     
-    public void create_task(){
+    public Task create_task(){
         
         EditText destxt = (EditText) findViewById(R.id.task_description); 
         String desc = destxt.getText().toString();
@@ -61,8 +66,7 @@ public class NewRequest extends Activity implements OnClickListener {
         Date today = new Date(System.currentTimeMillis());
         
         Task newtask = new Task(desc, photo_needed, audio_needed, today);
-
-        MainActivity.thelist.add(newtask);
-        MainActivity.task_count++;
+        
+        return newtask;
     };
 }

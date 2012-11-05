@@ -2,9 +2,9 @@ package ca.ualberta.cmput301project;
 
 
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -29,20 +29,15 @@ public class RequestSummary extends Activity implements OnClickListener {
 
     public void onClick(View v){
     	Intent intent;
-    	Task current_task = new Task();
+    	Task current_task = (Task) getIntent().getSerializableExtra("task");
     	switch (v.getId()){
 			case R.id.savelocal_button:
-			        current_task = MainActivity.thelist.get(MainActivity.task_count -1);
+				LocalTaskManager.saveLocalTask(current_task, this);
 			        Toast.makeText(getApplicationContext(), "Task Added To System(Local)", Toast.LENGTH_SHORT).show();
-			        MainActivity.locallist.add(current_task);
-			        MainActivity.local_count++;
 				intent = new Intent(this, StoredTasks.class);
 				break;
 			case R.id.post_button:
-			        current_task = MainActivity.thelist.get(MainActivity.task_count -1);
 			        Toast.makeText(getApplicationContext(), "Task Added To System(Community)", Toast.LENGTH_SHORT).show();
-			        MainActivity.communitylist.add(current_task);
-			        MainActivity.community_count++;
 				intent = new Intent(this, StoredTasks.class);
 				break;
 			default:
@@ -53,7 +48,7 @@ public class RequestSummary extends Activity implements OnClickListener {
 		finish();
     }
     public void post_description(){
-        Task current_task = MainActivity.thelist.get(MainActivity.task_count -1);
+    	Task current_task = (Task) getIntent().getSerializableExtra("task");
         String details = current_task.getDescription();
         TextView text;
         text =  (TextView)findViewById(R.id.requestsummary);
