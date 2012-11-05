@@ -22,11 +22,9 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         TextView requirements = (TextView) findViewById(R.id.question_text);
         requirements.setText(oldtask.getDescription());
         
-        //DEBUG: answer is saved
+        //Show old answer, if any
         EditText answerBox = (EditText) findViewById(R.id.answer_text);
         answerBox.setText(oldtask.getResAnswer());
-        //Note from Gabe: this commented part below was added before a commit I made that just obtains a task
-        //from the caller; I commented it so that whoever made this change didn't lose their progress!
 
         //If image/audio required, make button clickable.
         boolean requestPhotos = oldtask.getReqPhoto();
@@ -37,10 +35,8 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         Button doneButton = (Button) findViewById(R.id.taskdone);
         Button draftButton = (Button) findViewById(R.id.save_draft);
         
-        //Button audioButton = (Button) findViewById(R.id.get_audio);
-
         photoButton.setClickable(false);
-        //audioButton.setClickable(false);
+        audioButton.setClickable(false);
         //Logic to gray-out Button so it's non-selectable
         if (requestPhotos){
         	photoButton.setOnClickListener(this);
