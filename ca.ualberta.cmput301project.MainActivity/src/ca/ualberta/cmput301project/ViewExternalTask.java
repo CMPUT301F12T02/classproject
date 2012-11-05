@@ -2,6 +2,7 @@ package ca.ualberta.cmput301project;
 
 import java.sql.Date;
 import java.util.ArrayList;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,16 +23,13 @@ public class ViewExternalTask extends ListActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasklist);
-        
+
         refresh();
     }
     
     public void onRestart(Bundle savedInstanceState) {
         super.onRestart();
         refresh();
-
-        ArrayList<Task> taskList = readAllExtTasks();
-        setListAdapter(new ArrayAdapter<Task>(this,android.R.layout.simple_list_item_1, (Task[]) taskList.toArray()));
     }
     
     private void refresh() {
@@ -56,7 +54,11 @@ public class ViewExternalTask extends ListActivity{
         JSONArray jarray = null;
         try
         {
-            jarray = new JSONArray(ExternalTaskManager.readAllTasks());
+            String result = ExternalTaskManager.readAllTasks();
+            System.out.println(result);
+            JSONObject json = new JSONObject(result);
+            JSONArray name = json.names();
+            jarray = json.toJSONArray(name);
         } catch (JSONException e)
         {
             e.printStackTrace();
@@ -69,8 +71,7 @@ public class ViewExternalTask extends ListActivity{
                 String description = content.getString("desciption");
                 boolean reqPhoto = Boolean.valueOf(content.getString("reqPhoto"));
                 boolean reqAudio = Boolean.valueOf(content.getString("reqAudio"));
-                Date timestamp = (Date)content.get("timestamp");
-                Task task = new Task(description, reqPhoto, reqAudio, timestamp);
+                Task task = new Task(description, reqPhoto, reqAudio);
                 tasks.add(task);
             } catch (JSONException e)
             {

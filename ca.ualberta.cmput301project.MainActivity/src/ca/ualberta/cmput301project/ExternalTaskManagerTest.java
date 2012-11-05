@@ -5,6 +5,7 @@ import java.util.Date;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 import junit.framework.TestCase;
 
 
@@ -23,6 +24,7 @@ public class ExternalTaskManagerTest extends TestCase
 
     public void testReadTask()
     {
+        ExternalTaskManager ext = new ExternalTaskManager();
         Date today = new Date(System.currentTimeMillis());
         Task task = new Task("JUnit test", false, false, today);
         JSONObject jobj = null;
@@ -38,6 +40,7 @@ public class ExternalTaskManagerTest extends TestCase
 
     public void testRemoveTask()
     {
+        ExternalTaskManager ext = new ExternalTaskManager();
         Date today = new Date(System.currentTimeMillis());
         Task task = new Task("JUnit test", false, false, today);
         JSONObject jobj = null;
@@ -53,6 +56,7 @@ public class ExternalTaskManagerTest extends TestCase
 
     public void testAddTask()
     {
+        ExternalTaskManager ext = new ExternalTaskManager();
         Date today = new Date(System.currentTimeMillis());
         Task task = new Task("JUnit test", false, false, today);
         assert(ExternalTaskManager.addTask(task) != null);

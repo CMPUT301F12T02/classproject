@@ -57,7 +57,7 @@ public class FulfillTask extends Activity implements OnClickListener {
     	//in the ViewLocalTask activity, but there's no way to get around it :/
     	Task oldtask = (Task) getIntent().getSerializableExtra("task");
     	
-    	Task newtask = oldtask.clone();
+    	Task newtask = oldtask.cloneTask();
     	
     	Intent intent;
     	switch (v.getId()){
@@ -71,9 +71,9 @@ public class FulfillTask extends Activity implements OnClickListener {
     			
     			EditText answerBox = (EditText) findViewById(R.id.task_text);
     			String answer = answerBox.getText().toString();
-    			asdfasdf asdfsdfa
+    			//asdfasdf asdfsdfa
     			//ATRRIBUTE FOR ANSWER STRING????
-    			newtask.setDescription(answer);
+    			//newtask.setDescription(answer);
     			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
     			intent = new Intent();
     			break;

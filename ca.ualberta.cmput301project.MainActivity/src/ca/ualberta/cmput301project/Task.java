@@ -4,89 +4,87 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-
 public class Task implements Serializable
 {
-    /**
-     * 
-     */
     private static final long serialVersionUID = 1L;
     private String description;
-    private boolean req_photo;
-    private boolean req_audio;
-    private boolean complete;
-    
+    private boolean isPhotoRequired;
+    private boolean isAudioRequired;
+    private boolean isComplete;
     private Date timestamp;
     
-    private String result_description = "No description";
+    private String result_answer = "no answer";
     private String result_photofile = "none";
     private String result_audiofile = "none";
     
-    public Task (){
-        
+    public Task(String description, boolean isPhotoRequired, boolean isAudioRequired) {
+    	this.description = description;
+        this.isPhotoRequired = isPhotoRequired;
+        this.isAudioRequired = isAudioRequired;
+        this.isComplete = false;
+        this.timestamp = new java.util.Date();
     }
     
-    public Task (String description, boolean req_photo, boolean req_audio, Date timestamp){
-        this.description = description;	//question posed by requester
-        this.req_photo = req_photo;
-        this.req_audio = req_audio;
-        this.timestamp = timestamp;
+    public String getDescription() {
+    	return this.description;
     }
     
-    public String getDescription(){
-        return description;
+    public boolean getReqPhoto() {
+    	return this.isPhotoRequired;
     }
-    public Date gettimestamp(){
-        return timestamp;
+    
+    public boolean getReqAudio() {
+    	return this.isAudioRequired;
     }
-    public boolean getcomplete(){
-        return complete;
+    
+    public boolean getComplete() {
+    	return this.isComplete;
     }
-    public boolean getReqPhoto(){
-        return req_photo;
+    
+    public Date getTimestamp() {
+    	return this.timestamp;
     }
-    public boolean getReqAudio(){
-        return req_audio;
+    
+    public String getResAnswer() {
+        return this.result_answer;
     }
-    public String getResDescription(){
-        return result_description;
+    
+    public String getResPhotoName() {
+        return this.result_photofile;
     }
-    public String getResPhotoName(){
-        return result_photofile;
+    
+    public String getResAudioName() {
+        return this.result_audiofile;
     }
-    public String getResAudioName(){
-        return result_audiofile;
-    }
-    public void setDescription(String answer){
-    	
-    }
-    // I don't think we need this atm.....
-    public void setResult(String desc, String photo, String audio){
-        result_description = desc;
-        if (photo != "none"){
-            result_photofile = photo;
-        }
-        if (audio != "none")
-            result_audiofile = audio;
+    
+    public void setResult(String answer, String photofile, String audiofile) {
+    	this.result_answer = answer;
+    	this.result_photofile = photofile;
+    	this.result_audiofile = audiofile;
     }
     
     public boolean equals(Task task) {
-    	if (((this.getDescription()).equals(task.getDescription()))
-    			&&(((this.gettimestamp()).toString()).equals((task.gettimestamp()).toString()))
-    			&&(this.getcomplete() == task.getcomplete())
-    			&&(this.getReqPhoto() == task.getReqPhoto())
-    			&&(this.getReqAudio() == task.getReqAudio())) {
+    	if (((this.description).equals(task.description))
+    			&&(((this.timestamp).toString()).equals((task.timestamp).toString()))
+    			&&(this.isComplete == task.isComplete)
+    			&&(this.isPhotoRequired == task.isPhotoRequired)
+    			&&(this.isAudioRequired == task.isAudioRequired)
+    			&&(this.result_answer == task.result_answer)
+    			&&(this.result_photofile == task.result_photofile)
+    			&&(this.result_audiofile == task.result_audiofile)) {
     		return true;
     	} else {
     		return false;
     	}
     }
-    public Task clone(){
-    	String description = this.getDescription();
-    	boolean reqPhoto = this.getReqPhoto();
-    	boolean reqAudio = this.getReqAudio();
-    	Date timestamp = this.gettimestamp();
-    	Task newTask = new Task(description, reqPhoto, reqAudio, timestamp);
+    
+    public Task cloneTask(){
+    	Task newTask = new Task(this.description, this.isPhotoRequired, this.isAudioRequired);
+    	newTask.isComplete = this.isComplete;
+    	newTask.timestamp = this.timestamp;
+    	newTask.result_answer = this.result_answer;
+    	newTask.result_photofile = this.result_photofile;
+    	newTask.result_audiofile = this.result_audiofile;
     	return newTask;
     }
 }

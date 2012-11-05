@@ -7,6 +7,9 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -22,6 +25,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Context;
 import android.os.AsyncTask;
 
 
@@ -58,42 +62,88 @@ public class ExternalTaskManager
         }
         return sb.toString();
 }
-    private static void internetFetch(HttpGet httpGet){
-        try {
-
-            HttpClient client = new DefaultHttpClient();
-            HttpResponse response = client.execute(httpGet);
-            StatusLine statusLine = response.getStatusLine();
-            int statusCode = statusLine.getStatusCode();
-            if (statusCode == 200) {
-              HttpEntity entity = response.getEntity();
-              InputStream content = entity.getContent();
-              BufferedReader reader = new BufferedReader(new InputStreamReader(content));
-              String line;
-              while ((line = reader.readLine()) != null) {
-                builder.append(line);
-              }
+    private class internetFetch extends AsyncTask<Context, Void, String>{
+        private HttpPost httpPost = new HttpPost("http://crowdsourcer.softwareprocess.es/F12/CMPUT301F12T02/");
+        public internetFetch(List <NameValuePair> nvps){
+            UrlEncodedFormEntity urlefe;
+            try
+            {
+                urlefe = new UrlEncodedFormEntity(nvps);
+                httpPost.setEntity(urlefe);
+            } catch (UnsupportedEncodingException e)
+            {
+                e.printStackTrace();
             }
-          } catch (ClientProtocolException e) {
-            e.printStackTrace();
-          } catch (IOException e) {
-            e.printStackTrace();
-          }
+        }
+        
+        protected String doInBackground(Context... c){
+            HttpResponse response = null;
+            try{
+            response = (HttpResponse) httpclient.execute(httpPost);
+            } catch (UnsupportedEncodingException e){
+                e.printStackTrace();
+            } catch (ClientProtocolException e){
+                e.printStackTrace();
+            } catch (IOException e){       
+                e.printStackTrace();
+            }
+            HttpEntity entity = response.getEntity();
+            if (entity != null) {
+                InputStream is = null;
+                try
+                {
+                    is = entity.getContent();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        System.out.println(line);
+                        builder.append(line);
+                    }
+                } catch (IllegalStateException e)
+                {
+                    e.printStackTrace();
+                } catch (IOException e)
+                {       
+                    e.printStackTrace();
+                }
+            }
+            System.out.println(builder.toString());
+            try
+            {
+                Thread.sleep(2000, 0);
+            } catch (InterruptedException e)
+            {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            return builder.toString();
+        }        
+        protected void onPostExecute(String rtv){
+        }
     }
     public static String readAllTasks() {
-        HttpGet httpGet = new HttpGet(baseURL+"?action=list");
-        internetFetch(httpGet);
-        return builder.toString();
+        List <NameValuePair> nvps = new ArrayList <NameValuePair>();
+        nvps.add(new BasicNameValuePair("action", "list"));
+        ExternalTaskManager ext = new ExternalTaskManager();
+        internetFetch ifetch = ext.new internetFetch(nvps);
+        Context c = null;
+        String rtv = ifetch.execute(c).toString();
+        return rtv;
     }
     
     public static String readTask(String id){
-        HttpGet httpGet = new HttpGet(baseURL+"?action=get&id="+id);
-        internetFetch(httpGet);
+        List <NameValuePair> nvps = new ArrayList <NameValuePair>();
+        nvps.add(new BasicNameValuePair("action", "list"));
+        nvps.add(new BasicNameValuePair("id", id));
+        Context c = null;
+        ExternalTaskManager ext = new ExternalTaskManager();
+        internetFetch ifetch = ext.new internetFetch(nvps);
+        String rtv = ifetch.execute(c).toString();
         JSONObject obj;
         String content = null;
         try
         {
-            obj = new JSONObject(builder.toString());
+            obj = new JSONObject(rtv);
             content = obj.getString("content");
         } catch (JSONException e)
         {
@@ -102,18 +152,18 @@ public class ExternalTaskManager
         return content;
     }
     public static String removeTask(String id){
-        HttpGet httpGet = new HttpGet(baseURL+"?action=remove&id="+id);
-        internetFetch(httpGet);
-        return builder.toString();
+        List <NameValuePair> nvps = new ArrayList <NameValuePair>();
+        nvps.add(new BasicNameValuePair("action", "list"));
+        nvps.add(new BasicNameValuePair("id", id));
+        Context c = null;
+        ExternalTaskManager ext = new ExternalTaskManager();
+        internetFetch ifetch = ext.new internetFetch(nvps);
+        String rtv = ifetch.execute(c).toString();
+        return rtv;
     }
     
-    public static class addTask extends AsyncTask<Task, Void, String>{
-        @Override
-        protected String doInBackground(Task... tasks) {
-        HttpResponse response = null;
-        String rtv = null;
+    public static String addTask(Task task) {
         String reqPhoto, reqAudio;
-        for(Task task : tasks){
         if(task.getReqPhoto()){
             reqPhoto = "true";
         }
@@ -127,58 +177,20 @@ public class ExternalTaskManager
             object.put("description", task.getDescription());
             object.put("reqPhoto", reqPhoto);
             object.put("reqAudio", reqAudio);
-            object.put("timestamp", task.gettimestamp());
+            object.put("timestamp", task.getTimestamp());
           } catch (JSONException e) {
             e.printStackTrace();
           }
-        //HttpGet hget = new HttpGet(baseURL+"?action=post&summary=taskposted&content="+object.toString()+"&description=taskposted");
-        
-
-        try
-        {
             List <NameValuePair> nvps = new ArrayList <NameValuePair>();
             nvps.add(new BasicNameValuePair("action", "post"));
             nvps.add(new BasicNameValuePair("summary", "TaskFinished"));
             nvps.add(new BasicNameValuePair("content", object.toString()));
             nvps.add(new BasicNameValuePair("description", "TaskPosted"));
-            UrlEncodedFormEntity urlefe = new UrlEncodedFormEntity(nvps);
-            System.out.println(nvps.toString());
-            HttpPost httpPost = new HttpPost("http://crowdsourcer.softwareprocess.es/F12/CMPUT301F12T02/");
-            httpPost.setEntity(urlefe);
-            System.out.println(httpPost.getURI().toString());
-            response = (HttpResponse) httpclient.execute(httpPost);
-        } catch (UnsupportedEncodingException e)
-        {
-            e.printStackTrace();
-        } catch (ClientProtocolException e)
-        {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e)
-        {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        HttpEntity entity = response.getEntity();
-        if (entity != null) {
-            InputStream is = null;
-            try
-            {
-                is = entity.getContent();
-            } catch (IllegalStateException e)
-            {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (IOException e)
-            {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            rtv = convertStreamToString(is);
-        }
-        }
-        return rtv;
-    }
+            Context c = null;
+            ExternalTaskManager ext = new ExternalTaskManager();
+            internetFetch ifetch = ext.new internetFetch(nvps);
+            String rtv = ifetch.execute(c).toString();
+            return rtv;
     }
         
     public static void updateTask(Task task, String id){
@@ -199,33 +211,19 @@ public class ExternalTaskManager
             e1.printStackTrace();
         }
         try {
-            oldContent.put("updatesummary", task.getResDescription());
+            oldContent.put("updatesummary", task.getResAnswer());
             oldContent.put("photofile", task.getResPhotoName());
             oldContent.put("audiofile", task.getResAudioName());
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        List <BasicNameValuePair> nvps = new ArrayList <BasicNameValuePair>();
+        List<NameValuePair> nvps = new ArrayList <NameValuePair>();
         nvps.add(new BasicNameValuePair("action", "update"));
         nvps.add(new BasicNameValuePair("summary", "Task Finished"));
         nvps.add(new BasicNameValuePair("content", oldContent.toString()));
-
-        try
-        {
-            HttpPost httpPost = new HttpPost("http://crowdsourcer.softwareprocess.es/F12/CMPUT301F12T02/");
-            httpPost.setEntity(new UrlEncodedFormEntity(nvps));
-            HttpResponse response = httpclient.execute(httpPost);
-        } catch (UnsupportedEncodingException e)
-        {
-            e.printStackTrace();
-        } catch (ClientProtocolException e)
-        {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e)
-        {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        Context c = null;
+        ExternalTaskManager ext = new ExternalTaskManager();
+        internetFetch ifetch = ext.new internetFetch(nvps);
+        String rtv = ifetch.execute(c).toString();
     }
 }
