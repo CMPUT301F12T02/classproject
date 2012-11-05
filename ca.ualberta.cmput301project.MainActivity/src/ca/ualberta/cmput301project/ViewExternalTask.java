@@ -2,7 +2,10 @@ package ca.ualberta.cmput301project;
 
 import java.sql.Date;
 import java.util.ArrayList;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 46ff95540b8dcf37d40253c6851898bcb7453ef1
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,12 +26,22 @@ public class ViewExternalTask extends ListActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasklist);
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 46ff95540b8dcf37d40253c6851898bcb7453ef1
         refresh();
     }
     
     public void onRestart(Bundle savedInstanceState) {
         super.onRestart();
         refresh();
+<<<<<<< HEAD
+=======
+
+        ArrayList<Task> taskList = readAllExtTasks();
+        setListAdapter(new ArrayAdapter<Task>(this,android.R.layout.simple_list_item_1, (Task[]) taskList.toArray()));
+>>>>>>> 46ff95540b8dcf37d40253c6851898bcb7453ef1
     }
     
     private void refresh() {
@@ -37,15 +50,26 @@ public class ViewExternalTask extends ListActivity{
     }
     
     public void onListItemClick(ListView parent,View v, int position,long id){
+<<<<<<< HEAD
+=======
+
+>>>>>>> 46ff95540b8dcf37d40253c6851898bcb7453ef1
         ArrayList<Task> tasks = readAllExtTasks();
         Task clickedTask = tasks.get(position);
         
         Intent intent = new Intent();
         Bundle b = new Bundle();
+<<<<<<< HEAD
                 b.putSerializable("task", clickedTask);
                 intent.putExtras(b);
                 intent.setClass(this, FulfillTask.class);
                 startActivity(intent);
+=======
+        b.putSerializable("task", clickedTask);
+        intent.putExtras(b);
+        intent.setClass(this, FulfillTask.class);
+        startActivity(intent);
+>>>>>>> 46ff95540b8dcf37d40253c6851898bcb7453ef1
     }
     private ArrayList<Task> readAllExtTasks(){
         ArrayList<Task> tasks = new ArrayList<Task>();

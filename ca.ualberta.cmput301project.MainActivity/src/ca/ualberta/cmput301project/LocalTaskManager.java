@@ -12,21 +12,49 @@ import java.util.ArrayList;
 
 import android.content.Context;
 
+/** The purpose of this class is to enable the saving, loading, and deleting of
+ * tasks on the local storage. The only issue is that the caller has to supply
+ * the context, which is used to find the absolute directory path to where the
+ * application can write. If the context wasn't supplied, the methods below
+ * would try to write to the root directory, which is read-only and would throw
+ * exceptions. I chose to hide the constructor and make the methods static
+ * because this class consists only of helper methods; it wouldn't make sense
+ * to instantiate a LocalTaskManager object.
+ * 
+ * @author Mircea Gabriel Caciula
+ * @version 1.0
+ */
 public class LocalTaskManager {
 	
-	//saves a local task to file
+	private LocalTaskManager() {}
+	
+	/** Saves a local task to file
+	 * 
+	 *  @param task					The task that the user wishes to save
+	 *  @param context				The context of the application, so the method knows the directory path
+	 */
 	public static void saveLocalTask(Task task, Context context) {
 		String filename = "/localtask";
 		saveToFile(task, context, filename);
 	}
 	
-	//saves a draft to file
+	/** Saves a draft to file
+	 * 
+	 * @param task					The task that the user wishes to save
+	 * @param context				The context of the application, so the method knows the directory path
+	 */
 	public static void saveDraft(Task task, Context context) {
 		String filename = "/draft";
 		saveToFile(task, context, filename);
 	}
 	
-	//opens a file and appends a serialized object to it
+	/** Obtains the list of all tasks saved to file, appends the user inputted task
+	 * to the list, and then saves the resulting list back to file
+	 * 
+	 * @param task					The task that the user wishes to save
+	 * @param context				The context of the application, so the method knows the directory path
+	 * @param filename				The name of the file being saved to
+	 */
 	private static void saveToFile(Task task, Context context, String filename) {
 		try {
 			ArrayList<Task> tasks = readFromFile(context, filename);
@@ -48,19 +76,32 @@ public class LocalTaskManager {
 		}
 	}
 	
-	//retrieves a list of all local tasks
+	/** Retrieves a list of all local tasks
+	 * 
+	 * @param context				The context of the application, so the method knows the directory path
+	 * @return						An array list of all local tasks
+	 */
 	public static ArrayList<Task> loadLocalTasks(Context context) {
 		String filename = "/localtask";
 		return readFromFile(context, filename);
 	}
 	
-	//retrieves a list of all saved drafts
+	/** Retrieves a list of all saved drafts
+	 * 
+	 * @param context				The context of the application, so the method knows the directory path
+	 * @return						An array list of all saved drafts
+	 */
 	public static ArrayList<Task> loadDrafts(Context context) {
 		String filename = "/draft";
 		return readFromFile(context, filename);
 	}
 	
-	//opens a file and reads all serialized objects in it
+	/** Opens a file and reads all serialized objects in it
+	 * 
+	 * @param context				The context of the application, so the method knows the directory path
+	 * @param filename				The name of the file being loaded from
+	 * @return						An array list of all tasks saved to the file specified by filename
+	 */
 	private static ArrayList<Task> readFromFile(Context context, String filename) {
 		ArrayList<Task> tasks = new ArrayList<Task>();
 		
@@ -69,8 +110,7 @@ public class LocalTaskManager {
 			FileInputStream fin = new FileInputStream(file);
 			ObjectInputStream ois = new ObjectInputStream(fin);
 			
-			//keeps reading from the file until the EOF is hit, at which point
-			//all objects have been read
+			//keeps reading from the file until the EOF is hit, at which point all objects have been read
 			while (true) {
 				try {
 					tasks.add((Task) ois.readObject());
@@ -91,20 +131,33 @@ public class LocalTaskManager {
 		return tasks;
 	}
 	
-	//deletes a local task from the file
+	/** Deletes a local task from the file
+	 * 
+	 * @param task					The local task that the user wishes to delete
+	 * @param context				The context of the application, so the method knows the directory path
+	 */
 	public static void deleteLocalTask(Task task, Context context) {
 		String filename = "/localtask";
 		deleteTask(task, context, filename);
 	}
 	
-	//deletes a draft from the file
+	/** Deletes a draft from the file
+	 * 
+	 * @param task					The draft that the user wishes to delete
+	 * @param context				The context of the application, so the method knows the directory path
+	 */
 	public static void deleteDraft(Task task, Context context) {
 		String filename = "/draft";
 		deleteTask(task, context, filename);
 	}
 	
-	//retrieves the list of all tasks in a file, and then writes back all tasks
-	//except the one that is equivalent to the task passed in by the user
+	/** Retrieves the list of all tasks in a file, and then writes back all tasks
+	 * except the one that is equivalent to the task passed in by the user
+	 * 
+	 * @param task					The task that the user wishes to delete
+	 * @param context				The context of the application, so the method knows the directory path
+	 * @param filename				The name of the file from which the task is being deleted from
+	 */
 	private static void deleteTask(Task task, Context context, String filename) {
 		ArrayList<Task> tasks = readFromFile(context, filename);
 		
@@ -116,6 +169,62 @@ public class LocalTaskManager {
 			for (Task taskInList: tasks) {
 				if (taskInList.equals(task) == false) {
 					oos.writeObject(taskInList);
+				}
+			}
+			
+			oos.close();
+		} catch (FileNotFoundException fnfe) {
+			fnfe.printStackTrace();
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		}
+	}
+	
+	/** Allows the "saving over" of an old local task with its updated version, keeping its same
+	 * position in the local task file
+	 * 
+	 * @param oldTask				The old local task that is being overwritten
+	 * @param newTask				The new local task that is overwriting its older version
+	 * @param context				The context of the application, so the method knows the directory path
+	 */
+	public static void replaceLocalTask(Task oldTask, Task newTask, Context context) {
+		String filename = "/localtask";
+		replaceTask(oldTask, newTask, context, filename);
+	}
+	
+	/** Allows the "saving over" of an old draft with its updated version, keeping its same
+	 * position in the draft file
+	 * 
+	 * @param oldTask				The old draft that is being overwritten
+	 * @param newTask				The new draft that is overwriting its older version
+	 * @param context				The context of the application, so the method knows the directory path
+	 */
+	public static void replaceDraft(Task oldTask, Task newTask, Context context) {
+		String filename = "/draft";
+		replaceTask(oldTask, newTask, context, filename);
+	}
+	
+	/** Retrieves the list of all tasks in a file, and then writes back all tasks to the file. Once the
+	 * task specified by oldTask is found, though, the task specified by newTask is written in its place
+	 * 
+	 * @param oldTask				The old task that is being overwritten
+	 * @param newTask				The new task that is overwriting its older version
+	 * @param context				The context of the application, so the method knows the directory path
+	 * @param filename				The name of the file that the task is being overwritten to
+	 */
+	private static void replaceTask(Task oldTask, Task newTask, Context context, String filename) {
+		ArrayList<Task> tasks = readFromFile(context, filename);
+		
+		try {
+			File file = new File(context.getFilesDir().getPath().toString() + filename);
+			FileOutputStream fos = new FileOutputStream(file);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			
+			for (Task taskInList: tasks) {
+				if (taskInList.equals(oldTask) == false) {
+					oos.writeObject(taskInList);
+				} else {
+					oos.writeObject(newTask);
 				}
 			}
 			

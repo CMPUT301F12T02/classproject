@@ -1,17 +1,13 @@
 package ca.ualberta.cmput301project;
 
-import java.util.Date;
-
-
-
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.app.Activity;
-import android.content.Intent;
 
 
 public class NewRequest extends Activity implements OnClickListener {
@@ -63,9 +59,7 @@ public class NewRequest extends Activity implements OnClickListener {
              audio_needed = true;
         }
         
-        Date today = new Date(System.currentTimeMillis());
-        
-        Task newtask = new Task(desc, photo_needed, audio_needed, today);
+        Task newtask = new Task(desc, photo_needed, audio_needed);
         
         return newtask;
     };

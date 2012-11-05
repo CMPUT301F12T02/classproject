@@ -162,7 +162,15 @@ public class ExternalTaskManager
         return rtv;
     }
     
+<<<<<<< HEAD
     public static String addTask(Task task) {
+=======
+    public static class addTask extends AsyncTask<Task, Void, String>{
+        @Override
+        protected String doInBackground(Task... tasks) {
+        HttpResponse response = null;
+        String rtv = null;
+>>>>>>> 46ff95540b8dcf37d40253c6851898bcb7453ef1
         String reqPhoto, reqAudio;
         if(task.getReqPhoto()){
             reqPhoto = "true";
