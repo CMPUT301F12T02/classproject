@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RequestSummary extends Activity implements OnClickListener {
+public class RequestSummaryActivity extends Activity implements OnClickListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,12 +33,12 @@ public class RequestSummary extends Activity implements OnClickListener {
 			case R.id.savelocal_button:
 				LocalTaskManager.saveLocalTask(current_task, this);
 			        Toast.makeText(getApplicationContext(), "Task Added To System(Local)", Toast.LENGTH_SHORT).show();
-				intent = new Intent(this, StoredTasks.class);
+				intent = new Intent(this, StoredTasksActivity.class);
 				break;
 			case R.id.post_button:
 			        ExternalTaskManager.addTask(current_task);
 			        Toast.makeText(getApplicationContext(), "Task Added To System(Community)", Toast.LENGTH_SHORT).show();
-				intent = new Intent(this, StoredTasks.class);
+				intent = new Intent(this, StoredTasksActivity.class);
 				break;
 			default:
 				return;

@@ -1,6 +1,5 @@
 package ca.ualberta.cmput301project;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -14,7 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class ViewExternalTask extends ListActivity{
+public class ViewExternalTaskActivity extends ListActivity{
         public final static String REQDESCRIPTION = "ca.ualberta.cmput301project.DESCRIPTION";
         public final static String REQPHOTO = "ca.ualberta.cmput301project.PHOTO";
         public final static String REQAUDIO = "ca.ualberta.cmput301project.AUDIO";
@@ -46,7 +45,7 @@ public class ViewExternalTask extends ListActivity{
         Bundle b = new Bundle();
         b.putSerializable("task", clickedTask);
         intent.putExtras(b);
-        intent.setClass(this, FulfillTask.class);
+        intent.setClass(this, FulfillTaskActivity.class);
         startActivity(intent);
     }
     private ArrayList<Task> readAllExtTasks(){
@@ -56,9 +55,7 @@ public class ViewExternalTask extends ListActivity{
         {
             String result = ExternalTaskManager.readAllTasks();
             System.out.println(result);
-            JSONObject json = new JSONObject(result);
-            JSONArray name = json.names();
-            jarray = json.toJSONArray(name);
+            jarray = new JSONArray(result);
         } catch (JSONException e)
         {
             e.printStackTrace();

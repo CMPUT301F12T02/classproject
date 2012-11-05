@@ -22,10 +22,10 @@ public class MainActivity extends Activity implements OnClickListener {
     	Intent intent;
     	switch (v.getId()){
 			case R.id.newrequest_button:
-				intent = new Intent(this, NewRequest.class);
+				intent = new Intent(this, NewRequestActivity.class);
 				break;
 			case R.id.viewstored_button:
-				intent = new Intent(this, StoredTasks.class);
+				intent = new Intent(this, StoredTasksActivity.class);
 				break;
 			default:
 				intent = new Intent();

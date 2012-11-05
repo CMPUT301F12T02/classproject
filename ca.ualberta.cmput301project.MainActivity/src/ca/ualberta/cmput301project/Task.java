@@ -40,6 +40,9 @@ public class Task implements Serializable
     public boolean getComplete() {
     	return this.isComplete;
     }
+    public void setComplete(boolean isDone){
+    	this.isComplete = isDone;
+    }
     
     public Date getTimestamp() {
     	return this.timestamp;
