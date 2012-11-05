@@ -45,7 +45,7 @@
             android:label="@string/title_activity_fulfill_task" >
         </activity>
         <activity
-            android:name=".ViewExternalTaskActivity"
+            android:name=".ViewExternalTask"
             android:label="@string/title_activity_com_task" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
