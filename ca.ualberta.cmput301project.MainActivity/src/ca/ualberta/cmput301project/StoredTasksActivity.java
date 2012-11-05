@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.app.Activity;
 import android.content.Intent;
 
-public class StoredTasks extends Activity implements OnClickListener {
+public class StoredTasksActivity extends Activity implements OnClickListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class StoredTasks extends Activity implements OnClickListener {
     	
         switch (v.getId()){
 	        case R.id.local_button:
-	        	intent = new Intent(this, ViewLocalTask.class);
+	        	intent = new Intent(this, ViewLocalTaskActivity.class);
 	        	break;
 	        case R.id.com_button:
 	        	intent = new Intent(this, ViewExternalTaskActivity.class);

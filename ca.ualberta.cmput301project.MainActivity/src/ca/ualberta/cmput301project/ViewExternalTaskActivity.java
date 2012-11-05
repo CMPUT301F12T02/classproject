@@ -1,6 +1,5 @@
 package ca.ualberta.cmput301project;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -46,7 +45,7 @@ public class ViewExternalTaskActivity extends ListActivity{
         Bundle b = new Bundle();
         b.putSerializable("task", clickedTask);
         intent.putExtras(b);
-        intent.setClass(this, FulfillTask.class);
+        intent.setClass(this, FulfillTaskActivity.class);
         startActivity(intent);
     }
     private ArrayList<Task> readAllExtTasks(){

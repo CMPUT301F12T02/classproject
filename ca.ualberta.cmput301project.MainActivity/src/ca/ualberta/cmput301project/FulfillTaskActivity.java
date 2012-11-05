@@ -1,16 +1,16 @@
 package ca.ualberta.cmput301project;
 
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.app.Activity;
-import android.content.Intent;
 
-public class FulfillTask extends Activity implements OnClickListener {
+public class FulfillTaskActivity extends Activity implements OnClickListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -19,9 +19,12 @@ public class FulfillTask extends Activity implements OnClickListener {
 
         Task oldtask = (Task) getIntent().getSerializableExtra("task");
         
-        TextView requirements = (TextView) findViewById(R.id.requirements);
+        TextView requirements = (TextView) findViewById(R.id.question_text);
         requirements.setText(oldtask.getDescription());
         
+        //DEBUG: answer is saved
+        EditText answerBox = (EditText) findViewById(R.id.answer_text);
+        answerBox.setText(oldtask.getResAnswer());
         //Note from Gabe: this commented part below was added before a commit I made that just obtains a task
         //from the caller; I commented it so that whoever made this change didn't lose their progress!
 
@@ -31,8 +34,13 @@ public class FulfillTask extends Activity implements OnClickListener {
 
         Button photoButton = (Button) findViewById(R.id.get_image);
         Button audioButton = (Button) findViewById(R.id.get_audio);
+        Button doneButton = (Button) findViewById(R.id.taskdone);
+        Button draftButton = (Button) findViewById(R.id.save_draft);
+        
+        //Button audioButton = (Button) findViewById(R.id.get_audio);
+
         photoButton.setClickable(false);
-        audioButton.setClickable(false);
+        //audioButton.setClickable(false);
         //Logic to gray-out Button so it's non-selectable
         if (requestPhotos){
         	photoButton.setOnClickListener(this);
@@ -41,11 +49,14 @@ public class FulfillTask extends Activity implements OnClickListener {
         	photoButton.setTextColor(getResources().getColor(R.color.White));
         }
         if (requestAudio){
-        	audioButton.setOnClickListener(this);
-        	audioButton.setClickable(true);
+        //	audioButton.setOnClickListener(this);
+        //	audioButton.setClickable(true);
         } else {
         	audioButton.setTextColor(getResources().getColor(R.color.White));
-        } 
+        }
+        //Buttons to exit activity
+        doneButton.setOnClickListener(this);
+        draftButton.setOnClickListener(this);
     }
     
     public void onClick(View v){
@@ -56,6 +67,8 @@ public class FulfillTask extends Activity implements OnClickListener {
     	//deleteLocalTask(task) call followed by a saveLocalTask(task) call. this will change the order of tasks
     	//in the ViewLocalTask activity, but there's no way to get around it :/
     	Task oldtask = (Task) getIntent().getSerializableExtra("task");
+    	String photofile = oldtask.getResPhotoName();
+    	String audiofile = oldtask.getResAudioName();
     	
     	Task newtask = oldtask.cloneTask();
     	
@@ -63,28 +76,23 @@ public class FulfillTask extends Activity implements OnClickListener {
     	switch (v.getId()){
     		case R.id.get_audio:
     			intent = new Intent();
+    			startActivity(intent);
     			break;
     		case R.id.get_image:
-    			intent = new Intent(this, TakePhoto.class);
+    			intent = new Intent(this, TakePhotoActivity.class);
+    			startActivity(intent);
     			break;
     		case R.id.taskdone:
-    			
-    			EditText answerBox = (EditText) findViewById(R.id.task_text);
+    			EditText answerBox = (EditText) findViewById(R.id.answer_text);
     			String answer = answerBox.getText().toString();
-    			//asdfasdf asdfsdfa
-    			//ATRRIBUTE FOR ANSWER STRING????
-    			//newtask.setDescription(answer);
+    			newtask.setComplete(true);
+    			newtask.setResult(answer, photofile, audiofile);
     			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
-    			intent = new Intent();
-    			break;
+    			//LocalTaskManager.saveLocalTask(newtask, this);
+    			finish();
     		case R.id.save_draft:
-    			
-    			intent = new Intent();
-    			break;
-    		default:
-    			intent = new Intent();
-    			break;
+    			finish();
     	}
-    	startActivity(intent);
+    	
     }
 }
