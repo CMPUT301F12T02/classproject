@@ -1,4 +1,4 @@
-/*package ca.ualberta.cmput301project;
+package ca.ualberta.cmput301project;
 
 import java.util.Date;
 
@@ -26,7 +26,7 @@ public class ExternalTaskManagerTest extends TestCase
     {
         ExternalTaskManager ext = new ExternalTaskManager();
         Date today = new Date(System.currentTimeMillis());
-        Task task = new Task("JUnit test", false, false, today);
+        Task task = new Task("JUnit test", false, false);
         JSONObject jobj = null;
         try
         {
@@ -42,7 +42,7 @@ public class ExternalTaskManagerTest extends TestCase
     {
         ExternalTaskManager ext = new ExternalTaskManager();
         Date today = new Date(System.currentTimeMillis());
-        Task task = new Task("JUnit test", false, false, today);
+        Task task = new Task("JUnit test", false, false);
         JSONObject jobj = null;
         try
         {
@@ -58,7 +58,7 @@ public class ExternalTaskManagerTest extends TestCase
     {
         ExternalTaskManager ext = new ExternalTaskManager();
         Date today = new Date(System.currentTimeMillis());
-        Task task = new Task("JUnit test", false, false, today);
+        Task task = new Task("JUnit test", false, false);
         assert(ExternalTaskManager.addTask(task) != null);
 
     }
@@ -70,4 +70,4 @@ public class ExternalTaskManagerTest extends TestCase
     }
 
 }
-*/
+
