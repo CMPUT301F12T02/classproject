@@ -71,9 +71,9 @@ public class FulfillTask extends Activity implements OnClickListener {
     			
     			EditText answerBox = (EditText) findViewById(R.id.task_text);
     			String answer = answerBox.getText().toString();
-    			asdfasdf asdfsdfa
+    			//asdfasdf asdfsdfa
     			//ATRRIBUTE FOR ANSWER STRING????
-    			newtask.setDescription(answer);
+    			//newtask.setDescription(answer);
     			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
     			intent = new Intent();
     			break;
