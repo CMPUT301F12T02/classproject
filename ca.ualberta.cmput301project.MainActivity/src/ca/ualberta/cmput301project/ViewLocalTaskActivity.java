@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class ViewLocalTask extends ListActivity {
+public class ViewLocalTaskActivity extends ListActivity {
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +48,7 @@ public class ViewLocalTask extends ListActivity {
     	Bundle b = new Bundle();
 		b.putSerializable("task", clickedTask);
 		intent.putExtras(b);
-		intent.setClass(this, FulfillTask.class);
+		intent.setClass(this, FulfillTaskActivity.class);
 		startActivity(intent);
     }
     

@@ -10,7 +10,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 
 
-public class NewRequest extends Activity implements OnClickListener {
+public class NewRequestActivity extends Activity implements OnClickListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class NewRequest extends Activity implements OnClickListener {
 			    Bundle b = new Bundle();
 				b.putSerializable("task", task);
 				intent.putExtras(b);
-				intent.setClass(this, RequestSummary.class);
+				intent.setClass(this, RequestSummaryActivity.class);
 				startActivity(intent);
 				break;
 			default:

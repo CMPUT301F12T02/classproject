@@ -45,7 +45,7 @@ public class ViewExternalTask extends ListActivity{
         Bundle b = new Bundle();
         b.putSerializable("task", clickedTask);
         intent.putExtras(b);
-        intent.setClass(this, FulfillTask.class);
+        intent.setClass(this, FulfillTaskActivity.class);
         startActivity(intent);
     }
     private ArrayList<Task> readAllExtTasks(){

@@ -14,7 +14,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class TakePhoto extends Activity {
+public class TakePhotoActivity extends Activity {
 
 	Uri imageFileUri;
 	private static final int CAPTURE_ACTIVITY_REQUEST_CODE = 100;
