@@ -179,4 +179,60 @@ public class LocalTaskManager {
 			ioe.printStackTrace();
 		}
 	}
+	
+	/** Allows the "saving over" of an old local task with its updated version, keeping its same
+	 * position in the local task file
+	 * 
+	 * @param oldTask				The old local task that is being overwritten
+	 * @param newTask				The new local task that is overwriting its older version
+	 * @param context				The context of the application, so the method knows the directory path
+	 */
+	public static void replaceLocalTask(Task oldTask, Task newTask, Context context) {
+		String filename = "/localtask";
+		replaceTask(oldTask, newTask, context, filename);
+	}
+	
+	/** Allows the "saving over" of an old draft with its updated version, keeping its same
+	 * position in the draft file
+	 * 
+	 * @param oldTask				The old draft that is being overwritten
+	 * @param newTask				The new draft that is overwriting its older version
+	 * @param context				The context of the application, so the method knows the directory path
+	 */
+	public static void replaceDraft(Task oldTask, Task newTask, Context context) {
+		String filename = "/draft";
+		replaceTask(oldTask, newTask, context, filename);
+	}
+	
+	/** Retrieves the list of all tasks in a file, and then writes back all tasks to the file. Once the
+	 * task specified by oldTask is found, though, the task specified by newTask is written in its place
+	 * 
+	 * @param oldTask				The old task that is being overwritten
+	 * @param newTask				The new task that is overwriting its older version
+	 * @param context				The context of the application, so the method knows the directory path
+	 * @param filename				The name of the file that the task is being overwritten to
+	 */
+	private static void replaceTask(Task oldTask, Task newTask, Context context, String filename) {
+		ArrayList<Task> tasks = readFromFile(context, filename);
+		
+		try {
+			File file = new File(context.getFilesDir().getPath().toString() + filename);
+			FileOutputStream fos = new FileOutputStream(file);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			
+			for (Task taskInList: tasks) {
+				if (taskInList.equals(oldTask) == false) {
+					oos.writeObject(taskInList);
+				} else {
+					oos.writeObject(newTask);
+				}
+			}
+			
+			oos.close();
+		} catch (FileNotFoundException fnfe) {
+			fnfe.printStackTrace();
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		}
+	}
 }
