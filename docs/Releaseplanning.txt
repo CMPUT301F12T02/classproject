@@ -1,0 +1,15 @@
+﻿Because we have a limited time to put out a prototype for our application, there are many things that we have to leave out for now.  However, core functionality must still be in place for the customer to be able to see how the application will work.  As such, the layout of the application must be done, as well as simple tasks.  This includes the following user stories:
+
+
+1. Defining tasks
+2. Fulfill tasks
+3. Able to fulfill own tasks
+4. Receive results from posted tasks
+5. Time stamped tasks
+6. Tasks that require text
+7. Upload tasks
+8. Enabling local tasks
+
+
+Many of these items are necessary to display the core functionality of the system without fleshing it out too much, which would create a coding crunch on our team.  Defining tasks, fulfilling tasks and receiving results from tasks are the base functionality of the application, and must be included.  Uploading tasks, enabling local tasks and being able to fulfill your own tasks will display the basic connection between devices that the application will enable.  Time stamped tasks are not difficult to implement, even if not necessary for a core demo.
+One might note that this doesn’t include the specified audio and photo tasks.  However, the inclusion of tasks that require text will be able to show how the tasks system will work, without requiring such a coding crunch in a short amount of time for enabling audio and photo tasks.
