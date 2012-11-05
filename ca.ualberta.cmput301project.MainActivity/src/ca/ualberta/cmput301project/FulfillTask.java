@@ -33,11 +33,15 @@ public class FulfillTask extends Activity implements OnClickListener {
         boolean requestAudio = oldtask.getReqAudio();
 
         Button photoButton = (Button) findViewById(R.id.get_image);
+<<<<<<< HEAD
         Button audioButton = (Button) findViewById(R.id.get_audio);
         Button doneButton = (Button) findViewById(R.id.taskdone);
         Button draftButton = (Button) findViewById(R.id.save_draft);
+=======
+        //Button audioButton = (Button) findViewById(R.id.get_audio);
+>>>>>>> 6fca6961ce10d9acaf18d8d8246569422d8f3b84
         photoButton.setClickable(false);
-        audioButton.setClickable(false);
+        //audioButton.setClickable(false);
         //Logic to gray-out Button so it's non-selectable
         if (requestPhotos){
         	photoButton.setOnClickListener(this);
@@ -46,14 +50,19 @@ public class FulfillTask extends Activity implements OnClickListener {
         	photoButton.setTextColor(getResources().getColor(R.color.White));
         }
         if (requestAudio){
-        	audioButton.setOnClickListener(this);
-        	audioButton.setClickable(true);
+        //	audioButton.setOnClickListener(this);
+        //	audioButton.setClickable(true);
         } else {
+<<<<<<< HEAD
         	audioButton.setTextColor(getResources().getColor(R.color.White));
         }
         //Butons to exit activity
         doneButton.setOnClickListener(this);
         draftButton.setOnClickListener(this);
+=======
+        //	audioButton.setTextColor(getResources().getColor(R.color.White));
+        } 
+>>>>>>> 6fca6961ce10d9acaf18d8d8246569422d8f3b84
     }
     
     public void onClick(View v){
