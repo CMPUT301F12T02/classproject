@@ -9,28 +9,37 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.List;
+
+import android.content.Context;
 
 public class LocalTaskManager {
 	
 	//saves a local task to file
-	public static void saveLocalTask(Task task) {
-		String filename = "localtask";
-		saveToFile(task, filename);
+	public static void saveLocalTask(Task task, Context context) {
+		String filename = "/localtask";
+		saveToFile(task, context, filename);
 	}
 	
 	//saves a draft to file
-	public static void saveDraft(Task task) {
-		String filename = "draft";
-		saveToFile(task, filename);
+	public static void saveDraft(Task task, Context context) {
+		String filename = "/draft";
+		saveToFile(task, context, filename);
 	}
 	
 	//opens a file and appends a serialized object to it
-	private static void saveToFile(Task task, String filename) {
+	private static void saveToFile(Task task, Context context, String filename) {
 		try {
-			FileOutputStream fos = new FileOutputStream(filename);
+			ArrayList<Task> tasks = readFromFile(context, filename);
+			tasks.add(task);
+			
+			File file = new File(context.getFilesDir().getPath().toString() + filename);
+			FileOutputStream fos = new FileOutputStream(file);
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(task);
+			
+			for (Task taskInList: tasks) {
+				oos.writeObject(taskInList);
+			}
+			
 			oos.close();
 		} catch (FileNotFoundException fnfe) {
 			fnfe.printStackTrace();
@@ -40,24 +49,24 @@ public class LocalTaskManager {
 	}
 	
 	//retrieves a list of all local tasks
-	public static List<Task> loadLocalTasks() {
-		String filename = "localtask";
-		return readFromFile(filename);
+	public static ArrayList<Task> loadLocalTasks(Context context) {
+		String filename = "/localtask";
+		return readFromFile(context, filename);
 	}
 	
 	//retrieves a list of all saved drafts
-	public static List<Task> loadDrafts() {
-		String filename = "draft";
-		return readFromFile(filename);		//compare all tasks to the input task
-		//write all tasks back except the one that matches input task
+	public static ArrayList<Task> loadDrafts(Context context) {
+		String filename = "/draft";
+		return readFromFile(context, filename);
 	}
 	
 	//opens a file and reads all serialized objects in it
-	private static List<Task> readFromFile(String filename) {
-		List<Task> tasks = new ArrayList<Task>();
+	private static ArrayList<Task> readFromFile(Context context, String filename) {
+		ArrayList<Task> tasks = new ArrayList<Task>();
 		
 		try {
-			FileInputStream fin = new FileInputStream(filename);
+			File file = new File(context.getFilesDir().getPath().toString() + filename);
+			FileInputStream fin = new FileInputStream(file);
 			ObjectInputStream ois = new ObjectInputStream(fin);
 			
 			//keeps reading from the file until the EOF is hit, at which point
@@ -82,27 +91,39 @@ public class LocalTaskManager {
 		return tasks;
 	}
 	
-	public static void deleteLocalTask(Task task) {
-		String filename = "localtask";
-		deleteTask(task, filename);
+	//deletes a local task from the file
+	public static void deleteLocalTask(Task task, Context context) {
+		String filename = "/localtask";
+		deleteTask(task, context, filename);
 	}
 	
-	public static void deleteDraft(Task task) {
-		String filename = "draft";
-		deleteTask(task, filename);
+	//deletes a draft from the file
+	public static void deleteDraft(Task task, Context context) {
+		String filename = "/draft";
+		deleteTask(task, context, filename);
 	}
 	
-	private static void deleteTask(Task task, String filename) {
-		List<Task> tasks = readFromFile(filename);
+	//retrieves the list of all tasks in a file, and then writes back all tasks
+	//except the one that is equivalent to the task passed in by the user
+	private static void deleteTask(Task task, Context context, String filename) {
+		ArrayList<Task> tasks = readFromFile(context, filename);
 		
-		File file = new File(filename);
-		file.delete();
-		
-		for (Task taskInList : tasks) {
-			if (taskInList.equals(task) == false) {
-				saveToFile(taskInList, filename);
+		try {
+			File file = new File(context.getFilesDir().getPath().toString() + filename);
+			FileOutputStream fos = new FileOutputStream(file);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			
+			for (Task taskInList: tasks) {
+				if (taskInList.equals(task) == false) {
+					oos.writeObject(taskInList);
+				}
 			}
+			
+			oos.close();
+		} catch (FileNotFoundException fnfe) {
+			fnfe.printStackTrace();
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
 		}
 	}
-	
 }
