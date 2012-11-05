@@ -40,6 +40,7 @@ public class FulfillTask extends Activity implements OnClickListener {
         } else {
         	photoButton.setTextColor(getResources().getColor(R.color.White));
         }
+        
         if (requestAudio){
         //	audioButton.setOnClickListener(this);
         //	audioButton.setClickable(true);
@@ -71,9 +72,7 @@ public class FulfillTask extends Activity implements OnClickListener {
     			
     			EditText answerBox = (EditText) findViewById(R.id.task_text);
     			String answer = answerBox.getText().toString();
-    			//asdfasdf asdfsdfa
-    			//ATRRIBUTE FOR ANSWER STRING????
-    			//newtask.setDescription(answer);
+    			
     			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
     			intent = new Intent();
     			break;

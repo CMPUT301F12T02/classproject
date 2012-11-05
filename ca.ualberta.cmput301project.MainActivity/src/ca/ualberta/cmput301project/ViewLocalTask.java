@@ -24,7 +24,7 @@ public class ViewLocalTask extends ListActivity{
     
     private void refresh() {
     	ArrayList<Task> tasks = LocalTaskManager.loadLocalTasks(this);
-        setListAdapter(new ArrayAdapter<Task>(this,android.R.layout.simple_list_item_1,tasks));
+        setListAdapter(new ArrayAdapter<Task>(this,android.R.layout.simple_expandable_list_item_1,tasks));
     }
     
     /* (non-Javadoc)

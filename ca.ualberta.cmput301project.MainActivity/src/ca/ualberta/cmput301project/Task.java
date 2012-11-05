@@ -87,4 +87,9 @@ public class Task implements Serializable
     	newTask.result_audiofile = this.result_audiofile;
     	return newTask;
     }
+    
+    @Override
+    public String toString() {
+        return this.description  ;
+    }
 }
