@@ -23,8 +23,7 @@ public class RequestSummary extends Activity implements OnClickListener {
         Button shareRequest = (Button) findViewById(R.id.post_button);
         saveLocal.setOnClickListener(this);
         shareRequest.setOnClickListener(this);
-        
-        
+
     }
 
     public void onClick(View v){
@@ -38,6 +37,11 @@ public class RequestSummary extends Activity implements OnClickListener {
 				break;
 			case R.id.post_button:
 			        Toast.makeText(getApplicationContext(), "Task Added To System(Community)", Toast.LENGTH_SHORT).show();
+<<<<<<< HEAD
+=======
+			        ExternalTaskManager.addTask(current_task);
+			        MainActivity.community_count++;
+>>>>>>> d830425667983a62216bd0cccf2a4cdbf097cc07
 				intent = new Intent(this, StoredTasks.class);
 				break;
 			default:
