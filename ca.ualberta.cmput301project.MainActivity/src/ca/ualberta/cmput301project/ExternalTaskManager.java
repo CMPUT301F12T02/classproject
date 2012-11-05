@@ -125,7 +125,7 @@ public class ExternalTaskManager
           } catch (JSONException e) {
             e.printStackTrace();
           }
-        HttpGet hget = new HttpGet(baseURL+"?action=post&description=taskposted&content="+object.toString()+"&");
+        HttpGet hget = new HttpGet(baseURL+"?action=post&summary=taskposted&content="+object.toString()+"&description=taskposted");
         List <BasicNameValuePair> nvps = new ArrayList <BasicNameValuePair>();
         nvps.add(new BasicNameValuePair("action", "post"));
         nvps.add(new BasicNameValuePair("summary", "Task Finished"));
@@ -133,8 +133,7 @@ public class ExternalTaskManager
 
         try
         {
-            httpPost.setEntity(new UrlEncodedFormEntity(nvps));
-            response = (HttpResponse) httpclient.execute(httpPost);
+            response = (HttpResponse) httpclient.execute(hget);
         } catch (UnsupportedEncodingException e)
         {
             e.printStackTrace();
