@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.StatusLine;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -21,13 +22,14 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.os.AsyncTask;
+
 
 
 public class ExternalTaskManager
 {
     static private String baseURL = "http://crowdsourcer.softwareprocess.es/F12/CMPUT301F12T02/";
     static StringBuilder builder = new StringBuilder();
-    static HttpPost httpPost = new HttpPost(baseURL);
     private static HttpClient httpclient = new DefaultHttpClient();
     public ExternalTaskManager(){
         
@@ -104,10 +106,14 @@ public class ExternalTaskManager
         internetFetch(httpGet);
         return builder.toString();
     }
-    public static String addTask(Task task){
+    
+    public class addTask extends AsyncTask<Task, Void, String>{
+        @Override
+        protected String doInBackground(Task... tasks) {
         HttpResponse response = null;
         String rtv = null;
         String reqPhoto, reqAudio;
+        for(Task task : tasks){
         if(task.getReqPhoto()){
             reqPhoto = "true";
         }
@@ -125,15 +131,22 @@ public class ExternalTaskManager
           } catch (JSONException e) {
             e.printStackTrace();
           }
-        HttpGet hget = new HttpGet(baseURL+"?action=post&summary=taskposted&content="+object.toString()+"&description=taskposted");
-        List <BasicNameValuePair> nvps = new ArrayList <BasicNameValuePair>();
-        nvps.add(new BasicNameValuePair("action", "post"));
-        nvps.add(new BasicNameValuePair("summary", "Task Finished"));
-        nvps.add(new BasicNameValuePair("content", object.toString()));
+        //HttpGet hget = new HttpGet(baseURL+"?action=post&summary=taskposted&content="+object.toString()+"&description=taskposted");
+        
 
         try
         {
-            response = (HttpResponse) httpclient.execute(hget);
+            List <NameValuePair> nvps = new ArrayList <NameValuePair>();
+            nvps.add(new BasicNameValuePair("action", "post"));
+            nvps.add(new BasicNameValuePair("summary", "TaskFinished"));
+            nvps.add(new BasicNameValuePair("content", object.toString()));
+            nvps.add(new BasicNameValuePair("description", "TaskPosted"));
+            UrlEncodedFormEntity urlefe = new UrlEncodedFormEntity(nvps);
+            System.out.println(nvps.toString());
+            HttpPost httpPost = new HttpPost("http://crowdsourcer.softwareprocess.es/F12/CMPUT301F12T02/");
+            httpPost.setEntity(urlefe);
+            System.out.println(httpPost.getURI().toString());
+            response = (HttpResponse) httpclient.execute(httpPost);
         } catch (UnsupportedEncodingException e)
         {
             e.printStackTrace();
@@ -163,7 +176,9 @@ public class ExternalTaskManager
             }
             rtv = convertStreamToString(is);
         }
+        }
         return rtv;
+    }
     }
         
     public static void updateTask(Task task, String id){
@@ -197,14 +212,12 @@ public class ExternalTaskManager
 
         try
         {
+            HttpPost httpPost = new HttpPost("http://crowdsourcer.softwareprocess.es/F12/CMPUT301F12T02/");
             httpPost.setEntity(new UrlEncodedFormEntity(nvps));
+            HttpResponse response = httpclient.execute(httpPost);
         } catch (UnsupportedEncodingException e)
         {
             e.printStackTrace();
-        }
-        try
-        {
-            HttpResponse response = httpclient.execute(httpPost);
         } catch (ClientProtocolException e)
         {
             // TODO Auto-generated catch block
