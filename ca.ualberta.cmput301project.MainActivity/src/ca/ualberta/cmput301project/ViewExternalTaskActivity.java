@@ -95,13 +95,15 @@ public class ViewExternalTaskActivity extends ListActivity{
         for (int i = 0; i < jarray.length()+1; i++){
             try
             {
+            	//We added an owner attribute to task, so account for that! :D
+            	String owner = "John Doe"; //DUMMY OWNER
                 JSONObject obj = jarray.getJSONObject(i);
                 ids[i] = obj.getString("id");
                 JSONObject content = obj.getJSONObject("content");
                 String description = content.getString("desciption");
                 boolean reqPhoto = Boolean.valueOf(content.getString("reqPhoto"));
                 boolean reqAudio = Boolean.valueOf(content.getString("reqAudio"));
-                Task task = new Task(description, reqPhoto, reqAudio);
+                Task task = new Task(owner, description, reqPhoto, reqAudio);
                 tasks.add(task);
             } catch (JSONException e)
             {

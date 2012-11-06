@@ -17,6 +17,7 @@ public class Task implements Serializable
     private boolean isPhotoRequired;
     private boolean isAudioRequired;
     private boolean isComplete;
+    private String owner;
     private Date timestamp;
     
     private String result_answer = "no answer";
@@ -29,12 +30,20 @@ public class Task implements Serializable
      * @param boolean isPhotoRequired
      * @param boolean isAudioRequired
      */
-    public Task(String description, boolean isPhotoRequired, boolean isAudioRequired) {
+    public Task(String newOwner, String description, boolean isPhotoRequired, boolean isAudioRequired) {
     	this.description = description;
         this.isPhotoRequired = isPhotoRequired;
         this.isAudioRequired = isAudioRequired;
         this.isComplete = false;
+        this.owner = newOwner;
         this.timestamp = new java.util.Date();
+    }
+    /** getOwner returns the owner of the task
+     * 
+     * @return String Owner of Task
+     */
+    public String getOwner(){
+    	return this.owner;
     }
     /** getDescription returns the description
      * 
@@ -123,7 +132,8 @@ public class Task implements Serializable
      * @return Task
      */
     public Task cloneTask(){
-    	Task newTask = new Task(this.description, this.isPhotoRequired, this.isAudioRequired);
+    	Task newTask = new Task(this.owner, this.description, this.isPhotoRequired, this.isAudioRequired);
+    	newTask.owner = this.owner;
     	newTask.isComplete = this.isComplete;
     	newTask.timestamp = this.timestamp;
     	newTask.result_answer = this.result_answer;

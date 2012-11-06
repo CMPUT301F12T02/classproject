@@ -19,9 +19,12 @@ public class Authentication {
 		Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("select count(*) from android_users where username = '"+username+"'");
         
+        //Username taken, conflict
         if (resultSet.getInt(1) == 1) {
         	return false;
-        } else {
+        }
+        //User created
+        else {
         	statement.executeQuery("insert into android_users values('"+username+"', '"+password+"')");
         	return true;
         }
@@ -30,10 +33,12 @@ public class Authentication {
 	public static boolean logIn(Connection connection, String username, String password) throws SQLException {
 		Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("select count(*) from android_users where username = '"+username+"' and password = '"+password+"'");
-		
+		//successful login
         if (resultSet.getInt(1) == 1) {
         	return true;
-        } else {
+        }
+        //login failed
+        else {
         	return false;
         }
 	}
