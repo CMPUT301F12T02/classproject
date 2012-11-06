@@ -25,6 +25,9 @@ import android.content.Context;
  * @version 1.0
  */
 public class LocalTaskManager {
+	private static String localtaskFilename = "/localtask";
+	private static String draftFilename = "/draft";
+	private static String favouriteFilename = "/favourite";
 	
 	private LocalTaskManager() {}
 	
@@ -34,8 +37,7 @@ public class LocalTaskManager {
 	 *  @param context				The context of the application, so the method knows the directory path
 	 */
 	public static void saveLocalTask(Task task, Context context) {
-		String filename = "/localtask";
-		saveToFile(task, context, filename);
+		saveToFile(task, context, localtaskFilename);
 	}
 	
 	/** Saves a draft to file
@@ -44,8 +46,16 @@ public class LocalTaskManager {
 	 * @param context				The context of the application, so the method knows the directory path
 	 */
 	public static void saveDraft(Task task, Context context) {
-		String filename = "/draft";
-		saveToFile(task, context, filename);
+		saveToFile(task, context, draftFilename);
+	}
+	
+	/** Saves a favourite task to file
+	 * 
+	 * @param task					The task that the user wishes to save
+	 * @param context				The context of the application, so the method knows the directory path
+	 */
+	public static void saveFavourite(Task task, Context context) {
+		saveToFile(task, context, favouriteFilename);
 	}
 	
 	/** Obtains the list of all tasks saved to file, appends the user inputted task
@@ -82,8 +92,7 @@ public class LocalTaskManager {
 	 * @return						An array list of all local tasks
 	 */
 	public static ArrayList<Task> loadLocalTasks(Context context) {
-		String filename = "/localtask";
-		return readFromFile(context, filename);
+		return readFromFile(context, localtaskFilename);
 	}
 	
 	/** Retrieves a list of all saved drafts
@@ -92,8 +101,16 @@ public class LocalTaskManager {
 	 * @return						An array list of all saved drafts
 	 */
 	public static ArrayList<Task> loadDrafts(Context context) {
-		String filename = "/draft";
-		return readFromFile(context, filename);
+		return readFromFile(context, draftFilename);
+	}
+	
+	/** Retrieves a list of all favourite tasks
+	 * 
+	 * @param context				The context of the application, so the method knows the directory path
+	 * @return						An array list of all favourite tasks
+	 */
+	public static ArrayList<Task> loadFavourites(Context context) {
+		return readFromFile(context, favouriteFilename);
 	}
 	
 	/** Opens a file and reads all serialized objects in it
@@ -137,8 +154,7 @@ public class LocalTaskManager {
 	 * @param context				The context of the application, so the method knows the directory path
 	 */
 	public static void deleteLocalTask(Task task, Context context) {
-		String filename = "/localtask";
-		deleteTask(task, context, filename);
+		deleteTask(task, context, localtaskFilename);
 	}
 	
 	/** Deletes a draft from the file
@@ -147,8 +163,16 @@ public class LocalTaskManager {
 	 * @param context				The context of the application, so the method knows the directory path
 	 */
 	public static void deleteDraft(Task task, Context context) {
-		String filename = "/draft";
-		deleteTask(task, context, filename);
+		deleteTask(task, context, draftFilename);
+	}
+	
+	/** Deletes a favourite task from the file
+	 * 
+	 * @param task					The favourite task that the user wishes to delete
+	 * @param context				The context of the application, so the method knows the directory path
+	 */
+	public static void deleteFavourite(Task task, Context context) {
+		deleteTask(task, context, favouriteFilename);
 	}
 	
 	/** Retrieves the list of all tasks in a file, and then writes back all tasks
@@ -188,8 +212,7 @@ public class LocalTaskManager {
 	 * @param context				The context of the application, so the method knows the directory path
 	 */
 	public static void replaceLocalTask(Task oldTask, Task newTask, Context context) {
-		String filename = "/localtask";
-		replaceTask(oldTask, newTask, context, filename);
+		replaceTask(oldTask, newTask, context, localtaskFilename);
 	}
 	
 	/** Allows the "saving over" of an old draft with its updated version, keeping its same
@@ -200,8 +223,18 @@ public class LocalTaskManager {
 	 * @param context				The context of the application, so the method knows the directory path
 	 */
 	public static void replaceDraft(Task oldTask, Task newTask, Context context) {
-		String filename = "/draft";
-		replaceTask(oldTask, newTask, context, filename);
+		replaceTask(oldTask, newTask, context, draftFilename);
+	}
+	
+	/** Allows the "saving over" of an old favourite task with its updated version, keeping its same
+	 * position in the favourite file
+	 * 
+	 * @param oldTask				The old favourite task that is being overwritten
+	 * @param newTask				The new favourite task that is overwriting its older version
+	 * @param context				The context of the application, so the method knows the directory path
+	 */
+	public static void replaceFavourite(Task oldTask, Task newTask, Context context) {
+		replaceTask(oldTask, newTask, context, favouriteFilename);
 	}
 	
 	/** Retrieves the list of all tasks in a file, and then writes back all tasks to the file. Once the
