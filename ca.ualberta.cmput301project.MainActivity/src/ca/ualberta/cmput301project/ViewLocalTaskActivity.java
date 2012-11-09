@@ -2,6 +2,9 @@ package ca.ualberta.cmput301project;
 
 import java.util.ArrayList;
 
+import ca.ualberta.Tasks.LocalTaskManager;
+import ca.ualberta.Tasks.Task;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;

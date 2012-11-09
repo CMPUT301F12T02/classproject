@@ -6,6 +6,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ca.ualberta.Tasks.ExternalTaskManager;
+import ca.ualberta.Tasks.Task;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;

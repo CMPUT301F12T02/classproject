@@ -1,4 +1,4 @@
-package ca.ualberta.cmput301project;
+package ca.ualberta.Tasks;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,5 +1,6 @@
 package ca.ualberta.cmput301project;
 
+import ca.ualberta.Tasks.Task;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
