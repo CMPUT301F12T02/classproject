@@ -1,20 +1,17 @@
 package ca.ualberta.cmput301project;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.app.Activity;
-import android.view.Menu;
 
 public class LoginActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("Login", "Called super.onCreate()");
         setContentView(R.layout.activity_login);
+        Log.d("Login", "setContentView Layout");
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_login, menu);
-        return true;
-    }
 }

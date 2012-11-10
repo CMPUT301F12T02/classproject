@@ -1,12 +1,8 @@
 package ca.ualberta.cmput301project;
 
 
-import ca.ualberta.Tasks.LocalTaskManager;
-import ca.ualberta.Tasks.Task;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;

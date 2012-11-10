@@ -1,4 +1,4 @@
-package ca.ualberta.Tasks;
+package ca.ualberta.cmput301project;
 
 import java.io.Serializable;
 import java.util.Date;

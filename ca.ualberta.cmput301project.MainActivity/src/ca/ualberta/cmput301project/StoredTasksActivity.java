@@ -19,10 +19,7 @@ public class StoredTasksActivity extends Activity implements OnClickListener {
         viewLocaldId.setOnClickListener(this);
         viewComId.setOnClickListener(this);
     }
-    
-	//http://developer.android.com/guide/topics/ui/layout/listview.html
-	//http://www.mkyong.com/android/android-listview-example/
-    
+        
     public void onClick(View v){
     	//Needs to get request information,
     	// to populate task description box

@@ -1,23 +1,54 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-
-    <LinearLayout
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true" >
-        <EditText
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/hello_world"
-	        tools:context=".LoginActivity" />
-        <EditText
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/hello_world"
-	        tools:context=".LoginActivity" />
-    </LinearLayout>
-    
-
-</RelativeLayout>
+        android:layout_centerVertical="true"
+        android:orientation="vertical" >
+		<LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal" >
+		    <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/userPrompt" />
+	        <EditText
+	            android:id="@+id/userField"
+	            android:layout_weight="1"
+		        android:layout_width="0dip"
+		        android:layout_height="wrap_content"
+		        android:inputType="text"
+		        tools:context=".LoginActivity" />
+		</LinearLayout>
+        <LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal" >
+	        <TextView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/passPrompt" />
+	        <EditText
+	            android:id="@+id/passField"
+		        android:layout_weight="1"
+		        android:layout_width="0dip"
+		        android:layout_height="wrap_content"
+		        android:inputType="textPassword"
+		        tools:context=".LoginActivity" />
+		</LinearLayout>
+		<Button
+		    android:id="@+id/userLoginButton"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:text="@string/userLogin" />
+		<Button
+		    android:id="@+id/userRegisterButton"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:text="@string/userRegister" />
+		<TextView
+		    android:id="@+id/loginStatus"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content" />
+</LinearLayout>

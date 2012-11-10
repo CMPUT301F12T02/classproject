@@ -18,30 +18,35 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f080000;
-        public static final int TakeAPhoto=0x7f080015;
-        public static final int answer_text=0x7f080002;
-        public static final int camera_status=0x7f080016;
-        public static final int com_button=0x7f080012;
-        public static final int createrequest_button=0x7f08000c;
-        public static final int get_audio=0x7f080003;
-        public static final int get_image=0x7f080004;
-        public static final int local_button=0x7f080014;
-        public static final int menu_settings=0x7f080017;
-        public static final int my_tasks=0x7f080013;
-        public static final int newrequest_button=0x7f080008;
-        public static final int other_requests=0x7f080011;
-        public static final int post_button=0x7f08000f;
-        public static final int question_text=0x7f080001;
-        public static final int requestsummary=0x7f08000d;
-        public static final int require_audio=0x7f08000b;
-        public static final int require_photos=0x7f08000a;
-        public static final int save_draft=0x7f080006;
-        public static final int savelocal_button=0x7f08000e;
-        public static final int storetaskParentLayout=0x7f080010;
-        public static final int task_description=0x7f080009;
-        public static final int taskdone=0x7f080005;
-        public static final int viewstored_button=0x7f080007;
+        public static final int LinearLayout1=0x7f070000;
+        public static final int LoginFromMain=0x7f07000c;
+        public static final int TakeAPhoto=0x7f07001b;
+        public static final int answer_text=0x7f070002;
+        public static final int camera_status=0x7f07001c;
+        public static final int com_button=0x7f070018;
+        public static final int createrequest_button=0x7f070012;
+        public static final int get_audio=0x7f070003;
+        public static final int get_image=0x7f070004;
+        public static final int local_button=0x7f07001a;
+        public static final int loginStatus=0x7f07000b;
+        public static final int my_tasks=0x7f070019;
+        public static final int newrequest_button=0x7f07000e;
+        public static final int other_requests=0x7f070017;
+        public static final int passField=0x7f070008;
+        public static final int post_button=0x7f070015;
+        public static final int question_text=0x7f070001;
+        public static final int requestsummary=0x7f070013;
+        public static final int require_audio=0x7f070011;
+        public static final int require_photos=0x7f070010;
+        public static final int save_draft=0x7f070006;
+        public static final int savelocal_button=0x7f070014;
+        public static final int storetaskParentLayout=0x7f070016;
+        public static final int task_description=0x7f07000f;
+        public static final int taskdone=0x7f070005;
+        public static final int userField=0x7f070007;
+        public static final int userLoginButton=0x7f070009;
+        public static final int userRegisterButton=0x7f07000a;
+        public static final int viewstored_button=0x7f07000d;
     }
     public static final class layout {
         public static final int activity_fulfilltask=0x7f030000;
@@ -53,59 +58,60 @@ public final class R {
         public static final int activity_takephoto=0x7f030006;
         public static final int activity_tasklist=0x7f030007;
     }
-    public static final class menu {
-        public static final int activity_login=0x7f070000;
-    }
     public static final class string {
-        public static final int TakeAPhoto=0x7f04001e;
+        public static final int TakeAPhoto=0x7f040023;
         public static final int app_name=0x7f040000;
-        public static final int camera_status=0x7f04001f;
-        public static final int com_button=0x7f040010;
-        public static final int createrequest_button=0x7f040008;
+        public static final int camera_status=0x7f040024;
+        public static final int com_button=0x7f040015;
+        public static final int createrequest_button=0x7f04000d;
         /**  Filfill Non-text Requirements 
          */
-        public static final int discard=0x7f04001b;
-        public static final int empty_list=0x7f040012;
-        public static final int get_audio=0x7f040017;
-        public static final int get_image=0x7f040018;
-        public static final int hello_world=0x7f040020;
-        public static final int local_button=0x7f040011;
-        public static final int menu_settings=0x7f040021;
-        public static final int my_tasks=0x7f04000f;
+        public static final int discard=0x7f040020;
+        public static final int empty_list=0x7f040017;
+        public static final int get_audio=0x7f04001c;
+        public static final int get_image=0x7f04001d;
+        public static final int local_button=0x7f040016;
+        public static final int my_tasks=0x7f040014;
         public static final int newrequest_button=0x7f040003;
-        public static final int other_requests=0x7f04000e;
-        public static final int post_button=0x7f04000c;
-        public static final int requestsummary=0x7f04000a;
-        public static final int require_audio=0x7f040007;
-        public static final int require_photos=0x7f040006;
-        public static final int save=0x7f04001c;
-        public static final int save_draft=0x7f04001a;
-        public static final int savelocal_button=0x7f04000b;
-        public static final int task_description=0x7f040005;
-        public static final int task_text=0x7f040016;
-        public static final int taskdone=0x7f040019;
-        public static final int title_activity_com_task=0x7f040013;
+        public static final int other_requests=0x7f040013;
+        public static final int passPrompt=0x7f040006;
+        public static final int post_button=0x7f040011;
+        public static final int requestsummary=0x7f04000f;
+        public static final int require_audio=0x7f04000c;
+        public static final int require_photos=0x7f04000b;
+        public static final int save=0x7f040021;
+        public static final int save_draft=0x7f04001f;
+        public static final int savelocal_button=0x7f040010;
+        public static final int task_description=0x7f04000a;
+        public static final int task_text=0x7f04001b;
+        public static final int taskdone=0x7f04001e;
+        public static final int title_activity_com_task=0x7f040018;
         /**  Create Task to fulfill Request 
          */
-        public static final int title_activity_fulfill_task=0x7f040015;
-        public static final int title_activity_local_task=0x7f040014;
-        public static final int title_activity_login=0x7f040022;
+        public static final int title_activity_fulfill_task=0x7f04001a;
+        public static final int title_activity_local_task=0x7f040019;
+        /**  Login Screen 
+         */
+        public static final int title_activity_login=0x7f040004;
         /**  Main Menu 
          */
         public static final int title_activity_main=0x7f040001;
         /**  Create New Request 
          */
-        public static final int title_activity_new_request=0x7f040004;
+        public static final int title_activity_new_request=0x7f040009;
         /**  Summary of Request 
          */
-        public static final int title_activity_request_summary=0x7f040009;
+        public static final int title_activity_request_summary=0x7f04000e;
         /**  Show Stored Tasks 
          */
-        public static final int title_activity_stored_tasks=0x7f04000d;
+        public static final int title_activity_stored_tasks=0x7f040012;
         /**  Record Audio 
  Take Photo(s) 
          */
-        public static final int title_activity_take_photo=0x7f04001d;
+        public static final int title_activity_take_photo=0x7f040022;
+        public static final int userLogin=0x7f040007;
+        public static final int userPrompt=0x7f040005;
+        public static final int userRegister=0x7f040008;
         public static final int viewstored_button=0x7f040002;
     }
     public static final class style {

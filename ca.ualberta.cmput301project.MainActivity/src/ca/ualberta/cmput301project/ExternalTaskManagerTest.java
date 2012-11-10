@@ -1,6 +1,4 @@
-package ca.ualberta.Tasks;
-
-import java.util.Date;
+package ca.ualberta.cmput301project;
 
 import org.json.JSONException;
 import org.json.JSONObject;
