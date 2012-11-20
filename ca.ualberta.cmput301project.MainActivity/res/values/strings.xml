@@ -14,6 +14,7 @@
     <!-- Create New Request -->
     <string name="title_activity_new_request">New Task Request</string>
     <string name="task_description">Description of Task</string>
+    <string name="user_email">Email that task will be sent to upon completion</string>
     <string name="require_photos">Requires photo(s)</string>
     <string name="require_audio">Requires audio</string>
     <string name="createrequest_button">Create</string>

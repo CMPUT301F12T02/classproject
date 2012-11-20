@@ -15,10 +15,8 @@ public class MainActivity extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        Button loginId = (Button) findViewById(R.id.LoginFromMain);
         Button viewStoredId = (Button) findViewById(R.id.viewstored_button);
         Button newRequestId = (Button) findViewById(R.id.newrequest_button);
-        loginId.setOnClickListener(this);
         viewStoredId.setOnClickListener(this);
         newRequestId.setOnClickListener(this);
     }
@@ -34,18 +32,6 @@ public class MainActivity extends Activity implements OnClickListener {
 				intent = new Intent(MainActivity.this, StoredTasksActivity.class);
 				Log.d("Main", "New intent: StoredTasksActivity");
 				break;
-			case R.id.LoginFromMain:
-				/*Note from Peter: startActivity() throws exception when trying to
-				 * start LoginActivity.
-				 * LogCat:
-				 * Tag:		Text:
-				 * Main 	New intent: LoginActivity
-				 * Main 	Start Activity
-				 * System.err	android.content.ActivityNotFoundException:
-				 * 				No Activity found to handle Intent...
-				 * */
-				intent = new Intent(MainActivity.this, LoginActivity.class);
-				Log.d("Main", "New intent: LoginActivity");
 			default:
 				intent = new Intent();
 				break;

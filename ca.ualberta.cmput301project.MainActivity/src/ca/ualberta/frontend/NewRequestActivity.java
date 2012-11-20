@@ -50,7 +50,9 @@ public class NewRequestActivity extends Activity implements OnClickListener {
      *  @author fessehay
      */
     public Task create_task(){
-        String owner = "John Doe";
+        EditText ownerEmailEditText = (EditText) findViewById(R.id.user_email); 
+        String ownerEmail = ownerEmailEditText.getText().toString();
+        
         EditText destxt = (EditText) findViewById(R.id.task_description); 
         String desc = destxt.getText().toString();
         
@@ -66,7 +68,7 @@ public class NewRequestActivity extends Activity implements OnClickListener {
              audio_needed = true;
         }
         
-        Task newtask = new Task(owner, desc, photo_needed, audio_needed);
+        Task newtask = new Task(ownerEmail, desc, photo_needed, audio_needed);
         
         return newtask;
     };
