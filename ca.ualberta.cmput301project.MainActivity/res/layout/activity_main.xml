@@ -7,7 +7,7 @@
     android:orientation="vertical" >
 
     <Button
-        android:id="@+id/LoginFromMain"
+        android:id="@+id/loginfrommain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/userLogin" />

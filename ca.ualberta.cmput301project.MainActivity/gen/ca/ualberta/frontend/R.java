@@ -19,7 +19,6 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout1=0x7f070000;
-        public static final int LoginFromMain=0x7f07000c;
         public static final int TakeAPhoto=0x7f07001b;
         public static final int answer_text=0x7f070002;
         public static final int camera_status=0x7f07001c;
@@ -29,6 +28,7 @@ public final class R {
         public static final int get_image=0x7f070004;
         public static final int local_button=0x7f07001a;
         public static final int loginStatus=0x7f07000b;
+        public static final int loginfrommain=0x7f07000c;
         public static final int my_tasks=0x7f070019;
         public static final int newrequest_button=0x7f07000e;
         public static final int other_requests=0x7f070017;

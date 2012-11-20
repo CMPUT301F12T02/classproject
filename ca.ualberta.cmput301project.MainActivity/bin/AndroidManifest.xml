@@ -30,21 +30,21 @@
             </intent-filter>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.ualberta.cmput301project.MainActivity" />
+                android:value="ca.ualberta.frontend.MainActivity" />
         </activity>
         <activity
             android:name=".NewRequestActivity"
             android:label="@string/title_activity_new_request" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.ualberta.cmput301project.MainActivity" />
+                android:value="ca.ualberta.frontend.MainActivity" />
         </activity>
         <activity
             android:name=".StoredTasksActivity"
             android:label="@string/title_activity_stored_tasks" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.ualberta.cmput301project.MainActivity" />
+                android:value="ca.ualberta.frontend.MainActivity" />
         </activity>
         <activity
             android:name=".RequestSummaryActivity"
@@ -59,21 +59,21 @@
             android:label="@string/title_activity_com_task" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.ualberta.cmput301project.StoredTasksActivity" />
+                android:value="ca.ualberta.frontend.StoredTasksActivity" />
         </activity>
         <activity
             android:name=".ViewLocalTaskActivity"
             android:label="@string/title_activity_local_task" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.ualberta.cmput301project.StoredTasks" />
+                android:value="ca.ualberta.frontend.StoredTasks" />
         </activity>
         <activity
             android:name="ca.ualberta.frontend.TakePhotoActivity"
             android:label="@string/title_activity_take_photo" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.ualberta.cmput301project.FulfillTask" />
+                android:value="ca.ualberta.frontend.FulfillTask" />
         </activity>
 
     </application>

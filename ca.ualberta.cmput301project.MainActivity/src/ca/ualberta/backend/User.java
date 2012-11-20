@@ -1,6 +1,6 @@
 package ca.ualberta.backend;
 
-import ca.ualberta.backend.Authentication;
+import ca.ualberta.backend.SQLiteHandler;
 import java.sql.*;
 
 /** Checks username and password entered in LoginActivity,
