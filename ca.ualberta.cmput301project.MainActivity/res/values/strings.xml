@@ -21,8 +21,12 @@
     <string name="title_activity_stored_tasks">Stored Tasks</string>
     <string name="other_requests">Task Requests From Others</string>
     <string name="my_tasks">My Tasks</string>
+    <string name="my_favourites">My Favourite Tasks</string>
+    <string name="my_drafts">My Drafts</string>
     <string name="com_button">COMMUNITY</string>
     <string name="local_button">LOCAL</string>
+    <string name="drafts_button">DRAFTS</string>
+    <string name="favourites_button">FAVOURITES</string>
     <string name="empty_list">No tasks found.</string>
     <string name="title_activity_com_task">Community Tasks</string>
     <string name="title_activity_local_task">Local Tasks</string>
