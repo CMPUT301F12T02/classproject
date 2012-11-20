@@ -3,25 +3,40 @@ package ca.ualberta.backend;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import ca.ualberta.backend.User;
 
 /*
- * References used: http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
+ * References used:
+ * http://www.androidhive.info/2011/11/android-sqlite-database-tutorial/
+ * http://huuah.com/using-sqlite-from-your-android-app/
  * */
-public class SQLiteAuthentication extends SQLiteOpenHelper {
+public class SQLiteHandler extends SQLiteOpenHelper {
+	private SQLiteHandler dbHelper;
+	private SQLiteDatabase db;
+	private final Context dbcontext;
 	private static final int VERSION = 1;
+	/* File path = /data/data/ca.ualberta/frontend/databases/UserDB.db
+	 * Access:
+	 * % adb devices
+	 * % adb -s emulator-5554 shell
+	 * OR
+	 * Eclipse: Window (tab) > Show View > Other... > "Android/File Explorer"
+	 */
 	private static final String DB_NAME = "UserDB.db";
+	
 	private static final String TABLE_NAME = "Users";
 	private static final String USER_COL = "username";
 	private static final String PASS_COL = "password";
 
-	public SQLiteAuthentication(Context context){
+	public SQLiteHandler(Context context){
 		super(context, DB_NAME, null, VERSION);
+		this.dbcontext = context;
 	}
 	@Override
-	public void onCreate(SQLiteDatabase db) {
+	public void onCreate(SQLiteDatabase new_db) {
 		// TODO Auto-generated method stub
 		String NewTableStatement = "CREATE TABLE " + TABLE_NAME + " " +
 				                   "(" + USER_COL + " TEXT PRIMARY KEY, " +
@@ -33,6 +48,11 @@ public class SQLiteAuthentication extends SQLiteOpenHelper {
 		// TODO Auto-generated method stub
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
 		onCreate(db);
+	}
+	public SQLiteHandler open() throws SQLException {
+		dbHelper = new SQLiteHandler(dbcontext);
+		db = dbHelper.getReadableDatabase();
+		return this;
 	}
 	
 	/* Adds user to database.
@@ -55,7 +75,7 @@ public class SQLiteAuthentication extends SQLiteOpenHelper {
 		String[] columns = new String[]{USER_COL};
 		String[] selectionArgs = new String[]{q_user.getUsername()};
 
-		SQLiteDatabase db = this.getReadableDatabase();
+		db = this.getReadableDatabase();
 		Cursor cursor = db.query(TABLE_NAME, columns, USER_COL + "=?", selectionArgs, null, null, null);
 		db.close();
 		if (!cursor.isNull(0)){

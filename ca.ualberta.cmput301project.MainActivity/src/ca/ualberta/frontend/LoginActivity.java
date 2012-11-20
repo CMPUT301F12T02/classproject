@@ -1,7 +1,7 @@
 package ca.ualberta.frontend;
 
 import ca.ualberta.frontend.R;
-import ca.ualberta.backend.SQLiteAuthentication;
+import ca.ualberta.backend.SQLiteHandler;
 import ca.ualberta.backend.User;
 
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.app.Activity;
+import android.database.SQLException;
 
 /** User interface for app user to register as new user or login as existing user.
  * 
@@ -19,12 +20,13 @@ import android.app.Activity;
  *
  */
 public class LoginActivity extends Activity implements OnClickListener {
-	private SQLiteAuthentication db = new SQLiteAuthentication(this);
+	private SQLiteHandler db = new SQLiteHandler(this);
 	private User user = new User();
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("Login", "Called super.onCreate()");
+        
         setContentView(R.layout.activity_login);
         Log.d("Login", "setContentView Layout");
         
@@ -32,6 +34,14 @@ public class LoginActivity extends Activity implements OnClickListener {
         Button registerUserButton = (Button) findViewById(R.id.userRegisterButton);
         loginUserButton.setOnClickListener(this);
         registerUserButton.setOnClickListener(this);
+        
+        try {
+			db.open();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Log.e("Login", "db.open() threw SQLException");
+		}
     }
     @Override
     public void onStop(){
@@ -56,6 +66,7 @@ public class LoginActivity extends Activity implements OnClickListener {
 				}
 				break;
 			case R.id.userLoginButton:
+				//TODO: click crashes app
 				if (db.FindRecord(user) == 0){
 					statusField.setText("User logged in.");
 					user.setLoggedIn(true);
