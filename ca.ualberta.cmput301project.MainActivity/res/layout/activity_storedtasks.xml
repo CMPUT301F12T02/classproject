@@ -26,5 +26,27 @@
         android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
         android:text="@string/local_button" />
+    
+    <TextView
+        android:id="@+id/my_favourites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/my_favourites" />
+    <Button
+        android:id="@+id/favourites_button"
+        android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+        android:text="@string/favourites_button" />
+    
+    <TextView
+        android:id="@+id/my_drafts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/my_drafts" />
+    <Button
+        android:id="@+id/drafts_button"
+        android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+        android:text="@string/drafts_button" />
 
 </LinearLayout>
