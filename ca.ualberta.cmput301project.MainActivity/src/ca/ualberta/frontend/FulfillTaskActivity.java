@@ -66,6 +66,9 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     }
     
     public void onClick(View v){
+    	EditText answerBox = (EditText) findViewById(R.id.answer_text);
+		String answer = answerBox.getText().toString();
+    	
     	Task oldtask = (Task) getIntent().getSerializableExtra("task");
     	String photofile = oldtask.getResPhotoName();
     	String audiofile = oldtask.getResAudioName();
@@ -83,10 +86,9 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			startActivity(intent);
     			break;
     		case R.id.save_draft:
-    			EditText answerBox = (EditText) findViewById(R.id.answer_text);
-    			String answer = answerBox.getText().toString();
     			newtask.setResult(answer, photofile, audiofile);
     			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
+    			
     			finish();
     			break;
     		case R.id.taskdone:
@@ -97,11 +99,29 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     	    	tv.setText(((EditText)findViewById(R.id.answer_text)).getText().toString());
     	    	dialog.setContentView(tv);
     	    	dialog.show();
-    			LocalTaskManager.deleteLocalTask(oldtask, this);
+    	    	
+    	    	newtask.setResult(answer, photofile, audiofile);
+    	    	boolean complete = taskDone(newtask);
+    			saveTask(complete, oldtask, newtask);
+    			
     			finish();
     			break;
     	}
     	
+    }
+    private void saveTask(boolean complete, Task oldTask, Task newTask){
+    	if (complete){
+    		LocalTaskManager.deleteLocalTask(oldTask, this);
+    	}
+    }
+    private boolean taskDone(Task task){
+    	if (task.getReqPhoto() && task.getResPhotoName().equals("none")){
+    		return false;
+    	}
+    	if (task.getReqAudio() && task.getResAudioName().equals("none")){
+    		return false;
+    	}
+    	return true;
     }
 
 }
