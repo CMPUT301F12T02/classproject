@@ -1,11 +1,7 @@
 package ca.ualberta.backend;
 
-<<<<<<< HEAD
-import ca.ualberta.backend.SQLiteHandler;
-import java.sql.*;
-=======
 import android.util.Log;
->>>>>>> 22314e0068d7bd1447ce6b69d96ce9944ec7c647
+
 
 /** Checks username and password entered in LoginActivity,
  *  indicating logged in user by username.
@@ -20,8 +16,8 @@ public class User {
 	private boolean LoggedIn;
 
 	public User(){
-		username = "john_doe@example.com";
-		password = "asdf";
+		username = "user@example.com";
+		password = "password";
 		LoggedIn = false;
 		Log.d("User", "User() constructor");
 	}

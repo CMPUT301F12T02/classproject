@@ -22,17 +22,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ca.ualberta.frontend.MainActivity" />
-        </activity>
-        <activity
             android:name=".NewRequestActivity"
             android:label="@string/title_activity_new_request" >
             <meta-data
