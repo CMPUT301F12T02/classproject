@@ -79,6 +79,9 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     }
     
     public void onClick(View v){
+    	Bundle extras = getIntent().getExtras();
+    	String file = extras.getString("file");
+    	
     	EditText answerBox = (EditText) findViewById(R.id.answer_text);
 		String answer = answerBox.getText().toString();
     	
@@ -101,19 +104,33 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     		case R.id.save_progress:
     			newtask.setResult(answer, photofile, audiofile);
     			
-    			//the task will be updated in all instances it exists in
-    			LocalTaskManager.replaceFavourite(oldtask, newtask, this);
-    			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
-    			LocalTaskManager.replaceDraft(oldtask, newtask, this);
+    			if (file == null) {
+	    			//the task was taken from the webservice and needs to be saved in drafts
+    				LocalTaskManager.saveDraft(newtask, this);
+    			} else {
+    				//the task will be updated in all instances it exists in
+	    			LocalTaskManager.replaceFavourite(oldtask, newtask, this);
+	    			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
+	    			LocalTaskManager.replaceDraft(oldtask, newtask, this);
+    			}
     			
     			finish();
     			break;
     		case R.id.add_to_favourites:
     			newtask.setResult(answer, photofile, audiofile);
     			
-    			//the task will be updated if it is a localtask or a draft
-    			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
-    			LocalTaskManager.replaceDraft(oldtask, newtask, this);
+    			if (file == null) {
+    				//the task was taken from the webservice and needs to be added or updated to drafts
+    				if (LocalTaskManager.existsDraft(oldtask, this)) {
+    					LocalTaskManager.replaceDraft(oldtask, newtask, this);
+    				} else {
+    					LocalTaskManager.saveDraft(newtask, this);
+    				}
+    			} else {
+    				//the task existed locally, and needs to be updated everywhere it exists
+    				LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
+    				LocalTaskManager.replaceDraft(oldtask, newtask, this);
+    			}
     			
     			//if it isn't in favourites already, saves it there; else updates it
     			if (LocalTaskManager.existsFavourite(oldtask, this)) {
