@@ -25,6 +25,9 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fulfilltask);
+        
+        Bundle extras = getIntent().getExtras();
+    	String file = extras.getString("file");
 
         Task oldtask = (Task) getIntent().getSerializableExtra("task");
         
@@ -42,7 +45,9 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         Button photoButton = (Button) findViewById(R.id.get_image);
         Button audioButton = (Button) findViewById(R.id.get_audio);
         Button doneButton = (Button) findViewById(R.id.taskdone);
-        Button draftButton = (Button) findViewById(R.id.save_draft);
+        Button draftButton = (Button) findViewById(R.id.save_progress);
+        Button addToFavouritesButton = (Button) findViewById(R.id.add_to_favourites);
+        Button removeFromFavouritesButton = (Button) findViewById(R.id.remove_from_favourites);
         
         photoButton.setClickable(false);
         audioButton.setClickable(false);
@@ -63,6 +68,14 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         //Buttons to exit activity
         doneButton.setOnClickListener(this);
         draftButton.setOnClickListener(this);
+        addToFavouritesButton.setOnClickListener(this);
+        removeFromFavouritesButton.setOnClickListener(this);
+        
+        if (file.equals("FAVOURITES")) {
+        	addToFavouritesButton.setVisibility(View.INVISIBLE);
+        } else {
+        	removeFromFavouritesButton.setVisibility(View.INVISIBLE);
+        }
     }
     
     public void onClick(View v){
@@ -85,43 +98,61 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			intent = new Intent(this, TakePhotoActivity.class);
     			startActivity(intent);
     			break;
-    		case R.id.save_draft:
+    		case R.id.save_progress:
     			newtask.setResult(answer, photofile, audiofile);
+    			
+    			//the task will be updated in all instances it exists in
+    			LocalTaskManager.replaceFavourite(oldtask, newtask, this);
     			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
+    			LocalTaskManager.replaceDraft(oldtask, newtask, this);
+    			
+    			finish();
+    			break;
+    		case R.id.add_to_favourites:
+    			newtask.setResult(answer, photofile, audiofile);
+    			
+    			//the task will be updated if it is a localtask or a draft
+    			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
+    			LocalTaskManager.replaceDraft(oldtask, newtask, this);
+    			
+    			//if it isn't in favourites already, saves it there; else updates it
+    			if (LocalTaskManager.existsFavourite(oldtask, this)) {
+    				LocalTaskManager.replaceFavourite(oldtask, newtask, this);
+    			} else {
+    				LocalTaskManager.saveFavourite(newtask, this);
+    			}
+    			
+    			finish();
+    			break;
+    		case R.id.remove_from_favourites:
+    			LocalTaskManager.deleteFavourite(oldtask, this);
     			
     			finish();
     			break;
     		case R.id.taskdone:
-    			//pop up message
-    			Dialog dialog = new Dialog(this);
-    	    	dialog.setTitle(newtask.getDescription());
-    	    	TextView tv = new TextView(this);
-    	    	tv.setText(((EditText)findViewById(R.id.answer_text)).getText().toString());
-    	    	dialog.setContentView(tv);
-    	    	dialog.show();
-    	    	
-    	    	newtask.setResult(answer, photofile, audiofile);
-    	    	boolean complete = taskDone(newtask);
-    			saveTask(complete, oldtask, newtask);
+    			newtask.setResult(answer, photofile, audiofile);
     			
-    			finish();
+    			Dialog dialog = new Dialog(this);
+    			
+    			if ((newtask.getReqPhoto() && newtask.getResPhotoName().equals("none"))||(newtask.getReqAudio() && newtask.getResAudioName().equals("none"))) {
+    				//task is not completed
+    				
+    				dialog.setTitle("Task not completed");
+    			} else {
+    				//task is completed, remove it and send it
+    				
+    				dialog.setTitle("Task successfully completed");
+	    	    	
+	    	    	LocalTaskManager.deleteLocalTask(oldtask, this);
+		    		LocalTaskManager.deleteDraft(oldtask, this);
+		    		LocalTaskManager.deleteFavourite(oldtask, this);
+		    		
+		    		finish();
+    			}
+    			
+    			dialog.show();
+    			
     			break;
     	}
-    	
     }
-    private void saveTask(boolean complete, Task oldTask, Task newTask){
-    	if (complete){
-    		LocalTaskManager.deleteLocalTask(oldTask, this);
-    	}
-    }
-    private boolean taskDone(Task task){
-    	if (task.getReqPhoto() && task.getResPhotoName().equals("none")){
-    		return false;
-    	}
-    	if (task.getReqAudio() && task.getResAudioName().equals("none")){
-    		return false;
-    	}
-    	return true;
-    }
-
 }

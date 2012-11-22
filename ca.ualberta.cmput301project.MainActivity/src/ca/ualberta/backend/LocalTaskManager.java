@@ -268,4 +268,28 @@ public class LocalTaskManager {
 			ioe.printStackTrace();
 		}
 	}
+	
+	public static boolean existsLocalTask(Task task, Context context) {
+		return existsTask(task, context, localtaskFilename);
+	}
+	
+	public static boolean existsDraft(Task task, Context context) {
+		return existsTask(task, context, draftFilename);
+	}
+	
+	public static boolean existsFavourite(Task task, Context context) {
+		return existsTask(task, context, favouriteFilename);
+	}
+	
+	public static boolean existsTask(Task task, Context context, String filename) {
+		ArrayList<Task> tasks = readFromFile(context, filename);
+		
+		for (Task taskInList: tasks) {
+			if (task.isEqualTo(taskInList)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
 }

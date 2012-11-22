@@ -32,9 +32,19 @@
         android:layout_height="wrap_content"
         android:text="@string/taskdone" />
     <Button
-        android:id="@+id/save_draft"
+        android:id="@+id/save_progress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/save_draft" />
+        android:text="@string/save_progress" />
+    <Button
+        android:id="@+id/add_to_favourites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_to_favourites" />
+    <Button
+        android:id="@+id/remove_from_favourites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/remove_from_favourites" />
 
 </LinearLayout>

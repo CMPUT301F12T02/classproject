@@ -40,7 +40,19 @@ public class ViewLocalTaskActivity extends ListActivity {
     }
     
     private void refresh() {
-    	ArrayList<Task> tasks = LocalTaskManager.loadLocalTasks(this);
+    	Bundle extras = getIntent().getExtras();
+    	String file = extras.getString("file");
+    	
+    	ArrayList<Task> tasks;
+    	
+    	if (file.equals("LOCAL")) {
+    		tasks = LocalTaskManager.loadLocalTasks(this);
+    	} else if (file.equals("FAVOURITES")) {
+    		tasks = LocalTaskManager.loadFavourites(this);
+    	} else {
+    		tasks = LocalTaskManager.loadDrafts(this);
+    	}
+    	
         setListAdapter(new ArrayAdapter<Task>(this,android.R.layout.simple_expandable_list_item_1,tasks));
     }
     
@@ -51,13 +63,26 @@ public class ViewLocalTaskActivity extends ListActivity {
      * @see android.app.ListActivity#onListItemClick(android.widget.ListView, android.view.View, int, long)
      */
     public void onListItemClick(ListView parent,View v, int position,long id){
-    	ArrayList<Task> tasks = LocalTaskManager.loadLocalTasks(this);
+    	Bundle extras = getIntent().getExtras();
+    	String file = extras.getString("file");
+    	
+    	ArrayList<Task> tasks;
+    	
+    	if (file.equals("LOCAL")) {
+    		tasks = LocalTaskManager.loadLocalTasks(this);
+    	} else if (file.equals("FAVOURITES")) {
+    		tasks = LocalTaskManager.loadFavourites(this);
+    	} else {
+    		tasks = LocalTaskManager.loadDrafts(this);
+    	}
+    	
     	Task clickedTask = tasks.get(position);
     	
     	Intent intent = new Intent();
     	Bundle b = new Bundle();
 		b.putSerializable("task", clickedTask);
 		intent.putExtras(b);
+		intent.putExtra("file", file);
 		intent.setClass(this, FulfillTaskActivity.class);
 		startActivity(intent);
     }

@@ -35,15 +35,18 @@ public class StoredTasksActivity extends Activity implements OnClickListener {
         switch (v.getId()){
 	        case R.id.local_button:
 	        	intent = new Intent(this, ViewLocalTaskActivity.class);
+	        	intent.putExtra("file", "LOCAL");
+	        	break;
+	        case R.id.favourites_button:
+	        	intent = new Intent(this, ViewLocalTaskActivity.class);
+	        	intent.putExtra("file", "FAVOURITES");
+	        	break;
+	        case R.id.drafts_button:
+	        	intent = new Intent(this, ViewLocalTaskActivity.class);
+	        	intent.putExtra("file", "DRAFTS");
 	        	break;
 	        case R.id.com_button:
 	        	intent = new Intent(this, ViewExternalTaskActivity.class);
-	        	break;
-	        case R.id.favourites_button:
-	        	//intent = new Intent(this, ViewFavouritesActivity.class);
-	        	break;
-	        case R.id.drafts_button:
-	        	//intent = new Intent(this, ViewDraftsActivity.class);
 	        	break;
 	        default:
 	        	intent = new Intent();
