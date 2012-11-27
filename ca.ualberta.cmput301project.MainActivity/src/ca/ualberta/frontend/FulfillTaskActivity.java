@@ -72,7 +72,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         addToFavouritesButton.setOnClickListener(this);
         removeFromFavouritesButton.setOnClickListener(this);
         
-        if (file.equals("FAVOURITES")) {
+        if (file.equals("FAVOURITES") || LocalTaskManager.existsFavourite(oldtask, this)) {
         	addToFavouritesButton.setVisibility(View.INVISIBLE);
         } else {
         	removeFromFavouritesButton.setVisibility(View.INVISIBLE);
@@ -105,7 +105,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     		case R.id.save_progress:
     			newtask.setResult(answer, photofile, audiofile);
     			
-    			if (file == "EXTERNAL") {
+    			if (file.equals("EXTERNAL")) {
 	    			//the task was taken from the webservice and needs to be saved in drafts
     				LocalTaskManager.saveDraft(newtask, this);
     			} else {
@@ -120,7 +120,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     		case R.id.add_to_favourites:
     			newtask.setResult(answer, photofile, audiofile);
     			
-    			if (file == "EXTERNAL") {
+    			if (file.equals("EXTERNAL")) {
     				//the task was taken from the webservice and needs to be added or updated to drafts
     				if (LocalTaskManager.existsDraft(oldtask, this)) {
     					LocalTaskManager.replaceDraft(oldtask, newtask, this);
@@ -161,17 +161,17 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     				//task is completed, remove it and send it
     				
     				dialog.setTitle("Task successfully completed");
-	    	    	if (file.equalsIgnoreCase("external")){
+	    	    	if (file.equals("EXTERNAL")) {
 	    	    	    String id = oldtask.getID();
 	    	    	    ExternalTaskManager.removeTask(id);
 	    	    	    finish();
 	    	    	} else {
-	    	    	LocalTaskManager.deleteLocalTask(oldtask, this);
-		    		LocalTaskManager.deleteDraft(oldtask, this);
-		    		LocalTaskManager.deleteFavourite(oldtask, this);
-		    		
-		    		finish();
-    			}
+		    	    	LocalTaskManager.deleteLocalTask(oldtask, this);
+			    		LocalTaskManager.deleteDraft(oldtask, this);
+			    		LocalTaskManager.deleteFavourite(oldtask, this);
+			    		
+			    		finish();
+	    	    	}
     			}
     			
     			dialog.show();
