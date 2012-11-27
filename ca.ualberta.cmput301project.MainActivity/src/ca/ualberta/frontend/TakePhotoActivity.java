@@ -36,7 +36,7 @@ public class TakePhotoActivity extends Activity {
     }
     
     public void takePhoto(){   	
-    	String folder = Environment.getExternalStorageDirectory().getAbsolutePath() + "/tmp";
+    	String folder = Environment.getExternalStorageDirectory().getAbsolutePath() ;
     	File folderF = new File(folder);
     	if (!folderF.exists()){
     		folderF.mkdir();
@@ -44,12 +44,13 @@ public class TakePhotoActivity extends Activity {
     	String imageFilePath = folder + "/" + String.valueOf(System.currentTimeMillis()) + ".jpg";
     	File imageFile = new File(imageFilePath);
     	
-    	imageFileUri = Uri.fromFile(imageFile);
+    	imageFileUri = Uri.fromFile(new File(folder));
     	
     	Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-    	intent.putExtra(MediaStore.EXTRA_OUTPUT, imageFileUri);
+    	intent.putExtra(MediaStore.EXTRA_OUTPUT,(Uri) imageFileUri);
     	startActivityForResult(intent, CAPTURE_ACTIVITY_REQUEST_CODE);
     }
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
     	if (requestCode == CAPTURE_ACTIVITY_REQUEST_CODE){
     		TextView tv = (TextView) findViewById(R.id.camera_status);
