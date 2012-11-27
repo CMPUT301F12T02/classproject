@@ -68,7 +68,7 @@ public class NewRequestActivity extends Activity implements OnClickListener {
              audio_needed = true;
         }
         
-        Task newtask = new Task(ownerEmail, desc, photo_needed, audio_needed);
+        Task newtask = new Task(ownerEmail, desc, photo_needed, audio_needed, "local");
         
         return newtask;
     };

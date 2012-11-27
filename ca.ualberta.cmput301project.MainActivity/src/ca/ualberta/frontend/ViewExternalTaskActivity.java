@@ -29,8 +29,9 @@ public class ViewExternalTaskActivity extends ListActivity{
         public final static String REQDESCRIPTION = "ca.ualberta.cmput301project.DESCRIPTION";
         public final static String REQPHOTO = "ca.ualberta.cmput301project.PHOTO";
         public final static String REQAUDIO = "ca.ualberta.cmput301project.AUDIO";
-        //public final static String EXTRA_MESSAGE = "ca.ualberta.cmput301project.MESSAGE";
-        private String [] ids = null;
+        public final static String EXTRA_MESSAGE = "ca.ualberta.cmput301project.MESSAGE";
+        private ArrayList<Task> tasks;
+        private ArrayList<String> ids;
     
         /** onCreate calls the superclass constructor,
          * sets content view, and starts the custom display.
@@ -40,6 +41,7 @@ public class ViewExternalTaskActivity extends ListActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasklist);
 
+
         refresh();
     }
     /** onRestart calls the refresh method to continuously
@@ -47,15 +49,21 @@ public class ViewExternalTaskActivity extends ListActivity{
      * @param Bundle savedInstanceState
      */
     
-    public void onRestart(Bundle savedInstanceState) {
+    public void onRestart() {
         super.onRestart();
+        refresh();
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
         refresh();
     }
     /** refresh gets the tasks from readAllExtTasks()
      * and sets the list adapter
      */
     private void refresh() {
-        ArrayList<Task> tasks = readAllExtTasks();
+        tasks = readAllExtTasks();
+        System.out.println(tasks.toString());
         setListAdapter(new ArrayAdapter<Task>(this,android.R.layout.simple_list_item_1,tasks));
     }
     /**onListItemClick handles the selection of a task from
@@ -67,14 +75,12 @@ public class ViewExternalTaskActivity extends ListActivity{
      */
     
     public void onListItemClick(ListView parent,View v, int position,long id){
-
-        ArrayList<Task> tasks = readAllExtTasks();
         Task clickedTask = tasks.get(position);
-        
         Intent intent = new Intent();
         Bundle b = new Bundle();
         b.putSerializable("task", clickedTask);
         intent.putExtras(b);
+        intent.putExtra("file", "EXTERNAL");
         intent.setClass(this, FulfillTaskActivity.class);
         startActivity(intent);
     }
@@ -90,25 +96,26 @@ public class ViewExternalTaskActivity extends ListActivity{
         try
         {
             String result = ExternalTaskManager.readAllTasks();
-            System.out.println(result);
             jarray = new JSONArray(result);
-            
         } catch (JSONException e)
         {
             e.printStackTrace();
         }
-        for (int i = 0; i < jarray.length()+1; i++){
+        for (int i = 0; i < jarray.length(); i++){
             try
             {
             	//We added an owner attribute to task, so account for that! :D
+                String tojson = null;
             	String owner = "John Doe"; //DUMMY OWNER
                 JSONObject obj = jarray.getJSONObject(i);
-                ids[i] = obj.getString("id");
-                JSONObject content = obj.getJSONObject("content");
-                String description = content.getString("desciption");
+                String id = (String) obj.get("id");
+                tojson = ExternalTaskManager.readTask(id);
+                JSONObject fullTask = new JSONObject(tojson);
+                JSONObject content = fullTask.getJSONObject("content");
+                String description = content.getString("description");
                 boolean reqPhoto = Boolean.valueOf(content.getString("reqPhoto"));
                 boolean reqAudio = Boolean.valueOf(content.getString("reqAudio"));
-                Task task = new Task(owner, description, reqPhoto, reqAudio);
+                Task task = new Task(owner, description, reqPhoto, reqAudio, id);
                 tasks.add(task);
             } catch (JSONException e)
             {

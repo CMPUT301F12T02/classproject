@@ -24,9 +24,9 @@ public class LocalTaskManagerTest extends TestCase {
 	private Context context;
 	
 	protected void setUp() {
-		task1 = new Task("John Doe", "description 1", true, true);
-		task2 = new Task("John Smith", "description 2", true, false);
-		task3 = new Task("John Doe", "description 3", false, false);
+		task1 = new Task("John Doe", "description 1", true, true, "local");
+		task2 = new Task("John Smith", "description 2", true, false, "local");
+		task3 = new Task("John Doe", "description 3", false, false, "local");
 		
 		tasks123.add(task1);
 		tasks123.add(task2);
