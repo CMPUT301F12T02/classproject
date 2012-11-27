@@ -115,7 +115,8 @@ public class ViewExternalTaskActivity extends ListActivity{
                 String description = content.getString("description");
                 boolean reqPhoto = Boolean.valueOf(content.getString("reqPhoto"));
                 boolean reqAudio = Boolean.valueOf(content.getString("reqAudio"));
-                Task task = new Task(owner, description, reqPhoto, reqAudio, id);
+                Task task = new Task(owner, description, reqPhoto, reqAudio);
+                task.setID(id);
                 tasks.add(task);
             } catch (JSONException e)
             {

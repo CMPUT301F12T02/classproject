@@ -11,7 +11,7 @@ public class ExternalTaskManagerTest extends TestCase
 {
     private Task task;
     protected void setUp(){
-        task = new Task("John Doe","JUnit test", false, false, "local");
+        task = new Task("John Doe","JUnit test", false, false);
     }
 
     public void testReadAllTasks()

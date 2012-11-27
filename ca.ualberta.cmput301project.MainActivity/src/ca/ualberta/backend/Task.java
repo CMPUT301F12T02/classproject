@@ -33,13 +33,12 @@ public class Task implements Serializable
      * @param String newOwner
      * @param id
      */
-    public Task(String newOwner, String description, boolean isPhotoRequired, boolean isAudioRequired, String id) {
+    public Task(String newOwner, String description, boolean isPhotoRequired, boolean isAudioRequired) {
     	this.description = description;
         this.isPhotoRequired = isPhotoRequired;
         this.isAudioRequired = isAudioRequired;
         this.isComplete = false;
         this.ownerEmail = newOwner;
-        this.id = id;
         this.timestamp = new java.util.Date();
     }
     /** getOwner returns the owner of the task
@@ -136,7 +135,7 @@ public class Task implements Serializable
      * @return Task
      */
     public Task cloneTask(){
-    	Task newTask = new Task(this.ownerEmail, this.description, this.isPhotoRequired, this.isAudioRequired, this.id);
+    	Task newTask = new Task(this.ownerEmail, this.description, this.isPhotoRequired, this.isAudioRequired);
     	newTask.ownerEmail = this.ownerEmail;
     	newTask.isComplete = this.isComplete;
     	newTask.timestamp = this.timestamp;
@@ -159,5 +158,8 @@ public class Task implements Serializable
      */
     public String getID(){
         return this.id;
+    }
+    public void setID(String id){
+        this.id = id;
     }
 }
