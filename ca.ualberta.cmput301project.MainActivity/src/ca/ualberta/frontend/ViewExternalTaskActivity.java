@@ -63,7 +63,6 @@ public class ViewExternalTaskActivity extends ListActivity{
      */
     private void refresh() {
         tasks = readAllExtTasks();
-        System.out.println(tasks.toString());
         setListAdapter(new ArrayAdapter<Task>(this,android.R.layout.simple_list_item_1,tasks));
     }
     /**onListItemClick handles the selection of a task from
