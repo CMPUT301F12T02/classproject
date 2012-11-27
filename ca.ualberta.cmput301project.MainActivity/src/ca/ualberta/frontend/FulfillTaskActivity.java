@@ -1,6 +1,7 @@
 package ca.ualberta.frontend;
 
 
+import ca.ualberta.backend.Email;
 import ca.ualberta.backend.LocalTaskManager;
 import ca.ualberta.backend.Task;
 import ca.ualberta.frontend.R;
@@ -113,7 +114,6 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 	    			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
 	    			LocalTaskManager.replaceDraft(oldtask, newtask, this);
     			}
-    			
     			finish();
     			break;
     		case R.id.add_to_favourites:
@@ -155,20 +155,23 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     				//task is not completed
     				
     				dialog.setTitle("Task not completed");
+    				dialog.show();
     			} else {
     				//task is completed, remove it and send it
     				
     				dialog.setTitle("Task successfully completed");
+    				dialog.show();
 	    	    	
 	    	    	LocalTaskManager.deleteLocalTask(oldtask, this);
 		    		LocalTaskManager.deleteDraft(oldtask, this);
 		    		LocalTaskManager.deleteFavourite(oldtask, this);
 		    		
+		    		Intent emailIntent = Email.CreateEmailIntent(newtask);
+		    		emailIntent = Intent.createChooser(emailIntent, "Choose email service");
+		    		startActivity(emailIntent);
+		    		
 		    		finish();
     			}
-    			
-    			dialog.show();
-    			
     			break;
     	}
     }
