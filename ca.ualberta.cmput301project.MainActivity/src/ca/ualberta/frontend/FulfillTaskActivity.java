@@ -82,7 +82,6 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     public void onClick(View v){
     	Bundle extras = getIntent().getExtras();
     	String file = extras.getString("file");
-    	System.out.println(file);
     	EditText answerBox = (EditText) findViewById(R.id.answer_text);
 		String answer = answerBox.getText().toString();
     	
@@ -148,7 +147,6 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			finish();
     			break;
     		case R.id.taskdone:
-    		    System.out.println("taskdone");
     			newtask.setResult(answer, photofile, audiofile);
     			
     			Dialog dialog = new Dialog(this);
