@@ -53,7 +53,7 @@ public class TakePhotoActivity extends Activity {
     
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
-<<<<<<< HEAD
+
 		TextView tv = (TextView) findViewById(R.id.camera_status);
 		switch (resultCode){
 			case RESULT_OK:
@@ -68,7 +68,7 @@ public class TakePhotoActivity extends Activity {
 				tv.setText("Not sure what happened: " + resultCode);
 				break;
 		}
-=======
+
     	//if (requestCode == CAPTURE_ACTIVITY_REQUEST_CODE){
     		TextView tv = (TextView) findViewById(R.id.camera_status);
     		switch (resultCode){
@@ -85,6 +85,6 @@ public class TakePhotoActivity extends Activity {
     				break;
     		//}
     	}
->>>>>>> 35732484c9780b03eb33adc1f1bfabf26e4dccb6
+
     }
 }
