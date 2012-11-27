@@ -1,6 +1,7 @@
 package ca.ualberta.frontend;
 
-
+import ca.ualberta.backend.Email;
+import ca.ualberta.backend.ExternalTaskManager;
 import ca.ualberta.backend.LocalTaskManager;
 import ca.ualberta.backend.Task;
 import ca.ualberta.frontend.R;
@@ -25,9 +26,9 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fulfilltask);
-        
+        String file = null;
         Bundle extras = getIntent().getExtras();
-    	String file = extras.getString("file");
+    	file = extras.getString("file");
 
         Task oldtask = (Task) getIntent().getSerializableExtra("task");
         
@@ -71,7 +72,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         addToFavouritesButton.setOnClickListener(this);
         removeFromFavouritesButton.setOnClickListener(this);
         
-        if (file.equals("FAVOURITES")) {
+        if (file.equals("FAVOURITES") || LocalTaskManager.existsFavourite(oldtask, this)) {
         	addToFavouritesButton.setVisibility(View.INVISIBLE);
         } else {
         	removeFromFavouritesButton.setVisibility(View.INVISIBLE);
@@ -81,7 +82,6 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     public void onClick(View v){
     	Bundle extras = getIntent().getExtras();
     	String file = extras.getString("file");
-    	
     	EditText answerBox = (EditText) findViewById(R.id.answer_text);
 		String answer = answerBox.getText().toString();
     	
@@ -104,7 +104,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     		case R.id.save_progress:
     			newtask.setResult(answer, photofile, audiofile);
     			
-    			if (file == null) {
+    			if (file.equals("EXTERNAL")) {
 	    			//the task was taken from the webservice and needs to be saved in drafts
     				LocalTaskManager.saveDraft(newtask, this);
     			} else {
@@ -113,13 +113,12 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 	    			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
 	    			LocalTaskManager.replaceDraft(oldtask, newtask, this);
     			}
-    			
     			finish();
     			break;
     		case R.id.add_to_favourites:
     			newtask.setResult(answer, photofile, audiofile);
     			
-    			if (file == null) {
+    			if (file.equals("EXTERNAL")) {
     				//the task was taken from the webservice and needs to be added or updated to drafts
     				if (LocalTaskManager.existsDraft(oldtask, this)) {
     					LocalTaskManager.replaceDraft(oldtask, newtask, this);
@@ -155,20 +154,34 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     				//task is not completed
     				
     				dialog.setTitle("Task not completed");
+    				dialog.show();
     			} else {
     				//task is completed, remove it and send it
     				
     				dialog.setTitle("Task successfully completed");
+    				dialog.show();
 	    	    	
 	    	    	LocalTaskManager.deleteLocalTask(oldtask, this);
 		    		LocalTaskManager.deleteDraft(oldtask, this);
 		    		LocalTaskManager.deleteFavourite(oldtask, this);
 		    		
+		    		Intent emailIntent = Email.CreateEmailIntent(newtask);
+		    		emailIntent = Intent.createChooser(emailIntent, "Choose email service");
+		    		startActivity(emailIntent);
+		    		
 		    		finish();
+	    	    	if (file.equals("EXTERNAL")) {
+	    	    	    String id = oldtask.getID();
+	    	    	    ExternalTaskManager.removeTask(id);
+	    	    	    finish();
+	    	    	} else {
+		    	    	LocalTaskManager.deleteLocalTask(oldtask, this);
+			    		LocalTaskManager.deleteDraft(oldtask, this);
+			    		LocalTaskManager.deleteFavourite(oldtask, this);
+			    		
+			    		finish();
+	    	    	}
     			}
-    			
-    			dialog.show();
-    			
     			break;
     	}
     }

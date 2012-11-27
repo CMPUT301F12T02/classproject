@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /** Task is the data class for Tasks.
- * handles storage and easy transfering of
+ * handles storage and easy transferring of
  * tasks between methods
  * @author kerr2
  *
@@ -23,12 +23,15 @@ public class Task implements Serializable
     private String result_answer = "no answer";
     private String result_photofile = "none";
     private String result_audiofile = "none";
+    private String id = "local";
     
     /** Task constructor makes a Task 
      * object.
      * @param String description
      * @param boolean isPhotoRequired
      * @param boolean isAudioRequired
+     * @param String newOwner
+     * @param id
      */
     public Task(String newOwner, String description, boolean isPhotoRequired, boolean isAudioRequired) {
     	this.description = description;
@@ -148,5 +151,15 @@ public class Task implements Serializable
     @Override
     public String toString() {
         return this.description;
+    }
+    /** getID returns the ID of the task if it's a community
+     * task, otherwise returns "local"
+     * @return String
+     */
+    public String getID(){
+        return this.id;
+    }
+    public void setID(String id){
+        this.id = id;
     }
 }

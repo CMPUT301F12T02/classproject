@@ -36,7 +36,6 @@ import android.os.AsyncTask;
 public class ExternalTaskManager
 {
     static private String baseURL = "http://crowdsourcer.softwareprocess.es/F12/CMPUT301F12T02/";
-    static private StringBuilder builder = new StringBuilder();
     private static HttpClient httpclient = new DefaultHttpClient();
     public ExternalTaskManager(){
         
@@ -79,6 +78,8 @@ public class ExternalTaskManager
      *
      */
     private class internetFetch extends AsyncTask<Context, Void, String>{
+
+        private StringBuilder builder = new StringBuilder();
         private HttpPost httpPost = new HttpPost("http://crowdsourcer.softwareprocess.es/F12/CMPUT301F12T02/");
         public internetFetch(List <NameValuePair> nvps){
             UrlEncodedFormEntity urlefe;
@@ -112,7 +113,6 @@ public class ExternalTaskManager
                     BufferedReader reader = new BufferedReader(new InputStreamReader(is));
                     String line;
                     while ((line = reader.readLine()) != null) {
-                        System.out.println(line);
                         builder.append(line);
                     }
                 } catch (IllegalStateException e)
@@ -122,15 +122,6 @@ public class ExternalTaskManager
                 {       
                     e.printStackTrace();
                 }
-            }
-            System.out.println(builder.toString());
-            try
-            {
-                Thread.sleep(2000, 0);
-            } catch (InterruptedException e)
-            {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
             }
             return builder.toString();
         }        
@@ -161,7 +152,6 @@ public class ExternalTaskManager
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        System.out.println(rtv);
         return rtv;
     }
     /** readTask uses the get action from
@@ -172,23 +162,25 @@ public class ExternalTaskManager
      */
     public static String readTask(String id){
         List <NameValuePair> nvps = new ArrayList <NameValuePair>();
-        nvps.add(new BasicNameValuePair("action", "list"));
+        nvps.add(new BasicNameValuePair("action", "get"));
         nvps.add(new BasicNameValuePair("id", id));
         Context c = null;
         ExternalTaskManager ext = new ExternalTaskManager();
         internetFetch ifetch = ext.new internetFetch(nvps);
-        String rtv = ifetch.execute(c).toString();
-        JSONObject obj;
-        String content = null;
+        String rtv = null;
         try
         {
-            obj = new JSONObject(rtv);
-            content = obj.getString("content");
-        } catch (JSONException e)
+            rtv = ifetch.execute(c).get();
+        } catch (InterruptedException e)
         {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (ExecutionException e)
+        {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return content;
+        return rtv;
     }
     /** removeTask uses the remove action from
      * Crowdsourcer to remove a task from the
@@ -198,12 +190,24 @@ public class ExternalTaskManager
      */
     public static String removeTask(String id){
         List <NameValuePair> nvps = new ArrayList <NameValuePair>();
-        nvps.add(new BasicNameValuePair("action", "list"));
+        nvps.add(new BasicNameValuePair("action", "remove"));
         nvps.add(new BasicNameValuePair("id", id));
         Context c = null;
         ExternalTaskManager ext = new ExternalTaskManager();
         internetFetch ifetch = ext.new internetFetch(nvps);
-        String rtv = ifetch.execute(c).toString();
+        String rtv = null;
+        try
+        {
+            rtv = ifetch.execute(c).get();
+        } catch (InterruptedException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (ExecutionException e)
+        {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         return rtv;
     }
     /** addTask uses the post action from
