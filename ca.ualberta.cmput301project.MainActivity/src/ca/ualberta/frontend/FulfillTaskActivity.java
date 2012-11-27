@@ -1,11 +1,7 @@
 package ca.ualberta.frontend;
 
-
-<<<<<<< HEAD
 import ca.ualberta.backend.Email;
-=======
 import ca.ualberta.backend.ExternalTaskManager;
->>>>>>> 7b8e1a286af4073d56bb86976b8c6dcca259fdec
 import ca.ualberta.backend.LocalTaskManager;
 import ca.ualberta.backend.Task;
 import ca.ualberta.frontend.R;
@@ -165,7 +161,6 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     				//task is completed, remove it and send it
     				
     				dialog.setTitle("Task successfully completed");
-<<<<<<< HEAD
     				dialog.show();
 	    	    	
 	    	    	LocalTaskManager.deleteLocalTask(oldtask, this);
@@ -177,7 +172,6 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 		    		startActivity(emailIntent);
 		    		
 		    		finish();
-=======
 	    	    	if (file.equals("EXTERNAL")) {
 	    	    	    String id = oldtask.getID();
 	    	    	    ExternalTaskManager.removeTask(id);
@@ -189,7 +183,6 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 			    		
 			    		finish();
 	    	    	}
->>>>>>> 7b8e1a286af4073d56bb86976b8c6dcca259fdec
     			}
     			break;
     	}
