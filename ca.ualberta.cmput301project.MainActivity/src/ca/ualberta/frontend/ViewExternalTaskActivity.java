@@ -1,6 +1,10 @@
 package ca.ualberta.frontend;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -114,10 +118,15 @@ public class ViewExternalTaskActivity extends ListActivity{
                 String description = content.getString("description");
                 boolean reqPhoto = Boolean.valueOf(content.getString("reqPhoto"));
                 boolean reqAudio = Boolean.valueOf(content.getString("reqAudio"));
+                DateFormat df = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+                Date timestamp = df.parse(content.getString("timestamp"));
                 Task task = new Task(owner, description, reqPhoto, reqAudio);
                 task.setID(id);
                 tasks.add(task);
             } catch (JSONException e)
+            {
+                e.printStackTrace();
+            } catch (ParseException e)
             {
                 e.printStackTrace();
             }

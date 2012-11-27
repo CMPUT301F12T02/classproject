@@ -36,7 +36,7 @@ public class TakePhotoActivity extends Activity {
     }
     
     public void takePhoto(){   	
-    	String folder = Environment.getExternalStorageDirectory().getAbsolutePath() + "/tmp";
+    	String folder = Environment.getExternalStorageDirectory().getAbsolutePath() ;
     	File folderF = new File(folder);
     	if (!folderF.exists()){
     		folderF.mkdir();
@@ -47,10 +47,13 @@ public class TakePhotoActivity extends Activity {
     	imageFileUri = Uri.fromFile(imageFile);
     	
     	Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-    	intent.putExtra(MediaStore.EXTRA_OUTPUT, imageFileUri);
+    	intent.putExtra(MediaStore.EXTRA_OUTPUT,(Uri) imageFileUri);
     	startActivityForResult(intent, CAPTURE_ACTIVITY_REQUEST_CODE);
     }
+    
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
+<<<<<<< HEAD
 		TextView tv = (TextView) findViewById(R.id.camera_status);
 		switch (resultCode){
 			case RESULT_OK:
@@ -65,5 +68,23 @@ public class TakePhotoActivity extends Activity {
 				tv.setText("Not sure what happened: " + resultCode);
 				break;
 		}
+=======
+    	//if (requestCode == CAPTURE_ACTIVITY_REQUEST_CODE){
+    		TextView tv = (TextView) findViewById(R.id.camera_status);
+    		switch (resultCode){
+    			case RESULT_OK:
+    				ImageButton button = (ImageButton) findViewById(R.id.TakeAPhoto);
+    				button.setImageDrawable(Drawable.createFromPath(imageFileUri.getPath()));
+    				tv.setText("Took photo.");
+    				break;
+    			case RESULT_CANCELED:
+    				tv.setText("Cancelled photo.");
+    				break;
+    			default:
+    				tv.setText("Not sure what happened: " + resultCode);
+    				break;
+    		//}
+    	}
+>>>>>>> 35732484c9780b03eb33adc1f1bfabf26e4dccb6
     }
 }

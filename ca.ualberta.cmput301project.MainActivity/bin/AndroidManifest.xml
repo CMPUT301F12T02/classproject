@@ -4,6 +4,10 @@
     android:versionName="1.0" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+     <uses-feature android:name="android.hardware.camera" /> 
+     <uses-feature android:name="android.hardware.camera.autofocus" />
+     <uses-feature android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -44,7 +48,7 @@
             android:label="@string/title_activity_fulfill_task" >
         </activity>
         <activity
-            android:name=".ViewExternalTaskActivity"
+            android:name="ca.ualberta.frontend.ViewExternalTaskActivity"
             android:label="@string/title_activity_com_task" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

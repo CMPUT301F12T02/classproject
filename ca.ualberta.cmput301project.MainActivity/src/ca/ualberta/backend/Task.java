@@ -76,20 +76,26 @@ public class Task implements Serializable
     public boolean getComplete() {
     	return this.isComplete;
     }
-    public void setComplete(boolean isDone){
-    	this.isComplete = isDone;
-    }
     /** setComplete will set completion status
      * 
      * @param boolean isDone
      */
-    public Date getTimestamp() {
-    	return this.timestamp;
+    public void setComplete(boolean isDone){
+    	this.isComplete = isDone;
     }
+    
     /** getTimeStamp returns the time stamp
      * 
      * @return Date
      */
+    public Date getTimestamp() {
+    	return this.timestamp;
+    }
+    
+    public void setTimestamp(java.util.Date timestamp) {
+        this.timestamp = timestamp;
+    }
+    
     public String getResAnswer() {
         return this.result_answer;
     }
