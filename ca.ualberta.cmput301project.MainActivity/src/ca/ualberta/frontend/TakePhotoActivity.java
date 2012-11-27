@@ -51,21 +51,19 @@ public class TakePhotoActivity extends Activity {
     	startActivityForResult(intent, CAPTURE_ACTIVITY_REQUEST_CODE);
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
-    	if (requestCode == CAPTURE_ACTIVITY_REQUEST_CODE){
-    		TextView tv = (TextView) findViewById(R.id.camera_status);
-    		switch (resultCode){
-    			case RESULT_OK:
-    				ImageButton button = (ImageButton) findViewById(R.id.TakeAPhoto);
-    				button.setImageDrawable(Drawable.createFromPath(imageFileUri.getPath()));
-    				tv.setText("Took photo.");
-    				break;
-    			case RESULT_CANCELED:
-    				tv.setText("Cancelled photo.");
-    				break;
-    			default:
-    				tv.setText("Not sure what happened: " + resultCode);
-    				break;
-    		}
-    	}
+		TextView tv = (TextView) findViewById(R.id.camera_status);
+		switch (resultCode){
+			case RESULT_OK:
+				ImageButton button = (ImageButton) findViewById(R.id.TakeAPhoto);
+				button.setImageDrawable(Drawable.createFromPath(imageFileUri.getPath()));
+				tv.setText("Took photo.");
+				break;
+			case RESULT_CANCELED:
+				tv.setText("Cancelled photo.");
+				break;
+			default:
+				tv.setText("Not sure what happened: " + resultCode);
+				break;
+		}
     }
 }

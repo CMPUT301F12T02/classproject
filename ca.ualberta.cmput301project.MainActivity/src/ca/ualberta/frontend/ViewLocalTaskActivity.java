@@ -11,6 +11,8 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 /**
@@ -20,6 +22,7 @@ import android.widget.ListView;
  *
  */
 public class ViewLocalTaskActivity extends ListActivity {
+	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,7 @@ public class ViewLocalTaskActivity extends ListActivity {
     	
     	if (file.equals("LOCAL")) {
     		tasks = LocalTaskManager.loadLocalTasks(this);
+    		
     	} else if (file.equals("FAVOURITES")) {
     		tasks = LocalTaskManager.loadFavourites(this);
     	} else {
@@ -54,6 +58,34 @@ public class ViewLocalTaskActivity extends ListActivity {
     	}
     	
         setListAdapter(new ArrayAdapter<Task>(this,android.R.layout.simple_expandable_list_item_1,tasks));
+        ListView list = getListView();
+        //http://www.vogella.com/articles/AndroidListView/article.html#listview_adapterlistener
+        list.setOnItemLongClickListener(new OnItemLongClickListener(){
+        	public boolean onItemLongClick(AdapterView<?> parent, View v, int position, long id) {
+            	Bundle extras = getIntent().getExtras();
+            	String file = extras.getString("file");
+            	
+            	ArrayList<Task> tasks;
+            	Task unwantedTask;
+            	
+            	if (file.equals("LOCAL")){
+            		tasks = LocalTaskManager.loadLocalTasks(ViewLocalTaskActivity.this);
+            		unwantedTask = tasks.get(position);
+            		LocalTaskManager.deleteLocalTask(unwantedTask, ViewLocalTaskActivity.this);
+            		
+            	} else if (file.equals("FAVOURITES")){
+            		tasks = LocalTaskManager.loadFavourites(ViewLocalTaskActivity.this);
+            		unwantedTask = tasks.get(position);
+            		LocalTaskManager.deleteFavourite(unwantedTask, ViewLocalTaskActivity.this);
+            	} else {
+            		tasks = LocalTaskManager.loadDrafts(ViewLocalTaskActivity.this);
+            		unwantedTask = tasks.get(position);
+            		LocalTaskManager.deleteDraft(unwantedTask, ViewLocalTaskActivity.this);
+            	}
+            	
+            	return true;
+        	}
+        });
     }
     
     /* (non-Javadoc)
@@ -85,6 +117,5 @@ public class ViewLocalTaskActivity extends ListActivity {
 		intent.putExtra("file", file);
 		intent.setClass(this, FulfillTaskActivity.class);
 		startActivity(intent);
-    }
-    
+    }  
 }

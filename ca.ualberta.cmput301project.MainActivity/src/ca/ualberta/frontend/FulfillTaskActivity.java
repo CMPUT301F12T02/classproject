@@ -112,7 +112,12 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     				//the task will be updated in all instances it exists in
 	    			LocalTaskManager.replaceFavourite(oldtask, newtask, this);
 	    			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
-	    			LocalTaskManager.replaceDraft(oldtask, newtask, this);
+	    			if (LocalTaskManager.existsDraft(oldtask, this)){
+	    				LocalTaskManager.replaceDraft(oldtask, newtask, this);
+	    			} else {
+	    				LocalTaskManager.saveDraft(newtask, this);
+	    			}
+	    			
     			}
     			finish();
     			break;

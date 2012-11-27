@@ -1,5 +1,6 @@
 To Do List
 List of things not working during testing:
 
-- local task save progress button does not add entry to drafts list
+- local task save progress button creates duplicate entry in drafts list
 - email chooser can't find applications to handle email
+- delete task on long click causes app to stop, but task successfully deleted on re-checking activity
