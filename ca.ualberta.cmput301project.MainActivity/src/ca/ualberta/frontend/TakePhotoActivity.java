@@ -44,15 +44,16 @@ public class TakePhotoActivity extends Activity {
     	String imageFilePath = folder + "/" + String.valueOf(System.currentTimeMillis()) + ".jpg";
     	File imageFile = new File(imageFilePath);
     	
-    	imageFileUri = Uri.fromFile(new File(folder));
+    	imageFileUri = Uri.fromFile(imageFile);
     	
     	Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
     	intent.putExtra(MediaStore.EXTRA_OUTPUT,(Uri) imageFileUri);
     	startActivityForResult(intent, CAPTURE_ACTIVITY_REQUEST_CODE);
     }
+    
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
-    	if (requestCode == CAPTURE_ACTIVITY_REQUEST_CODE){
+    	//if (requestCode == CAPTURE_ACTIVITY_REQUEST_CODE){
     		TextView tv = (TextView) findViewById(R.id.camera_status);
     		switch (resultCode){
     			case RESULT_OK:
@@ -66,7 +67,7 @@ public class TakePhotoActivity extends Activity {
     			default:
     				tv.setText("Not sure what happened: " + resultCode);
     				break;
-    		}
+    		//}
     	}
     }
 }
