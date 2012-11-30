@@ -46,9 +46,10 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         Button photoButton = (Button) findViewById(R.id.get_image);
         Button audioButton = (Button) findViewById(R.id.get_audio);
         Button doneButton = (Button) findViewById(R.id.taskdone);
-        Button draftButton = (Button) findViewById(R.id.save_progress);
+        Button saveButton = (Button) findViewById(R.id.save_progress);
         Button addToFavouritesButton = (Button) findViewById(R.id.add_to_favourites);
         Button removeFromFavouritesButton = (Button) findViewById(R.id.remove_from_favourites);
+        Button removeTask = (Button) findViewById(R.id.remove_task);
         
         photoButton.setClickable(false);
         audioButton.setClickable(false);
@@ -66,16 +67,34 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         } else {
         	audioButton.setTextColor(getResources().getColor(R.color.White));
         }
+        
+        if (file.equals("EXTERNAL") || file.equals("DRAFTS")) {
+        	saveButton.setText("Save Draft");
+        }
+        
+        if (file.equals("LOCAL")) {
+        	saveButton.setText("Save Local");
+        }
+        
+        if (file.equals("FAVOURITES")) {
+        	saveButton.setText("Save Favourite");
+        }
+        
         //Buttons to exit activity
         doneButton.setOnClickListener(this);
-        draftButton.setOnClickListener(this);
+        saveButton.setOnClickListener(this);
         addToFavouritesButton.setOnClickListener(this);
         removeFromFavouritesButton.setOnClickListener(this);
+        removeTask.setOnClickListener(this);
         
         if (file.equals("FAVOURITES") || LocalTaskManager.existsFavourite(oldtask, this)) {
-        	addToFavouritesButton.setVisibility(View.INVISIBLE);
+        	addToFavouritesButton.setVisibility(View.GONE);
         } else {
-        	removeFromFavouritesButton.setVisibility(View.INVISIBLE);
+        	removeFromFavouritesButton.setVisibility(View.GONE);
+        }
+        
+        if (file.equals("FAVOURITES") || file.equals("EXTERNAL")) {
+        	removeTask.setVisibility(View.GONE);
         }
     }
     
@@ -104,20 +123,15 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     		case R.id.save_progress:
     			newtask.setResult(answer, photofile, audiofile);
     			
-    			if (file.equals("EXTERNAL")) {
-	    			//the task was taken from the webservice and needs to be saved in drafts
-    				LocalTaskManager.saveDraft(newtask, this);
+    			if (LocalTaskManager.existsDraft(oldtask, this)) {
+    				LocalTaskManager.replaceDraft(oldtask, newtask, this);
     			} else {
-    				//the task will be updated in all instances it exists in
-	    			LocalTaskManager.replaceFavourite(oldtask, newtask, this);
-	    			LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
-	    			if (LocalTaskManager.existsDraft(oldtask, this)){
-	    				LocalTaskManager.replaceDraft(oldtask, newtask, this);
-	    			} else {
-	    				LocalTaskManager.saveDraft(newtask, this);
-	    			}
-	    			
+    				LocalTaskManager.saveDraft(newtask, this);
     			}
+    			
+	    		LocalTaskManager.replaceFavourite(oldtask, newtask, this);
+	    		LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
+    			
     			finish();
     			break;
     		case R.id.add_to_favourites:
@@ -146,6 +160,13 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			finish();
     			break;
     		case R.id.remove_from_favourites:
+    			LocalTaskManager.deleteFavourite(oldtask, this);
+    			
+    			finish();
+    			break;
+    		case R.id.remove_task:
+    			LocalTaskManager.deleteDraft(oldtask, this);
+    			LocalTaskManager.deleteLocalTask(oldtask, this);
     			LocalTaskManager.deleteFavourite(oldtask, this);
     			
     			finish();

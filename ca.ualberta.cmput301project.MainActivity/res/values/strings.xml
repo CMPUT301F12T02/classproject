@@ -39,6 +39,7 @@
     <string name="save_progress">Save Progress</string>
     <string name="add_to_favourites">Add To Favourites</string>
     <string name="remove_from_favourites">Remove From Favourites</string>
+    <string name="remove_task">Remove Task</string>
     <!-- Filfill Non-text Requirements -->
     <string name="discard">Discard</string>
     <string name="save">Save</string>

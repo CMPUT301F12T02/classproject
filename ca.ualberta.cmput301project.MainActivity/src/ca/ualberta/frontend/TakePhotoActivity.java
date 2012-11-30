@@ -70,7 +70,7 @@ public class TakePhotoActivity extends Activity {
 		}
 
     	//if (requestCode == CAPTURE_ACTIVITY_REQUEST_CODE){
-    		TextView tv = (TextView) findViewById(R.id.camera_status);
+    	//	TextView tv = (TextView) findViewById(R.id.camera_status);
     		switch (resultCode){
     			case RESULT_OK:
     				ImageButton button = (ImageButton) findViewById(R.id.TakeAPhoto);
