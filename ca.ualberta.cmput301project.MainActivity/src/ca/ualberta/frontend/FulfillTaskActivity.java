@@ -175,11 +175,16 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			newtask.setResult(answer, photofile, audiofile);
     			
     			Dialog dialog = new Dialog(this);
-    			
-    			if ((newtask.getReqPhoto() && newtask.getResPhotoName().equals("none"))||(newtask.getReqAudio() && newtask.getResAudioName().equals("none"))) {
-    				//task is not completed
-    				
-    				dialog.setTitle("Task not completed");
+    			if (newtask.getResAnswer().length()==0){
+    				dialog.setTitle("Missing text");
+    				dialog.show();
+    			} else if ((newtask.getReqPhoto() && newtask.getResPhotoName().equals("none"))) {
+    				//No picture taken
+    				dialog.setTitle("Missing photo");
+    				dialog.show();
+    			} else if (newtask.getReqAudio() && newtask.getResAudioName().equals("none")){
+    				//No audio
+    				dialog.setTitle("Missing audio");
     				dialog.show();
     			} else {
     				//task is completed, remove it and send it

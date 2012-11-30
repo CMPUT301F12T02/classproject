@@ -3,4 +3,7 @@ List of things not working during testing:
 
 - local task save progress button creates duplicate entry in drafts list
 - email chooser can't find applications to handle email
+	fixed, had to setup email account in emulator
 - delete task on long click causes app to stop, but task successfully deleted on re-checking activity
+	- index error, tasks below one long-clicked
+	- redundant with Delete Task button in fulfill task
