@@ -20,7 +20,7 @@ public class Task implements Serializable
     private String ownerEmail;
     private Date timestamp;
     
-    private String result_answer = "no answer";
+    private String result_answer = "";
     private String result_photofile = "none";
     private String result_audiofile = "none";
     private String id = "local";

@@ -121,6 +121,7 @@ public class ViewExternalTaskActivity extends ListActivity{
                 DateFormat df = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
                 Date timestamp = df.parse(content.getString("timestamp"));
                 Task task = new Task(owner, description, reqPhoto, reqAudio);
+                task.setTimestamp(timestamp);
                 task.setID(id);
                 tasks.add(task);
             } catch (JSONException e)

@@ -46,5 +46,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/remove_from_favourites" />
-
+	<Button
+        android:id="@+id/remove_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/remove_task" />
 </LinearLayout>
