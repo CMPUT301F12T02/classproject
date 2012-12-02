@@ -3,6 +3,7 @@ package ca.ualberta.frontend;
 import ca.ualberta.backend.Task;
 import ca.ualberta.frontend.R;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,21 +25,23 @@ public class NewRequestActivity extends Activity implements OnClickListener {
     }
 
     public void onClick(View v){
-    	Intent intent = new Intent();
-    	switch (v.getId()){
-			case R.id.createrequest_button:
-			        Task task = create_task();
-			        
-			    Bundle b = new Bundle();
-				b.putSerializable("task", task);
-				intent.putExtras(b);
-				intent.setClass(this, RequestSummaryActivity.class);
-				startActivity(intent);
-				break;
-			default:
-				intent = new Intent();
-				break;
-    	}
+	    Task task = create_task();
+	    Dialog dialog = new Dialog(this);
+	    if (task.getDescription().isEmpty()){
+	    	dialog.setTitle("Missing description");
+	    	dialog.show();
+	    	return;
+	    } else if (task.getOwner().isEmpty()){
+	    	dialog.setTitle("Missing email");
+	    	dialog.show();
+	    	return;
+	    }
+	    
+	    Intent intent = new Intent();
+	    Bundle b = new Bundle();
+		b.putSerializable("task", task);
+		intent.putExtras(b);
+		intent.setClass(this, RequestSummaryActivity.class);
     	
 		startActivity(intent);
 		finish();

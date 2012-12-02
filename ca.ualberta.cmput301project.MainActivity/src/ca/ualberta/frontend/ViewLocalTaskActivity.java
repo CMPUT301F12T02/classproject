@@ -10,6 +10,7 @@ import ca.ualberta.frontend.R;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -20,6 +21,9 @@ import android.widget.ListView;
  *
  */
 public class ViewLocalTaskActivity extends ListActivity {
+	final private String LOCAL_FILE = "LOCAL";
+	final private String FAVOURITE_FILE = "FAVOURITES";
+	final private String DRAFT_FILE = "DRAFTS";
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,14 +50,21 @@ public class ViewLocalTaskActivity extends ListActivity {
     	
     	ArrayList<Task> tasks;
     	
-    	if (file.equals("LOCAL")) {
+    	if (file.equals(LOCAL_FILE)) {
     		tasks = LocalTaskManager.loadLocalTasks(this);
-    		
-    	} else if (file.equals("FAVOURITES")) {
+    		setTitle("My Tasks");
+    	} else if (file.equals(FAVOURITE_FILE)) {
     		tasks = LocalTaskManager.loadFavourites(this);
-    	} else {
+    		setTitle("My Favourite Tasks");
+    	} else if (file.equals(DRAFT_FILE)){
     		tasks = LocalTaskManager.loadDrafts(this);
+    		setTitle("My Drafts");
+    	} else {
+    		tasks = new ArrayList<Task>();
+    		tasks.clear();
+    		setTitle("Unknown");
     	}
+    	Log.d("file", "Matched file: " + file);
     	
         setListAdapter(new ArrayAdapter<Task>(this,android.R.layout.simple_expandable_list_item_1,tasks));
 
@@ -71,12 +82,14 @@ public class ViewLocalTaskActivity extends ListActivity {
     	
     	ArrayList<Task> tasks;
     	
-    	if (file.equals("LOCAL")) {
+    	if (file.equals(LOCAL_FILE)) {
     		tasks = LocalTaskManager.loadLocalTasks(this);
-    	} else if (file.equals("FAVOURITES")) {
+    	} else if (file.equals(FAVOURITE_FILE)) {
     		tasks = LocalTaskManager.loadFavourites(this);
-    	} else {
+    	} else if (file.equals(DRAFT_FILE)) {
     		tasks = LocalTaskManager.loadDrafts(this);
+    	} else {
+    		return;
     	}
     	
     	Task clickedTask = tasks.get(position);

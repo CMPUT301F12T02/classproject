@@ -187,7 +187,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     				dialog.setTitle("Missing audio");
     				dialog.show();
     			} else {
-    				//task is completed, remove it and send it
+    				//task is completed, remove it and send it back to owner
     				
     				dialog.setTitle("Task successfully completed");
     				dialog.show();
@@ -196,8 +196,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 		    		LocalTaskManager.deleteDraft(oldtask, this);
 		    		LocalTaskManager.deleteFavourite(oldtask, this);
 		    		
-		    		Intent emailIntent = Email.CreateEmailIntent(newtask);
-		    		emailIntent = Intent.createChooser(emailIntent, "Choose email service");
+		    		Intent emailIntent = Email.SendEmail(newtask);
 		    		startActivity(emailIntent);
 		    		
 		    		finish();

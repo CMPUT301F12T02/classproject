@@ -48,9 +48,6 @@ public class StoredTasksActivity extends Activity implements OnClickListener {
 	        case R.id.com_button:
 	        	intent = new Intent(this, ViewExternalTaskActivity.class);
 	        	break;
-	        default:
-	        	intent = new Intent();
-	        	break;
         }
         startActivity(intent);
     }
