@@ -2,10 +2,9 @@ package ca.ualberta.frontend;
 
 import java.io.File;
 
-import ca.ualberta.backend.LocalTaskManager;
-import ca.ualberta.backend.Task;
 import ca.ualberta.frontend.R;
 
+import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -18,35 +17,39 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class TakePhotoActivity extends Activity {
+
+public class TakeAudioActivity extends Activity {
 
 	Uri imageFileUri;
 	private static final int CAPTURE_ACTIVITY_REQUEST_CODE = 100;
+	private static MediaRecorder recorder;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_takephoto);
+        setContentView(R.layout.activity_takeaudio);
         
-        ImageButton button = (ImageButton) findViewById(R.id.TakeAPhoto);
+        ImageButton button = (ImageButton) findViewById(R.id.TakeAAudio);
         OnClickListener listener = new OnClickListener(){
         	public void onClick(View v){
-        		takePhoto();
+        		takeAudio();
         	}
         };
         button.setOnClickListener(listener);
     }
     
-    public void takePhoto(){   	
-    	String folder = Environment.getExternalStorageDirectory().getAbsolutePath() ;
-    	File folderF = new File(folder);
+    public void takeAudio(){   	
+    	String folder2 = Environment.getExternalStorageDirectory().getAbsolutePath() ;
+    	File folderF = new File(folder2);
     	if (!folderF.exists()){
     		folderF.mkdir();
     	}
-    	String imageFilePath = folder + "/" + String.valueOf(System.currentTimeMillis()) + ".jpg";
+    	String imageFilePath = folder2 + "/" + String.valueOf(System.currentTimeMillis()) + ".3gpp";
     	File imageFile = new File(imageFilePath);
     	
     	imageFileUri = Uri.fromFile(imageFile);
+    	
+    	
     	
     	Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
     	intent.putExtra(MediaStore.EXTRA_OUTPUT,(Uri) imageFileUri);
@@ -55,29 +58,22 @@ public class TakePhotoActivity extends Activity {
     
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
-
     	
     		TextView tv = (TextView) findViewById(R.id.camera_status);
     		switch (resultCode){
     			case RESULT_OK:
     				ImageButton button = (ImageButton) findViewById(R.id.TakeAPhoto);
     				button.setImageDrawable(Drawable.createFromPath(imageFileUri.getPath()));
-    				tv.setText("Took photo.");
-    				
-    			//	Task oldtask = (Task) getIntent().getSerializableExtra("task");
-    			//	Task newtask = oldtask.cloneTask();
-    			//	newtask.setResult(newtask.getResAnswer(), "photo", newtask.getResAudioName());
-    			//	LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
+    				tv.setText("Took Audio.");
     				
     				break;
     			case RESULT_CANCELED:
-    				tv.setText("Cancelled photo.");
+    				tv.setText("Cancelled Audio.");
     				break;
     			default:
     				tv.setText("Not sure what happened: " + resultCode);
     				break;
     		
     	}
-
     }
 }

@@ -119,6 +119,8 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     		case R.id.get_image:
     			intent = new Intent(this, TakePhotoActivity.class);
     			startActivity(intent);
+    			
+    			
     			break;
     		case R.id.save_progress:
     			newtask.setResult(answer, photofile, audiofile);
