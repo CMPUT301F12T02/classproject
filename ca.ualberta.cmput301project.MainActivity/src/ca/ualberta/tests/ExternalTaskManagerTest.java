@@ -1,4 +1,4 @@
-package ca.ualberta.backend;
+package ca.ualberta.tests;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -7,6 +7,9 @@ import java.util.Date;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import ca.ualberta.backend.ExternalTaskManager;
+import ca.ualberta.backend.Task;
 
 
 import junit.framework.TestCase;

@@ -56,7 +56,7 @@ public class RequestSummaryActivity extends Activity implements OnClickListener 
 		finish();
     }
     /**
-     * The point of the post_description is it posts the description of the task to the top of the screen
+     * post_description posts the description of the task to the top of the screen
      * @author fessehay
      */
     public void post_description(){

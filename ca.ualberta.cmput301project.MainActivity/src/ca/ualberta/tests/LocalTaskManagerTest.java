@@ -1,6 +1,9 @@
-package ca.ualberta.backend;
+package ca.ualberta.tests;
 
 import java.util.ArrayList;
+
+import ca.ualberta.backend.LocalTaskManager;
+import ca.ualberta.backend.Task;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;

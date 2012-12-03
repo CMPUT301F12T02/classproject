@@ -17,8 +17,8 @@ public class MainActivity extends Activity implements OnClickListener {
         
         Button viewStoredId = (Button) findViewById(R.id.viewstored_button);
         Button newRequestId = (Button) findViewById(R.id.newrequest_button);
-        viewStoredId.setOnClickListener(this);
         newRequestId.setOnClickListener(this);
+        viewStoredId.setOnClickListener(this);
     }
 
     public void onClick(View v){

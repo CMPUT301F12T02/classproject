@@ -16,6 +16,11 @@ import android.widget.TextView;
 import ca.ualberta.backend.LocalTaskManager;
 import ca.ualberta.backend.Task;
 
+/**TakePhotoActivity is responsible for allowing the user to take
+ * and save photos
+ * @author fessehay
+ *
+ */
 public class TakePhotoActivity extends Activity implements OnClickListener {
 
 	Uri imageFileUri;
@@ -36,7 +41,9 @@ public class TakePhotoActivity extends Activity implements OnClickListener {
 		fButton.setOnClickListener(this);
 		ibutton.setOnClickListener(listen);
 	}
-
+	/**takePhoto will capture a photo and start the activity
+	 * meant to save the photo
+	 */
 	public void takePhoto(){   	
 		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
@@ -76,7 +83,6 @@ public class TakePhotoActivity extends Activity implements OnClickListener {
 	}
 
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
 	switch (v.getId()){
 		case R.id.finishButton:
 			finish();
