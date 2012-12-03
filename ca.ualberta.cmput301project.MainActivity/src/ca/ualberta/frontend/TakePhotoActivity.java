@@ -5,16 +5,16 @@ package ca.ualberta.frontend;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-
 import android.net.Uri;
 import android.os.Bundle;
-
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import ca.ualberta.backend.LocalTaskManager;
+import ca.ualberta.backend.Task;
 
 public class TakePhotoActivity extends Activity implements OnClickListener {
 
@@ -46,19 +46,23 @@ public class TakePhotoActivity extends Activity implements OnClickListener {
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data){
-
+		Task task = (Task) getIntent().getSerializableExtra("task");
 
 		TextView tv = (TextView) findViewById(R.id.camera_status);
 		switch (resultCode){
 		case RESULT_OK:
 			ImageButton button = (ImageButton) findViewById(R.id.TakeAPhoto);
 			Bitmap photo = (Bitmap) data.getExtras().get("data");
+			task.addPhoto(photo);
+			
+			LocalTaskManager.replaceDraft(task, task, this);
+			LocalTaskManager.replaceLocalTask(task, task, this);
+			LocalTaskManager.replaceFavourite(task, task, this);
+			
 			button.setImageBitmap(photo);
 			tv.setText("Took photo.");
-			Intent returnIntent = new Intent();
-			returnIntent.putExtra("newphoto", photo);
-			setResult(Activity.RESULT_OK,returnIntent);
-
+			
+			
 			break;
 		case RESULT_CANCELED:
 			tv.setText("Cancelled photo.");

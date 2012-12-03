@@ -125,7 +125,10 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			break;
     		case R.id.get_image:
     			intent = new Intent(this, TakePhotoActivity.class);
-    			startActivityForResult(intent,1);
+    			Bundle bundle = new Bundle();
+    			bundle.putSerializable("task", oldtask);
+    			intent.putExtras(bundle);
+    			startActivity(intent);
     			
     			
     			break;
@@ -219,14 +222,5 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			}
     			break;
     	}
-    }
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-    
-          if (resultCode == RESULT_OK) {
-        	  
-       
-          }
- 
     }
 }
