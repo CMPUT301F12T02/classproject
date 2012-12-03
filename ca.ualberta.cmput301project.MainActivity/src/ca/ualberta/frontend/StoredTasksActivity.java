@@ -8,6 +8,11 @@ import android.widget.Button;
 import android.app.Activity;
 import android.content.Intent;
 
+/**StoredTasksActivity is a menu where users can select
+ * a method of viewing their saved tasks, as well as online tasks.
+ * @author pqin, fessehay
+ *
+ */
 public class StoredTasksActivity extends Activity implements OnClickListener {
 
     @Override
