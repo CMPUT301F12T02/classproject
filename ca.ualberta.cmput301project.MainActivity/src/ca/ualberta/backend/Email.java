@@ -1,6 +1,9 @@
 package ca.ualberta.backend;
 
+import java.util.ArrayList;
+
 import android.content.Intent;
+import android.graphics.Bitmap;
 import ca.ualberta.backend.Task;
 import ca.ualberta.frontend.FulfillTaskActivity;
 
@@ -40,7 +43,11 @@ public class Email {
 	
 	private static Intent AttachMedia(Intent intent, Task task){
 		if (task.getReqPhoto()){
-			
+			ArrayList<Bitmap> arr = task.getResPhoto();
+			for (int i = 0; i < arr.size(); i++){
+			    Bitmap image = arr.get(i);
+			    intent.putExtra(Intent.EXTRA_STREAM, image);
+			}
 		}
 		return intent;
 	} 
