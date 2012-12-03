@@ -45,10 +45,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         boolean requestPhotos = oldtask.getReqPhoto();
 
         Button photoButton = (Button) findViewById(R.id.get_image);
-<<<<<<< HEAD
         Button likeButton = (Button) findViewById(R.id.like_button);
-=======
->>>>>>> d9d0ddb90bfa3df7a798d46ca146cc0fd881a952
         Button doneButton = (Button) findViewById(R.id.taskdone);
         Button saveButton = (Button) findViewById(R.id.save_progress);
         Button addToFavouritesButton = (Button) findViewById(R.id.add_to_favourites);
@@ -56,10 +53,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         Button removeTask = (Button) findViewById(R.id.remove_task);
         
         photoButton.setClickable(false);
-<<<<<<< HEAD
         likeButton.setClickable(false);
-=======
->>>>>>> d9d0ddb90bfa3df7a798d46ca146cc0fd881a952
         //Logic to gray-out Button so it's non-selectable
         if (requestPhotos){
         	photoButton.setOnClickListener(this);
@@ -68,16 +62,13 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         	photoButton.setTextColor(getResources().getColor(R.color.White));
         }
         
-<<<<<<< HEAD
         if (file.equals("EXTERNAL")){
          	likeButton.setOnClickListener(this);
         	likeButton.setClickable(true);
         } else {
         	likeButton.setTextColor(getResources().getColor(R.color.White));
         }
-        
-=======
->>>>>>> d9d0ddb90bfa3df7a798d46ca146cc0fd881a952
+
         if (file.equals("EXTERNAL") || file.equals("DRAFTS")) {
         	saveButton.setText("Save Draft");
         }
