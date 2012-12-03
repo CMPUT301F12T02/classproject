@@ -18,6 +18,7 @@ public class Task implements Serializable {
     private String ownerEmail;
     private java.util.Date timestamp;
     private String id;
+    private int likes;
     
     private String result_answer;
     private String result_photofile;
@@ -30,6 +31,7 @@ public class Task implements Serializable {
         this.ownerEmail = ownerEmail;
         this.timestamp = timestamp;
         this.id = id;
+        this.likes = 0;
     }
     
     public Task(String newOwner, String description, boolean isPhotoRequired, boolean isAudioRequired) {
@@ -111,6 +113,10 @@ public class Task implements Serializable {
     
     public void setID(String id){
         this.id = id;
+    }
+    
+    public void incrementLikes(){
+        likes++;
     }
     
     public Task cloneTask() {
