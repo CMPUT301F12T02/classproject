@@ -28,6 +28,7 @@ public final class R {
         public static final int createrequest_button=0x7f070010;
         public static final int drafts_button=0x7f07001c;
         public static final int favourites_button=0x7f07001a;
+        public static final int finishButton=0x7f070022;
         public static final int get_audio=0x7f070003;
         public static final int get_image=0x7f070004;
         public static final int local_button=0x7f070018;
@@ -77,6 +78,7 @@ public final class R {
         public static final int drafts_button=0x7f040015;
         public static final int empty_list=0x7f040017;
         public static final int favourites_button=0x7f040016;
+        public static final int finish_button=0x7f04002a;
         public static final int get_audio=0x7f04001e;
         public static final int get_image=0x7f04001f;
         public static final int local_button=0x7f040014;

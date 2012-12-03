@@ -1,18 +1,15 @@
 package ca.ualberta.frontend;
 
-import java.io.File;
 
-import ca.ualberta.backend.LocalTaskManager;
-import ca.ualberta.backend.Task;
-import ca.ualberta.frontend.R;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
+
 import android.provider.MediaStore;
-import android.app.Activity;
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -21,7 +18,6 @@ import android.widget.TextView;
 public class TakePhotoActivity extends Activity {
 
 	Uri imageFileUri;
-	private static final int CAPTURE_ACTIVITY_REQUEST_CODE = 100;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,19 +34,9 @@ public class TakePhotoActivity extends Activity {
     }
     
     public void takePhoto(){   	
-    	String folder = Environment.getExternalStorageDirectory().getAbsolutePath() ;
-    	File folderF = new File(folder);
-    	if (!folderF.exists()){
-    		folderF.mkdir();
-    	}
-    	String imageFilePath = folder + "/" + String.valueOf(System.currentTimeMillis()) + ".jpg";
-    	File imageFile = new File(imageFilePath);
-    	
-    	imageFileUri = Uri.fromFile(imageFile);
-    	
     	Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-    	intent.putExtra(MediaStore.EXTRA_OUTPUT,(Uri) imageFileUri);
-    	startActivityForResult(intent, CAPTURE_ACTIVITY_REQUEST_CODE);
+
+    	startActivityForResult(intent, 1888);
     }
     
     @Override
@@ -61,13 +47,10 @@ public class TakePhotoActivity extends Activity {
     		switch (resultCode){
     			case RESULT_OK:
     				ImageButton button = (ImageButton) findViewById(R.id.TakeAPhoto);
-    				button.setImageDrawable(Drawable.createFromPath(imageFileUri.getPath()));
+    				Bitmap photo = (Bitmap) data.getExtras().get("data");
+    				button.setImageBitmap(photo);
     				tv.setText("Took photo.");
     				
-    			//	Task oldtask = (Task) getIntent().getSerializableExtra("task");
-    			//	Task newtask = oldtask.cloneTask();
-    			//	newtask.setResult(newtask.getResAnswer(), "photo", newtask.getResAudioName());
-    			//	LocalTaskManager.replaceLocalTask(oldtask, newtask, this);
     				
     				break;
     			case RESULT_CANCELED:
