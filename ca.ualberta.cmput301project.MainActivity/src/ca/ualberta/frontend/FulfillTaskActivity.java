@@ -34,6 +34,9 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 
         Task oldtask = (Task) getIntent().getSerializableExtra("task");
         
+        TextView likes = (TextView) findViewById(R.id.likes);
+        likes.setText("Likes: " + oldtask.getLikes());
+        
         TextView requirements = (TextView) findViewById(R.id.question_text);
         requirements.setText(oldtask.getDescription());
         
@@ -56,17 +59,9 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         likeButton.setClickable(false);
         //Logic to gray-out Button so it's non-selectable
         if (requestPhotos){
-        	photoButton.setOnClickListener(this);
         	photoButton.setClickable(true);
         } else {
-        	photoButton.setTextColor(getResources().getColor(R.color.White));
-        }
-        
-        if (file.equals("EXTERNAL")){
-         	likeButton.setOnClickListener(this);
-        	likeButton.setClickable(true);
-        } else {
-        	likeButton.setTextColor(getResources().getColor(R.color.White));
+        	photoButton.setVisibility(View.GONE);
         }
 
         if (file.equals("EXTERNAL") || file.equals("DRAFTS")) {
@@ -87,6 +82,8 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         addToFavouritesButton.setOnClickListener(this);
         removeFromFavouritesButton.setOnClickListener(this);
         removeTask.setOnClickListener(this);
+        photoButton.setOnClickListener(this);
+        likeButton.setOnClickListener(this);
         
         if (file.equals("FAVOURITES") || LocalTaskManager.existsFavourite(oldtask, this)) {
         	addToFavouritesButton.setVisibility(View.GONE);
@@ -96,6 +93,11 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         
         if (file.equals("FAVOURITES") || file.equals("EXTERNAL")) {
         	removeTask.setVisibility(View.GONE);
+        }
+        
+        if (!file.equals("EXTERNAL")) {
+        	likes.setVisibility(View.GONE);
+        	likeButton.setVisibility(View.GONE);
         }
     }
     
