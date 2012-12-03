@@ -147,7 +147,13 @@ public class Task implements Serializable {
      * @param image
      */
     public void addPhoto(Bitmap image) {
-    	this.result_photo.add(image);
+        if (image != null){
+            System.out.println("reaches here");
+        }
+        if (result_photo == null){
+            result_photo = new ArrayList<Bitmap>();
+        }
+            this.result_photo.add(image);
     }
     /**cloneTask creates an identical Task
      * to be used when the task needs to be modified
