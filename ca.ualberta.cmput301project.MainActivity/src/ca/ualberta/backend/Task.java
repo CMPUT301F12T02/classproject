@@ -26,14 +26,14 @@ public class Task implements Serializable {
     private ArrayList<Bitmap> result_photo;
     private String result_audio;
     
-    public Task(String description, boolean isPhotoRequired, boolean isAudioRequired, String ownerEmail, java.util.Date timestamp, String id) {
+    public Task(String description, boolean isPhotoRequired, boolean isAudioRequired, String ownerEmail, java.util.Date timestamp, String id, int likes) {
     	this.description = description;
         this.isPhotoRequired = isPhotoRequired;
         this.isAudioRequired = isAudioRequired;
         this.ownerEmail = ownerEmail;
         this.timestamp = timestamp;
         this.id = id;
-        this.likes = 0;
+        this.likes = likes;
     }
     
     public Task(String newOwner, String description, boolean isPhotoRequired, boolean isAudioRequired) {
@@ -43,6 +43,7 @@ public class Task implements Serializable {
         this.ownerEmail = newOwner;
         this.timestamp = new java.util.Date();
         this.id = "local";
+        this.likes = 0;
     }
 
     public String getDescription() {
@@ -84,6 +85,14 @@ public class Task implements Serializable {
     public void setTimestamp(java.util.Date timestamp) {
         this.timestamp = timestamp;
     }
+    
+    public int getLikes() {
+    	return this.likes;
+    }
+    
+    public void setLikes(int likes) {
+    	this.likes = likes;
+    }
 
     public String getResAnswer() {
         return this.result_answer;
@@ -117,12 +126,12 @@ public class Task implements Serializable {
         this.id = id;
     }
     
-    public void incrementLikes(){
-        likes++;
+    public void incrementLikes() {
+        this.likes++;
     }
     
     public Task cloneTask() {
-    	Task task = new Task(this.description, this.isPhotoRequired, this.isAudioRequired, this.ownerEmail, this.timestamp, this.id);
+    	Task task = new Task(this.description, this.isPhotoRequired, this.isAudioRequired, this.ownerEmail, this.timestamp, this.id, this.likes);
     	task.setResult(this.result_answer, this.result_photo, this.result_audio);
     	return task;
     }
