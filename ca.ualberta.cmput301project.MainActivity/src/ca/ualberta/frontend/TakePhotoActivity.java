@@ -46,23 +46,23 @@ public class TakePhotoActivity extends Activity implements OnClickListener {
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data){
-		Task task = (Task) getIntent().getSerializableExtra("task");
+		Task oldTask = (Task) getIntent().getSerializableExtra("task");
+		Task newTask = oldTask.cloneTask();
 
 		TextView tv = (TextView) findViewById(R.id.camera_status);
 		switch (resultCode){
 		case RESULT_OK:
 			ImageButton button = (ImageButton) findViewById(R.id.TakeAPhoto);
 			Bitmap photo = (Bitmap) data.getExtras().get("data");
-			task.addPhoto(photo);
+			newTask.addPhoto(photo);
 			
-			LocalTaskManager.replaceDraft(task, task, this);
-			LocalTaskManager.replaceLocalTask(task, task, this);
-			LocalTaskManager.replaceFavourite(task, task, this);
+			LocalTaskManager.replaceDraft(oldTask, newTask, this);
+			LocalTaskManager.replaceLocalTask(oldTask, newTask, this);
+			LocalTaskManager.replaceFavourite(oldTask, newTask, this);
 			
 			button.setImageBitmap(photo);
 			tv.setText("Took photo.");
-			
-			
+
 			break;
 		case RESULT_CANCELED:
 			tv.setText("Cancelled photo.");
