@@ -38,6 +38,9 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 
         Task oldtask = (Task) getIntent().getSerializableExtra("task");
         
+        TextView likes = (TextView) findViewById(R.id.likes);
+        likes.setText("Likes: " + oldtask.getLikes());
+        
         TextView requirements = (TextView) findViewById(R.id.question_text);
         requirements.setText(oldtask.getDescription());
         
@@ -49,6 +52,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         boolean requestPhotos = oldtask.getReqPhoto();
 
         Button photoButton = (Button) findViewById(R.id.get_image);
+        Button likeButton = (Button) findViewById(R.id.like_button);
         Button doneButton = (Button) findViewById(R.id.taskdone);
         Button saveButton = (Button) findViewById(R.id.save_progress);
         Button addToFavouritesButton = (Button) findViewById(R.id.add_to_favourites);
@@ -56,14 +60,14 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         Button removeTask = (Button) findViewById(R.id.remove_task);
         
         photoButton.setClickable(false);
+        likeButton.setClickable(false);
         //Logic to gray-out Button so it's non-selectable
         if (requestPhotos){
-        	photoButton.setOnClickListener(this);
         	photoButton.setClickable(true);
         } else {
-        	photoButton.setTextColor(getResources().getColor(R.color.White));
+        	photoButton.setVisibility(View.GONE);
         }
-        
+
         if (file.equals("EXTERNAL") || file.equals("DRAFTS")) {
         	saveButton.setText("Save Draft");
         }
@@ -82,6 +86,8 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         addToFavouritesButton.setOnClickListener(this);
         removeFromFavouritesButton.setOnClickListener(this);
         removeTask.setOnClickListener(this);
+        photoButton.setOnClickListener(this);
+        likeButton.setOnClickListener(this);
         
         if (file.equals("FAVOURITES") || LocalTaskManager.existsFavourite(oldtask, this)) {
         	addToFavouritesButton.setVisibility(View.GONE);
@@ -91,6 +97,11 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         
         if (file.equals("FAVOURITES") || file.equals("EXTERNAL")) {
         	removeTask.setVisibility(View.GONE);
+        }
+        
+        if (!file.equals("EXTERNAL")) {
+        	likes.setVisibility(View.GONE);
+        	likeButton.setVisibility(View.GONE);
         }
     }
     
@@ -107,9 +118,10 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     	
     	Intent intent;
     	switch (v.getId()){
-    		case R.id.get_audio:
-    			intent = new Intent();
-    			startActivity(intent);
+    		case R.id.like_button:
+    		        String ident = oldtask.getID();
+    			ExternalTaskManager.updateTask(oldtask, ident);
+    			finish();
     			break;
     		case R.id.get_image:
     			intent = new Intent(this, TakePhotoActivity.class);
