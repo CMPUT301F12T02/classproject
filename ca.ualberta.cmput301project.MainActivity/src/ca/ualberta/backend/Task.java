@@ -117,8 +117,13 @@ public class Task implements Serializable {
         this.id = id;
     }
     
-    public void incrementLikes(){
+    public int incrementLikes(){
         likes++;
+        return likes;
+    }
+
+    public int getLikes(){
+        return likes;
     }
     
     public Task cloneTask() {

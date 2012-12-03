@@ -5,19 +5,25 @@
     <string name="title_activity_main">CMPUT301F12T02</string>
     <string name="viewstored_button">View Stored Tasks</string>
     <string name="newrequest_button">New Task Request</string>
+    
     <!-- Create New Request -->
+    
     <string name="title_activity_new_request">New Task Request</string>
     <string name="task_description">Description of Task</string>
     <string name="user_email">Email that task will be sent to upon completion</string>
     <string name="require_photos">Requires photo(s)</string>
     <string name="require_audio">Requires audio</string>
     <string name="createrequest_button">Create</string>
+    
     <!-- Summary of Request -->
+    
     <string name="title_activity_request_summary">Request Summary</string>
     <string name="requestsummary">Description of Task&#8230;</string>
     <string name="savelocal_button">Save as My Task</string>
     <string name="post_button">Post to Community</string>
+    
     <!-- Show Stored Tasks -->
+    
     <string name="title_activity_stored_tasks">Stored Tasks</string>
     <string name="other_requests">Task Requests From Others</string>
     <string name="my_tasks">My Tasks</string>
@@ -32,10 +38,12 @@
     <string name="title_activity_local_task">Local Tasks</string>
     <string name="random_tasks">Display Random Task</string>
     <string name="button_random">RANDOM</string>
+    
     <!-- Create Task to fulfill Request -->
+    
     <string name="title_activity_fulfill_task">Fulfill Task Request</string>
     <string name="task_text">Enter text here.</string>
-    <string name="get_audio">Record Audio</string>
+    <string name="like_text">Like</string>
     <string name="get_image">Take Photo(s)</string>
     <string name="taskdone">Done</string>
     <string name="save_progress">Save Progress</string>

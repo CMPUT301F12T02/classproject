@@ -43,10 +43,9 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 
         //If image/audio required, make button clickable.
         boolean requestPhotos = oldtask.getReqPhoto();
-        boolean requestAudio = oldtask.getReqAudio();
 
         Button photoButton = (Button) findViewById(R.id.get_image);
-        Button audioButton = (Button) findViewById(R.id.get_audio);
+        Button likeButton = (Button) findViewById(R.id.like_button);
         Button doneButton = (Button) findViewById(R.id.taskdone);
         Button saveButton = (Button) findViewById(R.id.save_progress);
         Button addToFavouritesButton = (Button) findViewById(R.id.add_to_favourites);
@@ -54,7 +53,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         Button removeTask = (Button) findViewById(R.id.remove_task);
         
         photoButton.setClickable(false);
-        audioButton.setClickable(false);
+        likeButton.setClickable(false);
         //Logic to gray-out Button so it's non-selectable
         if (requestPhotos){
         	photoButton.setOnClickListener(this);
@@ -63,11 +62,11 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         	photoButton.setTextColor(getResources().getColor(R.color.White));
         }
         
-        if (requestAudio){
-         	audioButton.setOnClickListener(this);
-        	audioButton.setClickable(true);
+        if (file.equals("EXTERNAL")){
+         	likeButton.setOnClickListener(this);
+        	likeButton.setClickable(true);
         } else {
-        	audioButton.setTextColor(getResources().getColor(R.color.White));
+        	likeButton.setTextColor(getResources().getColor(R.color.White));
         }
         
         if (file.equals("EXTERNAL") || file.equals("DRAFTS")) {
@@ -114,9 +113,9 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     	
     	Intent intent;
     	switch (v.getId()){
-    		case R.id.get_audio:
-    			intent = new Intent();
-    			startActivity(intent);
+    		case R.id.like_button:
+    		        String ident = oldtask.getID();
+    			ExternalTaskManager.updateTask(oldtask, ident);
     			break;
     		case R.id.get_image:
     			intent = new Intent(this, TakePhotoActivity.class);
