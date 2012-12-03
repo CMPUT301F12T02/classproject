@@ -22,8 +22,12 @@ import ca.ualberta.backend.Task;
  * @author pqin
  *
  */
-public class FulfillTaskActivity extends Activity implements OnClickListener {
 
+
+public class FulfillTaskActivity extends Activity implements OnClickListener {
+	
+	
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,6 +125,9 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			break;
     		case R.id.get_image:
     			intent = new Intent(this, TakePhotoActivity.class);
+    			Bundle bundle = new Bundle();
+    			bundle.putSerializable("task", oldtask);
+    			intent.putExtras(bundle);
     			startActivity(intent);
     			
     			
