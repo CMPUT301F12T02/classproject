@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import ca.ualberta.backend.Task;
 
 public class MainActivity extends Activity implements OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	/** 
 	 * @uml.property name="newRequestActivity"
-	 * @uml.associationEnd aggregation="composite" inverse="mainActivity:ca.ualberta.frontend.NewRequestActivity"
+	 * @uml.associationEnd aggregation="shared" inverse="mainActivity:ca.ualberta.frontend.NewRequestActivity"
 	 */
 	private NewRequestActivity newRequestActivity;
 
@@ -69,13 +70,13 @@ public class MainActivity extends Activity implements OnClickListener {
 		this.newRequestActivity = newRequestActivity;
 	}
 
-	/**
-	 * @uml.property  name="storedTasksActivity"
-	 * @uml.associationEnd  aggregation="composite" inverse="mainActivity:ca.ualberta.frontend.StoredTasksActivity"
+	/** 
+	 * @uml.property name="storedTasksActivity"
+	 * @uml.associationEnd aggregation="shared" inverse="mainActivity:ca.ualberta.frontend.StoredTasksActivity"
 	 */
 	private StoredTasksActivity storedTasksActivity;
 
-	/**
+	/** 
 	 * Getter of the property <tt>storedTasksActivity</tt>
 	 * @return  Returns the storedTasksActivity.
 	 * @uml.property  name="storedTasksActivity"
@@ -84,12 +85,36 @@ public class MainActivity extends Activity implements OnClickListener {
 		return storedTasksActivity;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>storedTasksActivity</tt>
 	 * @param storedTasksActivity  The storedTasksActivity to set.
 	 * @uml.property  name="storedTasksActivity"
 	 */
 	public void setStoredTasksActivity(StoredTasksActivity storedTasksActivity) {
 		this.storedTasksActivity = storedTasksActivity;
+	}
+
+	/**
+	 * @uml.property  name="task"
+	 * @uml.associationEnd  aggregation="shared" inverse="mainActivity:ca.ualberta.backend.Task"
+	 */
+	private Task task;
+
+	/**
+	 * Getter of the property <tt>task</tt>
+	 * @return  Returns the task.
+	 * @uml.property  name="task"
+	 */
+	public Task getTask() {
+		return task;
+	}
+
+	/**
+	 * Setter of the property <tt>task</tt>
+	 * @param task  The task to set.
+	 * @uml.property  name="task"
+	 */
+	public void setTask(Task task) {
+		this.task = task;
 	}
 }

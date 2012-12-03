@@ -64,12 +64,12 @@ public class Email {
 		intent = Intent.createChooser(intent, "Choose email client");
 		return intent;
 	}
-	/**
-	 * @uml.property  name="fulfillTaskActivity"
-	 * @uml.associationEnd  inverse="email:ca.ualberta.frontend.FulfillTaskActivity"
+	/** 
+	 * @uml.property name="fulfillTaskActivity"
+	 * @uml.associationEnd inverse="email:ca.ualberta.frontend.FulfillTaskActivity"
 	 */
 	private FulfillTaskActivity fulfillTaskActivity;
-	/**
+	/** 
 	 * Getter of the property <tt>fulfillTaskActivity</tt>
 	 * @return  Returns the fulfillTaskActivity.
 	 * @uml.property  name="fulfillTaskActivity"
@@ -78,7 +78,7 @@ public class Email {
 		return fulfillTaskActivity;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>fulfillTaskActivity</tt>
 	 * @param fulfillTaskActivity  The fulfillTaskActivity to set.
 	 * @uml.property  name="fulfillTaskActivity"

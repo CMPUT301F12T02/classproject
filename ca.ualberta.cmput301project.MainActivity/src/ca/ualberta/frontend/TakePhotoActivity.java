@@ -94,13 +94,13 @@ public class TakePhotoActivity extends Activity implements OnClickListener {
 	}
 }
 
-	/**
-	 * @uml.property  name="fulfillTaskActivity"
-	 * @uml.associationEnd  inverse="takePhotoActivity:ca.ualberta.frontend.FulfillTaskActivity"
+	/** 
+	 * @uml.property name="fulfillTaskActivity"
+	 * @uml.associationEnd inverse="takePhotoActivity:ca.ualberta.frontend.FulfillTaskActivity"
 	 */
 	private FulfillTaskActivity fulfillTaskActivity;
 
-	/**
+	/** 
 	 * Getter of the property <tt>fulfillTaskActivity</tt>
 	 * @return  Returns the fulfillTaskActivity.
 	 * @uml.property  name="fulfillTaskActivity"
@@ -108,7 +108,7 @@ public class TakePhotoActivity extends Activity implements OnClickListener {
 	public FulfillTaskActivity getFulfillTaskActivity() {
 		return fulfillTaskActivity;
 	}
-	/**
+	/** 
 	 * Setter of the property <tt>fulfillTaskActivity</tt>
 	 * @param fulfillTaskActivity  The fulfillTaskActivity to set.
 	 * @uml.property  name="fulfillTaskActivity"

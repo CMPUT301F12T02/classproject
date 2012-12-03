@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import android.graphics.Bitmap;
 import ca.ualberta.frontend.NewRequestActivity;
+import ca.ualberta.frontend.MainActivity;
 
 /** Task is the data class for Tasks.
  * handles storage and easy transferring of
@@ -260,5 +261,28 @@ public class Task implements Serializable {
 	 */
 	public void setExternalTaskManager(ExternalTaskManager externalTaskManager) {
 		this.externalTaskManager = externalTaskManager;
+	}
+	/**
+	 * @uml.property  name="mainActivity"
+	 * @uml.associationEnd  inverse="task:ca.ualberta.frontend.MainActivity"
+	 */
+	private MainActivity mainActivity;
+
+	/**
+	 * Getter of the property <tt>mainActivity</tt>
+	 * @return  Returns the mainActivity.
+	 * @uml.property  name="mainActivity"
+	 */
+	public MainActivity getMainActivity() {
+		return mainActivity;
+	}
+
+	/**
+	 * Setter of the property <tt>mainActivity</tt>
+	 * @param mainActivity  The mainActivity to set.
+	 * @uml.property  name="mainActivity"
+	 */
+	public void setMainActivity(MainActivity mainActivity) {
+		this.mainActivity = mainActivity;
 	}
 }

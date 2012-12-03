@@ -64,13 +64,13 @@ public class StoredTasksActivity extends Activity implements OnClickListener {
         startActivity(intent);
     }
 
-	/**
-	 * @uml.property  name="mainActivity"
-	 * @uml.associationEnd  inverse="storedTasksActivity:ca.ualberta.frontend.MainActivity"
+	/** 
+	 * @uml.property name="mainActivity"
+	 * @uml.associationEnd inverse="storedTasksActivity:ca.ualberta.frontend.MainActivity"
 	 */
 	private MainActivity mainActivity;
 
-	/**
+	/** 
 	 * Getter of the property <tt>mainActivity</tt>
 	 * @return  Returns the mainActivity.
 	 * @uml.property  name="mainActivity"
@@ -79,7 +79,7 @@ public class StoredTasksActivity extends Activity implements OnClickListener {
 		return mainActivity;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>mainActivity</tt>
 	 * @param mainActivity  The mainActivity to set.
 	 * @uml.property  name="mainActivity"
@@ -88,13 +88,13 @@ public class StoredTasksActivity extends Activity implements OnClickListener {
 		this.mainActivity = mainActivity;
 	}
 
-	/**
-	 * @uml.property  name="viewExternalTaskActivity"
-	 * @uml.associationEnd  aggregation="composite" inverse="storedTasksActivity:ca.ualberta.frontend.ViewExternalTaskActivity"
+	/** 
+	 * @uml.property name="viewExternalTaskActivity"
+	 * @uml.associationEnd aggregation="shared" inverse="storedTasksActivity:ca.ualberta.frontend.ViewExternalTaskActivity"
 	 */
 	private ViewExternalTaskActivity viewExternalTaskActivity;
 
-	/**
+	/** 
 	 * Getter of the property <tt>viewExternalTaskActivity</tt>
 	 * @return  Returns the viewExternalTaskActivity.
 	 * @uml.property  name="viewExternalTaskActivity"
@@ -103,7 +103,7 @@ public class StoredTasksActivity extends Activity implements OnClickListener {
 		return viewExternalTaskActivity;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>viewExternalTaskActivity</tt>
 	 * @param viewExternalTaskActivity  The viewExternalTaskActivity to set.
 	 * @uml.property  name="viewExternalTaskActivity"
@@ -113,13 +113,13 @@ public class StoredTasksActivity extends Activity implements OnClickListener {
 				this.viewExternalTaskActivity = viewExternalTaskActivity;
 			}
 
-	/**
-	 * @uml.property  name="viewLocalTaskActivity"
-	 * @uml.associationEnd  aggregation="composite" inverse="storedTasksActivity:ca.ualberta.frontend.ViewLocalTaskActivity"
+	/** 
+	 * @uml.property name="viewLocalTaskActivity"
+	 * @uml.associationEnd aggregation="shared" inverse="storedTasksActivity:ca.ualberta.frontend.ViewLocalTaskActivity"
 	 */
 	private ViewLocalTaskActivity viewLocalTaskActivity;
 
-	/**
+	/** 
 	 * Getter of the property <tt>viewLocalTaskActivity</tt>
 	 * @return  Returns the viewLocalTaskActivity.
 	 * @uml.property  name="viewLocalTaskActivity"
@@ -128,13 +128,13 @@ public class StoredTasksActivity extends Activity implements OnClickListener {
 		return viewLocalTaskActivity;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>viewLocalTaskActivity</tt>
 	 * @param viewLocalTaskActivity  The viewLocalTaskActivity to set.
 	 * @uml.property  name="viewLocalTaskActivity"
 	 */
 	public void setViewLocalTaskActivity(
 			ViewLocalTaskActivity viewLocalTaskActivity) {
-		this.viewLocalTaskActivity = viewLocalTaskActivity;
-	}
+				this.viewLocalTaskActivity = viewLocalTaskActivity;
+			}
 }

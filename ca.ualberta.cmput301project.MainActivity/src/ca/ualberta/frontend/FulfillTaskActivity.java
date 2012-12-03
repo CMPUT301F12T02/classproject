@@ -224,13 +224,13 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     	}
     }
 
-	/**
-	 * @uml.property  name="viewExternalTaskActivity"
-	 * @uml.associationEnd  inverse="fulfillTaskActivity:ca.ualberta.frontend.ViewExternalTaskActivity"
+	/** 
+	 * @uml.property name="viewExternalTaskActivity"
+	 * @uml.associationEnd inverse="fulfillTaskActivity:ca.ualberta.frontend.ViewExternalTaskActivity"
 	 */
 	private ViewExternalTaskActivity viewExternalTaskActivity;
 
-	/**
+	/** 
 	 * Getter of the property <tt>viewExternalTaskActivity</tt>
 	 * @return  Returns the viewExternalTaskActivity.
 	 * @uml.property  name="viewExternalTaskActivity"
@@ -239,7 +239,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 		return viewExternalTaskActivity;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>viewExternalTaskActivity</tt>
 	 * @param viewExternalTaskActivity  The viewExternalTaskActivity to set.
 	 * @uml.property  name="viewExternalTaskActivity"
@@ -249,13 +249,13 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 				this.viewExternalTaskActivity = viewExternalTaskActivity;
 			}
 
-	/**
-	 * @uml.property  name="viewLocalTaskActivity"
-	 * @uml.associationEnd  inverse="fulfillTaskActivity:ca.ualberta.frontend.ViewLocalTaskActivity"
+	/** 
+	 * @uml.property name="viewLocalTaskActivity"
+	 * @uml.associationEnd inverse="fulfillTaskActivity:ca.ualberta.frontend.ViewLocalTaskActivity"
 	 */
 	private ViewLocalTaskActivity viewLocalTaskActivity;
 
-	/**
+	/** 
 	 * Getter of the property <tt>viewLocalTaskActivity</tt>
 	 * @return  Returns the viewLocalTaskActivity.
 	 * @uml.property  name="viewLocalTaskActivity"
@@ -264,7 +264,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 		return viewLocalTaskActivity;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>viewLocalTaskActivity</tt>
 	 * @param viewLocalTaskActivity  The viewLocalTaskActivity to set.
 	 * @uml.property  name="viewLocalTaskActivity"
@@ -274,13 +274,13 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 				this.viewLocalTaskActivity = viewLocalTaskActivity;
 			}
 
-	/**
-	 * @uml.property  name="takePhotoActivity"
-	 * @uml.associationEnd  aggregation="composite" inverse="fulfillTaskActivity:ca.ualberta.frontend.TakePhotoActivity"
+	/** 
+	 * @uml.property name="takePhotoActivity"
+	 * @uml.associationEnd aggregation="shared" inverse="fulfillTaskActivity:ca.ualberta.frontend.TakePhotoActivity"
 	 */
 	private TakePhotoActivity takePhotoActivity;
 
-	/**
+	/** 
 	 * Getter of the property <tt>takePhotoActivity</tt>
 	 * @return  Returns the takePhotoActivity.
 	 * @uml.property  name="takePhotoActivity"
@@ -289,7 +289,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 		return takePhotoActivity;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>takePhotoActivity</tt>
 	 * @param takePhotoActivity  The takePhotoActivity to set.
 	 * @uml.property  name="takePhotoActivity"
@@ -298,13 +298,13 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 		this.takePhotoActivity = takePhotoActivity;
 	}
 
-	/**
-	 * @uml.property  name="email"
-	 * @uml.associationEnd  aggregation="composite" inverse="fulfillTaskActivity:ca.ualberta.backend.Email"
+	/** 
+	 * @uml.property name="email"
+	 * @uml.associationEnd aggregation="shared" inverse="fulfillTaskActivity:ca.ualberta.backend.Email"
 	 */
 	private Email email;
 
-	/**
+	/** 
 	 * Getter of the property <tt>email</tt>
 	 * @return  Returns the email.
 	 * @uml.property  name="email"
@@ -313,7 +313,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 		return email;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>email</tt>
 	 * @param email  The email to set.
 	 * @uml.property  name="email"

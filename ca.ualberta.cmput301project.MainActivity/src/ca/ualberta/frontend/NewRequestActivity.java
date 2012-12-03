@@ -91,12 +91,12 @@ public class NewRequestActivity extends Activity implements OnClickListener {
 	public void setMainActivity(MainActivity mainActivity) {
 		this.mainActivity = mainActivity;
 	}
-	/**
-	 * @uml.property  name="requestSummaryActivity"
-	 * @uml.associationEnd  aggregation="composite" inverse="newRequestActivity:ca.ualberta.frontend.RequestSummaryActivity"
+	/** 
+	 * @uml.property name="requestSummaryActivity"
+	 * @uml.associationEnd aggregation="shared" inverse="newRequestActivity:ca.ualberta.frontend.RequestSummaryActivity"
 	 */
 	private RequestSummaryActivity requestSummaryActivity;
-	/**
+	/** 
 	 * Getter of the property <tt>requestSummaryActivity</tt>
 	 * @return  Returns the requestSummaryActivity.
 	 * @uml.property  name="requestSummaryActivity"
@@ -105,7 +105,7 @@ public class NewRequestActivity extends Activity implements OnClickListener {
 		return requestSummaryActivity;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>requestSummaryActivity</tt>
 	 * @param requestSummaryActivity  The requestSummaryActivity to set.
 	 * @uml.property  name="requestSummaryActivity"

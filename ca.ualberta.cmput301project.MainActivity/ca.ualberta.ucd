@@ -70,20 +70,20 @@
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="787,709" size="18,13" anchorKind="FirstPart"/>
       </children>
       <children xsi:type="editmodel:AssociationEndEditModel" name="takePhotoActivity" location="163,61" id="ca.ualberta.frontend/TakePhotoActivity@takePhotoActivity+ca.ualberta.backend/LocalTaskManager@localTaskManager|ca.ualberta.frontend/TakePhotoActivity#takePhotoActivity" multiplicityLabel="//@children.2/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.2/@sourceConnections.1/@children.1/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - takePhotoActivity" location="495,1268" size="99,13" anchorKind="LastPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="495,1241" size="18,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name=" - takePhotoActivity" location="495,1251" size="99,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="495,1224" size="18,13" anchorKind="LastPart"/>
       </children>
       <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
     </sourceConnections>
     <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
   </children>
-  <children xsi:type="editmodel:ClassEditModel" name="Task" location="382,210" size="132,494" id="ca.ualberta.backend/Task" runTimeClassModel="cloneTask(),getTimestamp(),isEqualTo(Lca.ualberta.backend.Task;),toString(),timestamp,getDescription(),getLikes(),incrementLikes(),description,getReqPhoto(),addPhoto(Landroid.graphics.Bitmap;),setResult(Ljava.lang.String;Ljava.util.ArrayList;),getResPhoto(),getID(),setOwner(Ljava.lang.String;),setDescription(Ljava.lang.String;),setResPhoto(Ljava.util.ArrayList;),setReqPhoto(Ljava.lang.Boolean;),likes,Task(Ljava.lang.String;Ljava.lang.String;Z),getOwner(),getResAnswer(),setTimestamp(Ljava.util.Date;),setResAnswer(Ljava.lang.String;),Task(Ljava.lang.String;ZLjava.lang.String;Ljava.util.Date;Ljava.lang.String;I)">
+  <children xsi:type="editmodel:ClassEditModel" name="Task" location="382,210" size="132,476" id="ca.ualberta.backend/Task" runTimeClassModel="cloneTask(),getTimestamp(),isEqualTo(Lca.ualberta.backend.Task;),toString(),timestamp,getDescription(),getLikes(),incrementLikes(),description,getReqPhoto(),addPhoto(Landroid.graphics.Bitmap;),setResult(Ljava.lang.String;Ljava.util.ArrayList;),getResPhoto(),getID(),setOwner(Ljava.lang.String;),setDescription(Ljava.lang.String;),setResPhoto(Ljava.util.ArrayList;),setReqPhoto(Ljava.lang.Boolean;),likes,Task(Ljava.lang.String;Ljava.lang.String;Z),getOwner(),getResAnswer(),setTimestamp(Ljava.util.Date;),setResAnswer(Ljava.lang.String;),Task(Ljava.lang.String;ZLjava.lang.String;Ljava.util.Date;Ljava.lang.String;I)">
     <children xsi:type="editmodel:CompartmentEditModel" size="109,54">
       <children xsi:type="editmodel:AttributeEditModel" name="description" id="ca.ualberta.backend/Task#description"/>
       <children xsi:type="editmodel:AttributeEditModel" name="likes" id="ca.ualberta.backend/Task#likes"/>
       <children xsi:type="editmodel:AttributeEditModel" name="timestamp" id="ca.ualberta.backend/Task#timestamp"/>
     </children>
-    <children xsi:type="editmodel:CompartmentEditModel" size="107,378">
+    <children xsi:type="editmodel:CompartmentEditModel" size="107,360">
       <children xsi:type="editmodel:MethodEditModel" name="Task" id="ca.ualberta.backend/Task#Task(Ljava.lang.String;Ljava.lang.String;Z)"/>
       <children xsi:type="editmodel:MethodEditModel" name="Task" id="ca.ualberta.backend/Task#Task(Ljava.lang.String;ZLjava.lang.String;Ljava.util.Date;Ljava.lang.String;I)"/>
       <children xsi:type="editmodel:MethodEditModel" name="addPhoto" id="ca.ualberta.backend/Task#addPhoto(Landroid.graphics.Bitmap;)"/>
@@ -102,7 +102,6 @@
       <children xsi:type="editmodel:MethodEditModel" name="setOwner" id="ca.ualberta.backend/Task#setOwner(Ljava.lang.String;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="setReqPhoto" id="ca.ualberta.backend/Task#setReqPhoto(Ljava.lang.Boolean;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="setResAnswer" id="ca.ualberta.backend/Task#setResAnswer(Ljava.lang.String;)"/>
-      <children xsi:type="editmodel:MethodEditModel" name="setResult" id="ca.ualberta.backend/Task#setResult(Ljava.lang.String;Ljava.util.ArrayList;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="setTimestamp" id="ca.ualberta.backend/Task#setTimestamp(Ljava.util.Date;)"/>
       <children xsi:type="editmodel:MethodEditModel" name="toString" id="ca.ualberta.backend/Task#toString()"/>
     </children>
@@ -119,24 +118,24 @@
       <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
     </sourceConnections>
     <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ca.ualberta.backend/LocalTaskManager@localTaskManager+ca.ualberta.backend/Task@task" source="//@children.3" target="//@children.2" targetEnd="//@children.3/@sourceConnections.1/@children.1" label="//@children.3/@sourceConnections.1/@children.2" sourceEnd="//@children.3/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
-      <children xsi:type="editmodel:AssociationEndEditModel" name="task" location="132,318" id="ca.ualberta.backend/LocalTaskManager@localTaskManager+ca.ualberta.backend/Task@task|ca.ualberta.backend/Task#task" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.1/@children.0/@children.1" roleLabel="//@children.3/@sourceConnections.1/@children.0/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - task" location="520,508" size="31,13" anchorKind="FirstPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="520,535" size="18,13" anchorKind="FirstPart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="task" location="132,309" id="ca.ualberta.backend/LocalTaskManager@localTaskManager+ca.ualberta.backend/Task@task|ca.ualberta.backend/Task#task" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.1/@children.0/@children.1" roleLabel="//@children.3/@sourceConnections.1/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - task" location="520,498" size="31,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="520,525" size="18,13" anchorKind="FirstPart"/>
       </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="localTaskManager" location="0,175" id="ca.ualberta.backend/LocalTaskManager@localTaskManager+ca.ualberta.backend/Task@task|ca.ualberta.backend/LocalTaskManager#localTaskManager" multiplicityLabel="//@children.3/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.3/@sourceConnections.1/@children.1/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - localTaskManager" location="555,508" size="98,13" anchorKind="LastPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="635,535" size="18,13" anchorKind="LastPart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="localTaskManager" location="0,166" id="ca.ualberta.backend/LocalTaskManager@localTaskManager+ca.ualberta.backend/Task@task|ca.ualberta.backend/LocalTaskManager#localTaskManager" multiplicityLabel="//@children.3/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.3/@sourceConnections.1/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - localTaskManager" location="555,498" size="98,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="635,525" size="18,13" anchorKind="LastPart"/>
       </children>
       <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
     </sourceConnections>
     <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ca.ualberta.backend/ExternalTaskManager@externalTaskManager+ca.ualberta.backend/Task@task" source="//@children.3" target="//@children.1" targetEnd="//@children.3/@sourceConnections.2/@children.1" label="//@children.3/@sourceConnections.2/@children.2" sourceEnd="//@children.3/@sourceConnections.2/@children.0" connectionRouterKind="Manhattan">
-      <children xsi:type="editmodel:AssociationEndEditModel" name="task" location="132,85" id="ca.ualberta.backend/ExternalTaskManager@externalTaskManager+ca.ualberta.backend/Task@task|ca.ualberta.backend/Task#task" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.2/@children.0/@children.1" roleLabel="//@children.3/@sourceConnections.2/@children.0/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - task" location="520,274" size="31,13" anchorKind="FirstPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="520,301" size="18,13" anchorKind="FirstPart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="task" location="132,84" id="ca.ualberta.backend/ExternalTaskManager@externalTaskManager+ca.ualberta.backend/Task@task|ca.ualberta.backend/Task#task" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.2/@children.0/@children.1" roleLabel="//@children.3/@sourceConnections.2/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - task" location="520,273" size="31,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="520,300" size="18,13" anchorKind="FirstPart"/>
       </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="externalTaskManager" location="0,85" id="ca.ualberta.backend/ExternalTaskManager@externalTaskManager+ca.ualberta.backend/Task@task|ca.ualberta.backend/ExternalTaskManager#externalTaskManager" multiplicityLabel="//@children.3/@sourceConnections.2/@children.1/@children.1" roleLabel="//@children.3/@sourceConnections.2/@children.1/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - externalTaskManager" location="851,274" size="115,13" anchorKind="LastPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="948,301" size="18,13" anchorKind="LastPart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="externalTaskManager" location="0,84" id="ca.ualberta.backend/ExternalTaskManager@externalTaskManager+ca.ualberta.backend/Task@task|ca.ualberta.backend/ExternalTaskManager#externalTaskManager" multiplicityLabel="//@children.3/@sourceConnections.2/@children.1/@children.1" roleLabel="//@children.3/@sourceConnections.2/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - externalTaskManager" location="851,273" size="115,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="948,300" size="18,13" anchorKind="LastPart"/>
       </children>
       <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
     </sourceConnections>
@@ -151,12 +150,12 @@
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ca.ualberta.frontend/TakePhotoActivity@takePhotoActivity+ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity" source="//@children.4" target="//@children.9" targetEnd="//@children.4/@sourceConnections.0/@children.1" label="//@children.4/@sourceConnections.0/@children.2" sourceEnd="//@children.4/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
       <children xsi:type="editmodel:AssociationEndEditModel" name="fulfillTaskActivity" location="79,98" id="ca.ualberta.frontend/TakePhotoActivity@takePhotoActivity+ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity|ca.ualberta.frontend/FulfillTaskActivity#fulfillTaskActivity" attachSource="true" multiplicityLabel="//@children.4/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.4/@sourceConnections.0/@children.0/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - fulfillTaskActivity" location="411,1153" size="95,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- fulfillTaskActivity" location="411,1153" size="92,13" anchorKind="FirstPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="379,1153" size="18,13" anchorKind="FirstPart"/>
       </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="takePhotoActivity" location="79,0" id="ca.ualberta.frontend/TakePhotoActivity@takePhotoActivity+ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity|ca.ualberta.frontend/TakePhotoActivity#takePhotoActivity" multiplicityLabel="//@children.4/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.4/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - takePhotoActivity" location="411,1180" size="99,13" anchorKind="LastPart"/>
-        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="379,1180" size="18,13" anchorKind="LastPart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="takePhotoActivity" location="79,0" id="ca.ualberta.frontend/TakePhotoActivity@takePhotoActivity+ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity|ca.ualberta.frontend/TakePhotoActivity#takePhotoActivity" multiplicityLabel="//@children.4/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.4/@sourceConnections.0/@children.1/@children.0" aggregationKind="Aggregration" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - takePhotoActivity" location="411,1164" size="99,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="379,1164" size="18,13" anchorKind="LastPart"/>
       </children>
       <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
     </sourceConnections>
@@ -165,7 +164,7 @@
         <children xsi:type="editmodel:LabelEditModel" name=" - fulfillTaskActivity" location="491,1077" size="95,13" anchorKind="FirstPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="491,1104" size="18,13" anchorKind="FirstPart"/>
       </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="email" location="0,40" id="ca.ualberta.backend/Email@email+ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity|ca.ualberta.backend/Email#email" multiplicityLabel="//@children.4/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.4/@sourceConnections.1/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="email" location="0,40" id="ca.ualberta.backend/Email@email+ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity|ca.ualberta.backend/Email#email" multiplicityLabel="//@children.4/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.4/@sourceConnections.1/@children.1/@children.0" aggregationKind="Aggregration" navigable="true">
         <children xsi:type="editmodel:LabelEditModel" name=" - email" location="555,1077" size="38,13" anchorKind="LastPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="575,1104" size="18,13" anchorKind="LastPart"/>
       </children>
@@ -185,7 +184,7 @@
         <children xsi:type="editmodel:LabelEditModel" name=" - mainActivity" location="163,58" size="74,13" anchorKind="FirstPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="163,85" size="18,13" anchorKind="FirstPart"/>
       </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="newRequestActivity" location="0,58" id="ca.ualberta.frontend/NewRequestActivity@newRequestActivity+ca.ualberta.frontend/MainActivity@mainActivity|ca.ualberta.frontend/NewRequestActivity#newRequestActivity" multiplicityLabel="//@children.5/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.5/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="newRequestActivity" location="0,58" id="ca.ualberta.frontend/NewRequestActivity@newRequestActivity+ca.ualberta.frontend/MainActivity@mainActivity|ca.ualberta.frontend/NewRequestActivity#newRequestActivity" multiplicityLabel="//@children.5/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.5/@sourceConnections.0/@children.1/@children.0" aggregationKind="Aggregration" navigable="true">
         <children xsi:type="editmodel:LabelEditModel" name=" - newRequestActivity" location="241,58" size="109,13" anchorKind="LastPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="332,85" size="18,13" anchorKind="LastPart"/>
       </children>
@@ -196,7 +195,7 @@
         <children xsi:type="editmodel:LabelEditModel" name=" - mainActivity" location="99,135" size="74,13" anchorKind="FirstPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="67,135" size="18,13" anchorKind="FirstPart"/>
       </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="storedTasksActivity" location="87,0" id="ca.ualberta.frontend/StoredTasksActivity@storedTasksActivity+ca.ualberta.frontend/MainActivity@mainActivity|ca.ualberta.frontend/StoredTasksActivity#storedTasksActivity" multiplicityLabel="//@children.5/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.5/@sourceConnections.1/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="storedTasksActivity" location="87,0" id="ca.ualberta.frontend/StoredTasksActivity@storedTasksActivity+ca.ualberta.frontend/MainActivity@mainActivity|ca.ualberta.frontend/StoredTasksActivity#storedTasksActivity" multiplicityLabel="//@children.5/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.5/@sourceConnections.1/@children.1/@children.0" aggregationKind="Aggregration" navigable="true">
         <children xsi:type="editmodel:LabelEditModel" name=" - storedTasksActivity" location="99,429" size="106,13" anchorKind="LastPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="67,429" size="18,13" anchorKind="LastPart"/>
       </children>
@@ -214,10 +213,10 @@
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ca.ualberta.frontend/RequestSummaryActivity@requestSummaryActivity+ca.ualberta.frontend/NewRequestActivity@newRequestActivity" source="//@children.6" target="//@children.7" targetEnd="//@children.6/@sourceConnections.0/@children.1" label="//@children.6/@sourceConnections.0/@children.2" sourceEnd="//@children.6/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
       <children xsi:type="editmodel:AssociationEndEditModel" name="newRequestActivity" location="179,58" id="ca.ualberta.frontend/RequestSummaryActivity@requestSummaryActivity+ca.ualberta.frontend/NewRequestActivity@newRequestActivity|ca.ualberta.frontend/NewRequestActivity#newRequestActivity" attachSource="true" multiplicityLabel="//@children.6/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.6/@sourceConnections.0/@children.0/@children.0" navigable="true">
-        <children xsi:type="editmodel:LabelEditModel" name=" - newRequestActivity" location="543,58" size="109,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- newRequestActivity" location="543,58" size="106,13" anchorKind="FirstPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="543,85" size="18,13" anchorKind="FirstPart"/>
       </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="requestSummaryActivity" location="0,58" id="ca.ualberta.frontend/RequestSummaryActivity@requestSummaryActivity+ca.ualberta.frontend/NewRequestActivity@newRequestActivity|ca.ualberta.frontend/RequestSummaryActivity#requestSummaryActivity" multiplicityLabel="//@children.6/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.6/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="requestSummaryActivity" location="0,58" id="ca.ualberta.frontend/RequestSummaryActivity@requestSummaryActivity+ca.ualberta.frontend/NewRequestActivity@newRequestActivity|ca.ualberta.frontend/RequestSummaryActivity#requestSummaryActivity" multiplicityLabel="//@children.6/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.6/@sourceConnections.0/@children.1/@children.0" aggregationKind="Aggregration" navigable="true">
         <children xsi:type="editmodel:LabelEditModel" name=" - requestSummaryActivity" location="648,58" size="134,13" anchorKind="LastPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="764,85" size="18,13" anchorKind="LastPart"/>
       </children>
@@ -269,7 +268,7 @@
         <children xsi:type="editmodel:LabelEditModel" name=" - storedTasksActivity" location="99,555" size="106,13" anchorKind="FirstPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="67,555" size="18,13" anchorKind="FirstPart"/>
       </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="viewExternalTaskActivity" location="87,0" id="ca.ualberta.frontend/ViewExternalTaskActivity@viewExternalTaskActivity+ca.ualberta.frontend/StoredTasksActivity@storedTasksActivity|ca.ualberta.frontend/ViewExternalTaskActivity#viewExternalTaskActivity" multiplicityLabel="//@children.8/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.8/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="viewExternalTaskActivity" location="87,0" id="ca.ualberta.frontend/ViewExternalTaskActivity@viewExternalTaskActivity+ca.ualberta.frontend/StoredTasksActivity@storedTasksActivity|ca.ualberta.frontend/ViewExternalTaskActivity#viewExternalTaskActivity" multiplicityLabel="//@children.8/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.8/@sourceConnections.0/@children.1/@children.0" aggregationKind="Aggregration" navigable="true">
         <children xsi:type="editmodel:LabelEditModel" name=" - viewExternalTaskActivity" location="99,820" size="134,13" anchorKind="LastPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="67,820" size="18,13" anchorKind="LastPart"/>
       </children>
@@ -280,7 +279,7 @@
         <children xsi:type="editmodel:LabelEditModel" name=" - storedTasksActivity" location="187,504" size="106,13" anchorKind="FirstPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="187,531" size="18,13" anchorKind="FirstPart"/>
       </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="viewLocalTaskActivity" location="21,-1" id="ca.ualberta.frontend/ViewLocalTaskActivity@viewLocalTaskActivity+ca.ualberta.frontend/StoredTasksActivity@storedTasksActivity|ca.ualberta.frontend/ViewLocalTaskActivity#viewLocalTaskActivity" multiplicityLabel="//@children.8/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.8/@sourceConnections.1/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="viewLocalTaskActivity" location="21,-1" id="ca.ualberta.frontend/ViewLocalTaskActivity@viewLocalTaskActivity+ca.ualberta.frontend/StoredTasksActivity@storedTasksActivity|ca.ualberta.frontend/ViewLocalTaskActivity#viewLocalTaskActivity" multiplicityLabel="//@children.8/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.8/@sourceConnections.1/@children.1/@children.0" aggregationKind="Aggregration" navigable="true">
         <children xsi:type="editmodel:LabelEditModel" name=" - viewLocalTaskActivity" location="339,713" size="120,13" anchorKind="LastPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="307,713" size="18,13" anchorKind="LastPart"/>
       </children>
@@ -320,7 +319,7 @@
         <children xsi:type="editmodel:LabelEditModel" name=" - viewExternalTaskActivity" location="-41,1071" size="134,13" anchorKind="FirstPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="107,1071" size="18,13" anchorKind="FirstPart"/>
       </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="fulfillTaskActivity" location="-1,56" id="ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity+ca.ualberta.frontend/ViewExternalTaskActivity@viewExternalTaskActivity|ca.ualberta.frontend/FulfillTaskActivity#fulfillTaskActivity" multiplicityLabel="//@children.10/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.10/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="fulfillTaskActivity" location="-1,56" id="ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity+ca.ualberta.frontend/ViewExternalTaskActivity@viewExternalTaskActivity|ca.ualberta.frontend/FulfillTaskActivity#fulfillTaskActivity" multiplicityLabel="//@children.10/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.10/@sourceConnections.0/@children.1/@children.0" aggregationKind="Aggregration" navigable="true">
         <children xsi:type="editmodel:LabelEditModel" name=" - fulfillTaskActivity" location="222,1111" size="95,13" anchorKind="LastPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="299,1084" size="18,13" anchorKind="LastPart"/>
       </children>
@@ -342,7 +341,7 @@
         <children xsi:type="editmodel:LabelEditModel" name=" - viewLocalTaskActivity" location="411,875" size="120,13" anchorKind="FirstPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="379,875" size="18,13" anchorKind="FirstPart"/>
       </children>
-      <children xsi:type="editmodel:AssociationEndEditModel" name="fulfillTaskActivity" location="79,0" id="ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity+ca.ualberta.frontend/ViewLocalTaskActivity@viewLocalTaskActivity|ca.ualberta.frontend/FulfillTaskActivity#fulfillTaskActivity" multiplicityLabel="//@children.11/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.11/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="fulfillTaskActivity" location="79,0" id="ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity+ca.ualberta.frontend/ViewLocalTaskActivity@viewLocalTaskActivity|ca.ualberta.frontend/FulfillTaskActivity#fulfillTaskActivity" multiplicityLabel="//@children.11/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.11/@sourceConnections.0/@children.1/@children.0" aggregationKind="Aggregration" navigable="true">
         <children xsi:type="editmodel:LabelEditModel" name=" - fulfillTaskActivity" location="411,1028" size="95,13" anchorKind="LastPart"/>
         <children xsi:type="editmodel:LabelEditModel" name="0..1" location="379,1028" size="18,13" anchorKind="LastPart"/>
       </children>

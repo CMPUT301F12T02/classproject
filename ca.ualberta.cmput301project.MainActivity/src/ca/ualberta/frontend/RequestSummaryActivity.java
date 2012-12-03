@@ -66,12 +66,12 @@ public class RequestSummaryActivity extends Activity implements OnClickListener 
         text =  (TextView)findViewById(R.id.requestsummary);
         text.setText(details);
     }
-	/**
-	 * @uml.property  name="newRequestActivity"
-	 * @uml.associationEnd  inverse="requestSummaryActivity:ca.ualberta.frontend.NewRequestActivity"
+	/** 
+	 * @uml.property name="newRequestActivity"
+	 * @uml.associationEnd inverse="requestSummaryActivity:ca.ualberta.frontend.NewRequestActivity"
 	 */
 	private NewRequestActivity newRequestActivity;
-	/**
+	/** 
 	 * Getter of the property <tt>newRequestActivity</tt>
 	 * @return  Returns the newRequestActivity.
 	 * @uml.property  name="newRequestActivity"
@@ -80,7 +80,7 @@ public class RequestSummaryActivity extends Activity implements OnClickListener 
 		return newRequestActivity;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>newRequestActivity</tt>
 	 * @param newRequestActivity  The newRequestActivity to set.
 	 * @uml.property  name="newRequestActivity"

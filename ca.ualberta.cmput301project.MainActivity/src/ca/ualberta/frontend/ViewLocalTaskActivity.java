@@ -103,13 +103,13 @@ public class ViewLocalTaskActivity extends ListActivity {
 		startActivity(intent);
     }
 
-	/**
-	 * @uml.property  name="storedTasksActivity"
-	 * @uml.associationEnd  inverse="viewLocalTaskActivity:ca.ualberta.frontend.StoredTasksActivity"
+	/** 
+	 * @uml.property name="storedTasksActivity"
+	 * @uml.associationEnd inverse="viewLocalTaskActivity:ca.ualberta.frontend.StoredTasksActivity"
 	 */
 	private StoredTasksActivity storedTasksActivity;
 
-	/**
+	/** 
 	 * Getter of the property <tt>storedTasksActivity</tt>
 	 * @return  Returns the storedTasksActivity.
 	 * @uml.property  name="storedTasksActivity"
@@ -118,7 +118,7 @@ public class ViewLocalTaskActivity extends ListActivity {
 		return storedTasksActivity;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>storedTasksActivity</tt>
 	 * @param storedTasksActivity  The storedTasksActivity to set.
 	 * @uml.property  name="storedTasksActivity"
@@ -127,13 +127,13 @@ public class ViewLocalTaskActivity extends ListActivity {
 		this.storedTasksActivity = storedTasksActivity;
 	}
 
-	/**
-	 * @uml.property  name="fulfillTaskActivity"
-	 * @uml.associationEnd  aggregation="composite" inverse="viewLocalTaskActivity:ca.ualberta.frontend.FulfillTaskActivity"
+	/** 
+	 * @uml.property name="fulfillTaskActivity"
+	 * @uml.associationEnd aggregation="shared" inverse="viewLocalTaskActivity:ca.ualberta.frontend.FulfillTaskActivity"
 	 */
 	private FulfillTaskActivity fulfillTaskActivity;
 
-	/**
+	/** 
 	 * Getter of the property <tt>fulfillTaskActivity</tt>
 	 * @return  Returns the fulfillTaskActivity.
 	 * @uml.property  name="fulfillTaskActivity"
@@ -142,7 +142,7 @@ public class ViewLocalTaskActivity extends ListActivity {
 		return fulfillTaskActivity;
 	}
 
-	/**
+	/** 
 	 * Setter of the property <tt>fulfillTaskActivity</tt>
 	 * @param fulfillTaskActivity  The fulfillTaskActivity to set.
 	 * @uml.property  name="fulfillTaskActivity"

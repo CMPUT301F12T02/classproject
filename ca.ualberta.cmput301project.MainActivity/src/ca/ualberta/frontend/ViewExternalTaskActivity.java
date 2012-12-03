@@ -155,13 +155,13 @@ public class ViewExternalTaskActivity extends ListActivity{
         }
         return tasks;
     }
-	/**
-	 * @uml.property  name="storedTasksActivity"
-	 * @uml.associationEnd  inverse="viewExternalTaskActivity:ca.ualberta.frontend.StoredTasksActivity"
+	/** 
+	 * @uml.property name="storedTasksActivity"
+	 * @uml.associationEnd inverse="viewExternalTaskActivity:ca.ualberta.frontend.StoredTasksActivity"
 	 */
 	private StoredTasksActivity storedTasksActivity;
 
-	/**
+	/** 
 	 * Getter of the property <tt>storedTasksActivity</tt>
 	 * @return  Returns the storedTasksActivity.
 	 * @uml.property  name="storedTasksActivity"
@@ -169,7 +169,7 @@ public class ViewExternalTaskActivity extends ListActivity{
 	public StoredTasksActivity getStoredTasksActivity() {
 		return storedTasksActivity;
 	}
-	/**
+	/** 
 	 * Setter of the property <tt>storedTasksActivity</tt>
 	 * @param storedTasksActivity  The storedTasksActivity to set.
 	 * @uml.property  name="storedTasksActivity"
@@ -177,13 +177,13 @@ public class ViewExternalTaskActivity extends ListActivity{
 	public void setStoredTasksActivity(StoredTasksActivity storedTasksActivity) {
 		this.storedTasksActivity = storedTasksActivity;
 	}
-	/**
-	 * @uml.property  name="fulfillTaskActivity"
-	 * @uml.associationEnd  aggregation="composite" inverse="viewExternalTaskActivity:ca.ualberta.frontend.FulfillTaskActivity"
+	/** 
+	 * @uml.property name="fulfillTaskActivity"
+	 * @uml.associationEnd aggregation="shared" inverse="viewExternalTaskActivity:ca.ualberta.frontend.FulfillTaskActivity"
 	 */
 	private FulfillTaskActivity fulfillTaskActivity;
 
-	/**
+	/** 
 	 * Getter of the property <tt>fulfillTaskActivity</tt>
 	 * @return  Returns the fulfillTaskActivity.
 	 * @uml.property  name="fulfillTaskActivity"
@@ -191,7 +191,7 @@ public class ViewExternalTaskActivity extends ListActivity{
 	public FulfillTaskActivity getFulfillTaskActivity() {
 		return fulfillTaskActivity;
 	}
-	/**
+	/** 
 	 * Setter of the property <tt>fulfillTaskActivity</tt>
 	 * @param fulfillTaskActivity  The fulfillTaskActivity to set.
 	 * @uml.property  name="fulfillTaskActivity"
