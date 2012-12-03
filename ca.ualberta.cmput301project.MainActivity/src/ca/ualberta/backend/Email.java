@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import ca.ualberta.backend.Task;
+import ca.ualberta.frontend.FulfillTaskActivity;
 
 /** Basic email class with email addresses, subject and body filled in automatically.
  * 
@@ -69,5 +70,27 @@ public class Email {
 		//Choose which email client to use to handle intent
 		intent = Intent.createChooser(intent, "Choose email client");
 		return intent;
+	}
+	/**
+	 * @uml.property  name="fulfillTaskActivity"
+	 * @uml.associationEnd  inverse="email:ca.ualberta.frontend.FulfillTaskActivity"
+	 */
+	private FulfillTaskActivity fulfillTaskActivity;
+	/**
+	 * Getter of the property <tt>fulfillTaskActivity</tt>
+	 * @return  Returns the fulfillTaskActivity.
+	 * @uml.property  name="fulfillTaskActivity"
+	 */
+	public FulfillTaskActivity getFulfillTaskActivity() {
+		return fulfillTaskActivity;
+	}
+
+	/**
+	 * Setter of the property <tt>fulfillTaskActivity</tt>
+	 * @param fulfillTaskActivity  The fulfillTaskActivity to set.
+	 * @uml.property  name="fulfillTaskActivity"
+	 */
+	public void setFulfillTaskActivity(FulfillTaskActivity fulfillTaskActivity) {
+		this.fulfillTaskActivity = fulfillTaskActivity;
 	}
 }

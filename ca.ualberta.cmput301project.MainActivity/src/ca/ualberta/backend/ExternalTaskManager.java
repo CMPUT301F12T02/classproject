@@ -23,6 +23,8 @@ import org.json.JSONObject;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import ca.ualberta.frontend.RequestSummaryActivity;
+import ca.ualberta.frontend.ViewExternalTaskActivity;
 
 /** ExternalTaskManager handles all online access for storing and
  * accessing tasks.  It has functions for each of the Crowdsourcer
@@ -254,4 +256,69 @@ public class ExternalTaskManager
         internetFetch ifetch = ext.new internetFetch(nvps);
         String rtv = ifetch.execute(c).toString();
     }
+	/**
+	 * @uml.property  name="requestSummaryActivity"
+	 * @uml.associationEnd  inverse="externalTaskManager:ca.ualberta.frontend.RequestSummaryActivity"
+	 */
+	private RequestSummaryActivity requestSummaryActivity;
+	/**
+	 * Getter of the property <tt>requestSummaryActivity</tt>
+	 * @return  Returns the requestSummaryActivity.
+	 * @uml.property  name="requestSummaryActivity"
+	 */
+	public RequestSummaryActivity getRequestSummaryActivity() {
+		return requestSummaryActivity;
+	}
+	/**
+	 * Setter of the property <tt>requestSummaryActivity</tt>
+	 * @param requestSummaryActivity  The requestSummaryActivity to set.
+	 * @uml.property  name="requestSummaryActivity"
+	 */
+	public void setRequestSummaryActivity(
+			RequestSummaryActivity requestSummaryActivity) {
+				this.requestSummaryActivity = requestSummaryActivity;
+			}
+	/**
+	 * @uml.property  name="task"
+	 * @uml.associationEnd  inverse="externalTaskManager:ca.ualberta.backend.Task"
+	 */
+	private Task task;
+	/**
+	 * Getter of the property <tt>task</tt>
+	 * @return  Returns the task.
+	 * @uml.property  name="task"
+	 */
+	public Task getTask() {
+		return task;
+	}
+	/**
+	 * Setter of the property <tt>task</tt>
+	 * @param task  The task to set.
+	 * @uml.property  name="task"
+	 */
+	public void setTask(Task task) {
+		this.task = task;
+	}
+	/**
+	 * @uml.property  name="viewExternalTaskActivity"
+	 * @uml.associationEnd  inverse="externalTaskManager:ca.ualberta.frontend.ViewExternalTaskActivity"
+	 */
+	private ViewExternalTaskActivity viewExternalTaskActivity;
+	/**
+	 * Getter of the property <tt>viewExternalTaskActivity</tt>
+	 * @return  Returns the viewExternalTaskActivity.
+	 * @uml.property  name="viewExternalTaskActivity"
+	 */
+	public ViewExternalTaskActivity getViewExternalTaskActivity() {
+		return viewExternalTaskActivity;
+	}
+	/**
+	 * Setter of the property <tt>viewExternalTaskActivity</tt>
+	 * @param viewExternalTaskActivity  The viewExternalTaskActivity to set.
+	 * @uml.property  name="viewExternalTaskActivity"
+	 */
+	public void setViewExternalTaskActivity(
+			ViewExternalTaskActivity viewExternalTaskActivity) {
+		this.viewExternalTaskActivity = viewExternalTaskActivity;
+	}
 }

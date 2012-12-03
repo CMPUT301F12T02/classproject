@@ -11,6 +11,9 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import android.content.Context;
+import ca.ualberta.frontend.RequestSummaryActivity;
+import ca.ualberta.frontend.ViewLocalTaskActivity;
+import ca.ualberta.frontend.TakePhotoActivity;
 
 /** The purpose of this class is to enable the saving, loading, and deleting of
  * tasks on the local storage. The only issue is that the caller has to supply
@@ -291,5 +294,103 @@ public class LocalTaskManager {
 		}
 		
 		return false;
+	}
+
+	/**
+	 * @uml.property  name="requestSummaryActivity"
+	 * @uml.associationEnd  inverse="localTaskManager:ca.ualberta.frontend.RequestSummaryActivity"
+	 */
+	private RequestSummaryActivity requestSummaryActivity;
+
+	/**
+	 * Getter of the property <tt>requestSummaryActivity</tt>
+	 * @return  Returns the requestSummaryActivity.
+	 * @uml.property  name="requestSummaryActivity"
+	 */
+	public RequestSummaryActivity getRequestSummaryActivity() {
+		return requestSummaryActivity;
+	}
+
+	/**
+	 * Setter of the property <tt>requestSummaryActivity</tt>
+	 * @param requestSummaryActivity  The requestSummaryActivity to set.
+	 * @uml.property  name="requestSummaryActivity"
+	 */
+	public void setRequestSummaryActivity(
+			RequestSummaryActivity requestSummaryActivity) {
+				this.requestSummaryActivity = requestSummaryActivity;
+			}
+
+	/**
+	 * @uml.property  name="task"
+	 * @uml.associationEnd  inverse="localTaskManager:ca.ualberta.backend.Task"
+	 */
+	private Task task;
+
+	/**
+	 * Getter of the property <tt>task</tt>
+	 * @return  Returns the task.
+	 * @uml.property  name="task"
+	 */
+	public Task getTask() {
+		return task;
+	}
+
+	/**
+	 * Setter of the property <tt>task</tt>
+	 * @param task  The task to set.
+	 * @uml.property  name="task"
+	 */
+	public void setTask(Task task) {
+		this.task = task;
+	}
+
+	/**
+	 * @uml.property  name="viewLocalTaskActivity"
+	 * @uml.associationEnd  inverse="localTaskManager:ca.ualberta.frontend.ViewLocalTaskActivity"
+	 */
+	private ViewLocalTaskActivity viewLocalTaskActivity;
+
+	/**
+	 * Getter of the property <tt>viewLocalTaskActivity</tt>
+	 * @return  Returns the viewLocalTaskActivity.
+	 * @uml.property  name="viewLocalTaskActivity"
+	 */
+	public ViewLocalTaskActivity getViewLocalTaskActivity() {
+		return viewLocalTaskActivity;
+	}
+
+	/**
+	 * Setter of the property <tt>viewLocalTaskActivity</tt>
+	 * @param viewLocalTaskActivity  The viewLocalTaskActivity to set.
+	 * @uml.property  name="viewLocalTaskActivity"
+	 */
+	public void setViewLocalTaskActivity(
+			ViewLocalTaskActivity viewLocalTaskActivity) {
+				this.viewLocalTaskActivity = viewLocalTaskActivity;
+			}
+
+	/**
+	 * @uml.property  name="takePhotoActivity"
+	 * @uml.associationEnd  inverse="localTaskManager:ca.ualberta.frontend.TakePhotoActivity"
+	 */
+	private TakePhotoActivity takePhotoActivity;
+
+	/**
+	 * Getter of the property <tt>takePhotoActivity</tt>
+	 * @return  Returns the takePhotoActivity.
+	 * @uml.property  name="takePhotoActivity"
+	 */
+	public TakePhotoActivity getTakePhotoActivity() {
+		return takePhotoActivity;
+	}
+
+	/**
+	 * Setter of the property <tt>takePhotoActivity</tt>
+	 * @param takePhotoActivity  The takePhotoActivity to set.
+	 * @uml.property  name="takePhotoActivity"
+	 */
+	public void setTakePhotoActivity(TakePhotoActivity takePhotoActivity) {
+		this.takePhotoActivity = takePhotoActivity;
 	}
 }

@@ -63,4 +63,78 @@ public class StoredTasksActivity extends Activity implements OnClickListener {
         }
         startActivity(intent);
     }
+
+	/**
+	 * @uml.property  name="mainActivity"
+	 * @uml.associationEnd  inverse="storedTasksActivity:ca.ualberta.frontend.MainActivity"
+	 */
+	private MainActivity mainActivity;
+
+	/**
+	 * Getter of the property <tt>mainActivity</tt>
+	 * @return  Returns the mainActivity.
+	 * @uml.property  name="mainActivity"
+	 */
+	public MainActivity getMainActivity() {
+		return mainActivity;
+	}
+
+	/**
+	 * Setter of the property <tt>mainActivity</tt>
+	 * @param mainActivity  The mainActivity to set.
+	 * @uml.property  name="mainActivity"
+	 */
+	public void setMainActivity(MainActivity mainActivity) {
+		this.mainActivity = mainActivity;
+	}
+
+	/**
+	 * @uml.property  name="viewExternalTaskActivity"
+	 * @uml.associationEnd  aggregation="composite" inverse="storedTasksActivity:ca.ualberta.frontend.ViewExternalTaskActivity"
+	 */
+	private ViewExternalTaskActivity viewExternalTaskActivity;
+
+	/**
+	 * Getter of the property <tt>viewExternalTaskActivity</tt>
+	 * @return  Returns the viewExternalTaskActivity.
+	 * @uml.property  name="viewExternalTaskActivity"
+	 */
+	public ViewExternalTaskActivity getViewExternalTaskActivity() {
+		return viewExternalTaskActivity;
+	}
+
+	/**
+	 * Setter of the property <tt>viewExternalTaskActivity</tt>
+	 * @param viewExternalTaskActivity  The viewExternalTaskActivity to set.
+	 * @uml.property  name="viewExternalTaskActivity"
+	 */
+	public void setViewExternalTaskActivity(
+			ViewExternalTaskActivity viewExternalTaskActivity) {
+				this.viewExternalTaskActivity = viewExternalTaskActivity;
+			}
+
+	/**
+	 * @uml.property  name="viewLocalTaskActivity"
+	 * @uml.associationEnd  aggregation="composite" inverse="storedTasksActivity:ca.ualberta.frontend.ViewLocalTaskActivity"
+	 */
+	private ViewLocalTaskActivity viewLocalTaskActivity;
+
+	/**
+	 * Getter of the property <tt>viewLocalTaskActivity</tt>
+	 * @return  Returns the viewLocalTaskActivity.
+	 * @uml.property  name="viewLocalTaskActivity"
+	 */
+	public ViewLocalTaskActivity getViewLocalTaskActivity() {
+		return viewLocalTaskActivity;
+	}
+
+	/**
+	 * Setter of the property <tt>viewLocalTaskActivity</tt>
+	 * @param viewLocalTaskActivity  The viewLocalTaskActivity to set.
+	 * @uml.property  name="viewLocalTaskActivity"
+	 */
+	public void setViewLocalTaskActivity(
+			ViewLocalTaskActivity viewLocalTaskActivity) {
+		this.viewLocalTaskActivity = viewLocalTaskActivity;
+	}
 }

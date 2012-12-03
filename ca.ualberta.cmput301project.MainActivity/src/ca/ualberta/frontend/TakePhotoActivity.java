@@ -93,4 +93,50 @@ public class TakePhotoActivity extends Activity implements OnClickListener {
 		
 	}
 }
+
+	/**
+	 * @uml.property  name="fulfillTaskActivity"
+	 * @uml.associationEnd  inverse="takePhotoActivity:ca.ualberta.frontend.FulfillTaskActivity"
+	 */
+	private FulfillTaskActivity fulfillTaskActivity;
+
+	/**
+	 * Getter of the property <tt>fulfillTaskActivity</tt>
+	 * @return  Returns the fulfillTaskActivity.
+	 * @uml.property  name="fulfillTaskActivity"
+	 */
+	public FulfillTaskActivity getFulfillTaskActivity() {
+		return fulfillTaskActivity;
+	}
+	/**
+	 * Setter of the property <tt>fulfillTaskActivity</tt>
+	 * @param fulfillTaskActivity  The fulfillTaskActivity to set.
+	 * @uml.property  name="fulfillTaskActivity"
+	 */
+	public void setFulfillTaskActivity(FulfillTaskActivity fulfillTaskActivity) {
+		this.fulfillTaskActivity = fulfillTaskActivity;
+	}
+
+	/**
+	 * @uml.property  name="localTaskManager"
+	 * @uml.associationEnd  inverse="takePhotoActivity:ca.ualberta.backend.LocalTaskManager"
+	 */
+	private LocalTaskManager localTaskManager;
+
+	/**
+	 * Getter of the property <tt>localTaskManager</tt>
+	 * @return  Returns the localTaskManager.
+	 * @uml.property  name="localTaskManager"
+	 */
+	public LocalTaskManager getLocalTaskManager() {
+		return localTaskManager;
+	}
+	/**
+	 * Setter of the property <tt>localTaskManager</tt>
+	 * @param localTaskManager  The localTaskManager to set.
+	 * @uml.property  name="localTaskManager"
+	 */
+	public void setLocalTaskManager(LocalTaskManager localTaskManager) {
+		this.localTaskManager = localTaskManager;
+	}
 }

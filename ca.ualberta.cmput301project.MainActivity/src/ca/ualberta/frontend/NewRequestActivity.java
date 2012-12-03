@@ -68,5 +68,72 @@ public class NewRequestActivity extends Activity implements OnClickListener {
         Task newtask = new Task(ownerEmail, desc, photo_needed);
         
         return newtask;
-    };
+    }
+	/** 
+	 * @uml.property name="mainActivity"
+	 * @uml.associationEnd inverse="newRequestActivity:ca.ualberta.frontend.MainActivity"
+	 */
+	private MainActivity mainActivity;
+	/** 
+	 * Getter of the property <tt>mainActivity</tt>
+	 * @return  Returns the mainActivity.
+	 * @uml.property  name="mainActivity"
+	 */
+	public MainActivity getMainActivity() {
+		return mainActivity;
+	}
+
+	/** 
+	 * Setter of the property <tt>mainActivity</tt>
+	 * @param mainActivity  The mainActivity to set.
+	 * @uml.property  name="mainActivity"
+	 */
+	public void setMainActivity(MainActivity mainActivity) {
+		this.mainActivity = mainActivity;
+	}
+	/**
+	 * @uml.property  name="requestSummaryActivity"
+	 * @uml.associationEnd  aggregation="composite" inverse="newRequestActivity:ca.ualberta.frontend.RequestSummaryActivity"
+	 */
+	private RequestSummaryActivity requestSummaryActivity;
+	/**
+	 * Getter of the property <tt>requestSummaryActivity</tt>
+	 * @return  Returns the requestSummaryActivity.
+	 * @uml.property  name="requestSummaryActivity"
+	 */
+	public RequestSummaryActivity getRequestSummaryActivity() {
+		return requestSummaryActivity;
+	}
+
+	/**
+	 * Setter of the property <tt>requestSummaryActivity</tt>
+	 * @param requestSummaryActivity  The requestSummaryActivity to set.
+	 * @uml.property  name="requestSummaryActivity"
+	 */
+	public void setRequestSummaryActivity(
+			RequestSummaryActivity requestSummaryActivity) {
+				this.requestSummaryActivity = requestSummaryActivity;
+			}
+	/**
+	 * @uml.property  name="task"
+	 * @uml.associationEnd  inverse="newRequestActivity:ca.ualberta.backend.Task"
+	 */
+	private Task task;
+	/**
+	 * Getter of the property <tt>task</tt>
+	 * @return  Returns the task.
+	 * @uml.property  name="task"
+	 */
+	public Task getTask() {
+		return task;
+	}
+
+	/**
+	 * Setter of the property <tt>task</tt>
+	 * @param task  The task to set.
+	 * @uml.property  name="task"
+	 */
+	public void setTask(Task task) {
+		this.task = task;
+	};
 }
