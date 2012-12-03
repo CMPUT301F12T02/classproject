@@ -10,11 +10,11 @@
         android:id="@+id/viewstored_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/viewstored_button" />
+        android:text="@string/viewstored_text" />
     <Button
         android:id="@+id/newrequest_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/newrequest_button" />
+        android:text="@string/newrequest_text" />
 
 </LinearLayout>

@@ -3,8 +3,8 @@
     <string name="app_name">CMPUT301F12T02</string>
     <!-- Main Menu -->
     <string name="title_activity_main">CMPUT301F12T02</string>
-    <string name="viewstored_button">View Stored Tasks</string>
-    <string name="newrequest_button">New Task Request</string>
+    <string name="viewstored_text">View Stored Tasks</string>
+    <string name="newrequest_text">New Task Request</string>
     
     <!-- Create New Request -->
     

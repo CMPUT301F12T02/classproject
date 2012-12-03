@@ -19,38 +19,39 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout1=0x7f070000;
-        public static final int TakeAPhoto=0x7f07001e;
-        public static final int add_to_favourites=0x7f070007;
-        public static final int answer_text=0x7f070002;
-        public static final int camera_status=0x7f070020;
-        public static final int com_button=0x7f070015;
-        public static final int createrequest_button=0x7f07000f;
-        public static final int drafts_button=0x7f07001b;
-        public static final int favourites_button=0x7f070019;
-        public static final int finishButton=0x7f07001f;
-        public static final int get_image=0x7f070004;
-        public static final int like_button=0x7f070003;
-        public static final int local_button=0x7f070017;
-        public static final int my_drafts=0x7f07001a;
-        public static final int my_favourites=0x7f070018;
-        public static final int my_tasks=0x7f070016;
-        public static final int newrequest_button=0x7f07000b;
-        public static final int other_requests=0x7f070014;
-        public static final int post_button=0x7f070012;
-        public static final int question_text=0x7f070001;
-        public static final int random_button=0x7f07001d;
-        public static final int remove_from_favourites=0x7f070008;
-        public static final int remove_task=0x7f070009;
-        public static final int requestsummary=0x7f070010;
-        public static final int require_photos=0x7f07000e;
-        public static final int save_progress=0x7f070006;
-        public static final int savelocal_button=0x7f070011;
-        public static final int storetaskParentLayout=0x7f070013;
-        public static final int task_description=0x7f07000c;
-        public static final int taskdone=0x7f070005;
-        public static final int text_random=0x7f07001c;
-        public static final int user_email=0x7f07000d;
-        public static final int viewstored_button=0x7f07000a;
+        public static final int TakeAPhoto=0x7f07001f;
+        public static final int add_to_favourites=0x7f070008;
+        public static final int answer_text=0x7f070003;
+        public static final int camera_status=0x7f070021;
+        public static final int com_button=0x7f070016;
+        public static final int createrequest_button=0x7f070010;
+        public static final int drafts_button=0x7f07001c;
+        public static final int favourites_button=0x7f07001a;
+        public static final int finishButton=0x7f070020;
+        public static final int get_image=0x7f070005;
+        public static final int like_button=0x7f070004;
+        public static final int likes=0x7f070001;
+        public static final int local_button=0x7f070018;
+        public static final int my_drafts=0x7f07001b;
+        public static final int my_favourites=0x7f070019;
+        public static final int my_tasks=0x7f070017;
+        public static final int newrequest_button=0x7f07000c;
+        public static final int other_requests=0x7f070015;
+        public static final int post_button=0x7f070013;
+        public static final int question_text=0x7f070002;
+        public static final int random_button=0x7f07001e;
+        public static final int remove_from_favourites=0x7f070009;
+        public static final int remove_task=0x7f07000a;
+        public static final int requestsummary=0x7f070011;
+        public static final int require_photos=0x7f07000f;
+        public static final int save_progress=0x7f070007;
+        public static final int savelocal_button=0x7f070012;
+        public static final int storetaskParentLayout=0x7f070014;
+        public static final int task_description=0x7f07000d;
+        public static final int taskdone=0x7f070006;
+        public static final int text_random=0x7f07001d;
+        public static final int user_email=0x7f07000e;
+        public static final int viewstored_button=0x7f07000b;
     }
     public static final class layout {
         public static final int activity_fulfilltask=0x7f030000;
@@ -82,7 +83,7 @@ public final class R {
         public static final int my_drafts=0x7f040012;
         public static final int my_favourites=0x7f040011;
         public static final int my_tasks=0x7f040010;
-        public static final int newrequest_button=0x7f040003;
+        public static final int newrequest_text=0x7f040003;
         public static final int other_requests=0x7f04000f;
         public static final int post_button=0x7f04000d;
         public static final int random_tasks=0x7f04001a;
@@ -119,7 +120,7 @@ public final class R {
          */
         public static final int title_activity_take_photo=0x7f040027;
         public static final int user_email=0x7f040006;
-        public static final int viewstored_button=0x7f040002;
+        public static final int viewstored_text=0x7f040002;
     }
     public static final class style {
         public static final int AppTheme=0x7f060000;

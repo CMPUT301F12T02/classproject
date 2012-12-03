@@ -117,6 +117,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     		case R.id.like_button:
     		        String ident = oldtask.getID();
     			ExternalTaskManager.updateTask(oldtask, ident);
+    			finish();
     			break;
     		case R.id.get_image:
     			intent = new Intent(this, TakePhotoActivity.class);
