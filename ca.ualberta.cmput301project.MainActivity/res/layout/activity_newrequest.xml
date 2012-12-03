@@ -26,11 +26,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/require_photos" />
-	<CheckBox
-	    android:id="@+id/require_audio"
-	    android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-	    android:text="@string/require_audio" />
 	<Button
         android:id="@+id/createrequest_button"
         android:layout_width="match_parent"
