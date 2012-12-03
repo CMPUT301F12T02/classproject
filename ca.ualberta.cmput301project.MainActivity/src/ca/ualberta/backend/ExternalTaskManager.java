@@ -222,15 +222,10 @@ public class ExternalTaskManager
             reqPhoto = "true";
         }
         else {reqPhoto = "false";}
-        if(task.getReqAudio()){
-            reqAudio = "true";
-        }
-        else {reqAudio = "false";}
         JSONObject object = new JSONObject();
         try {
             object.put("description", task.getDescription());
             object.put("reqPhoto", reqPhoto);
-            object.put("reqAudio", reqAudio);
             object.put("timestamp", task.getTimestamp());
             object.put("likes", task.getLikes());
           } catch (JSONException e) {

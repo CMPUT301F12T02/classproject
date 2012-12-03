@@ -16,7 +16,6 @@ public class Task implements Serializable {
     private static final long serialVersionUID = 1L;
     private String description;
     private boolean isPhotoRequired;
-    private boolean isAudioRequired;
     private String ownerEmail;
     private java.util.Date timestamp;
     private String id;
@@ -24,25 +23,23 @@ public class Task implements Serializable {
     
     private String result_answer;
     private ArrayList<Bitmap> result_photo;
-    private String result_audio;
     
-    public Task(String description, boolean isPhotoRequired, boolean isAudioRequired, String ownerEmail, java.util.Date timestamp, String id) {
+    public Task(String description, boolean isPhotoRequired, String ownerEmail, java.util.Date timestamp, String id, int likes) {
     	this.description = description;
         this.isPhotoRequired = isPhotoRequired;
-        this.isAudioRequired = isAudioRequired;
         this.ownerEmail = ownerEmail;
         this.timestamp = timestamp;
         this.id = id;
-        this.likes = 0;
+        this.likes = likes;
     }
     
-    public Task(String newOwner, String description, boolean isPhotoRequired, boolean isAudioRequired) {
+    public Task(String newOwner, String description, boolean isPhotoRequired) {
     	this.description = description;
         this.isPhotoRequired = isPhotoRequired;
-        this.isAudioRequired = isAudioRequired;
         this.ownerEmail = newOwner;
         this.timestamp = new java.util.Date();
         this.id = "local";
+        this.likes = 0;
     }
 
     public String getDescription() {
@@ -61,14 +58,6 @@ public class Task implements Serializable {
     	this.isPhotoRequired = isPhotoRequired;
     }
     
-    public boolean getReqAudio() {
-    	return this.isAudioRequired;
-    }
-    
-    public void setReqAudio(Boolean isAudioRequired) {
-    	this.isAudioRequired = isAudioRequired;
-    }
-    
     public String getOwner() {
     	return this.ownerEmail;
     }
@@ -83,6 +72,14 @@ public class Task implements Serializable {
     
     public void setTimestamp(java.util.Date timestamp) {
         this.timestamp = timestamp;
+    }
+    
+    public int getLikes() {
+    	return this.likes;
+    }
+    
+    public void setLikes(int likes) {
+    	this.likes = likes;
     }
 
     public String getResAnswer() {
@@ -100,14 +97,6 @@ public class Task implements Serializable {
     public void setResPhoto(ArrayList<Bitmap> result_photo) {
     	this.result_photo = result_photo;
     }
-
-    public String getResAudio() {
-        return this.result_audio;
-    }
-    
-    public void setResAudio(String result_audio) {
-    	this.result_audio = result_audio;
-    }
     
     public String getID() {
         return this.id;
@@ -117,6 +106,7 @@ public class Task implements Serializable {
         this.id = id;
     }
     
+<<<<<<< HEAD
     public int incrementLikes(){
         likes++;
         return likes;
@@ -124,18 +114,21 @@ public class Task implements Serializable {
 
     public int getLikes(){
         return likes;
+=======
+    public void incrementLikes() {
+        this.likes++;
+>>>>>>> d9d0ddb90bfa3df7a798d46ca146cc0fd881a952
     }
     
     public Task cloneTask() {
-    	Task task = new Task(this.description, this.isPhotoRequired, this.isAudioRequired, this.ownerEmail, this.timestamp, this.id);
-    	task.setResult(this.result_answer, this.result_photo, this.result_audio);
+    	Task task = new Task(this.description, this.isPhotoRequired, this.ownerEmail, this.timestamp, this.id, this.likes);
+    	task.setResult(this.result_answer, this.result_photo);
     	return task;
     }
     
-    public void setResult(String answer, ArrayList<Bitmap> result_photo, String result_audio) {
+    public void setResult(String answer, ArrayList<Bitmap> result_photo) {
     	this.setResAnswer(answer);
     	this.setResPhoto(result_photo);
-    	this.setResAudio(result_audio);
     }
     
     public boolean isEqualTo(Task task) {
