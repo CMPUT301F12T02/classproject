@@ -1,7 +1,9 @@
 package ca.ualberta.backend;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.ArrayList;
+
+import android.graphics.Bitmap;
 
 /** Task is the data class for Tasks.
  * handles storage and easy transferring of
@@ -21,8 +23,8 @@ public class Task implements Serializable {
     private int likes;
     
     private String result_answer;
-    private String result_photofile;
-    private String result_audiofile;
+    private ArrayList<Bitmap> result_photo;
+    private String result_audio;
     
     public Task(String description, boolean isPhotoRequired, boolean isAudioRequired, String ownerEmail, java.util.Date timestamp, String id) {
     	this.description = description;
@@ -91,27 +93,27 @@ public class Task implements Serializable {
     	this.result_answer = result_answer;
     }
 
-    public String getResPhotoName() {
-        return this.result_photofile;
+    public ArrayList<Bitmap> getResPhoto() {
+        return this.result_photo;
     }
     
-    public void setResPhotoName(String result_photofile) {
-    	this.result_photofile = result_photofile;
+    public void setResPhoto(ArrayList<Bitmap> result_photo) {
+    	this.result_photo = result_photo;
     }
 
-    public String getResAudioName() {
-        return this.result_audiofile;
+    public String getResAudio() {
+        return this.result_audio;
     }
     
-    public void setResAudioName(String result_audiofile) {
-    	this.result_audiofile = result_audiofile;
+    public void setResAudio(String result_audio) {
+    	this.result_audio = result_audio;
     }
     
     public String getID() {
         return this.id;
     }
     
-    public void setID(String id){
+    public void setID(String id) {
         this.id = id;
     }
     
@@ -121,14 +123,14 @@ public class Task implements Serializable {
     
     public Task cloneTask() {
     	Task task = new Task(this.description, this.isPhotoRequired, this.isAudioRequired, this.ownerEmail, this.timestamp, this.id);
-    	task.setResult(this.result_answer, this.result_photofile, this.result_audiofile);
+    	task.setResult(this.result_answer, this.result_photo, this.result_audio);
     	return task;
     }
     
-    public void setResult(String answer, String photofile, String audiofile) {
+    public void setResult(String answer, ArrayList<Bitmap> result_photo, String result_audio) {
     	this.setResAnswer(answer);
-    	this.setResPhotoName(photofile);
-    	this.setResAudioName(audiofile);
+    	this.setResPhoto(result_photo);
+    	this.setResAudio(result_audio);
     }
     
     public boolean isEqualTo(Task task) {
