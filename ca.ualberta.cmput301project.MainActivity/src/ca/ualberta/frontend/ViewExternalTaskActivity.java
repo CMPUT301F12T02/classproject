@@ -132,7 +132,6 @@ public class ViewExternalTaskActivity extends ListActivity{
             {
             	//We added an owner attribute to task, so account for that! :D
                 String tojson = null;
-            	String owner = "John Doe"; //DUMMY OWNER
                 JSONObject obj = jarray.getJSONObject(i);
                 String id = (String) obj.get("id");
                 tojson = ExternalTaskManager.readTask(id);
@@ -140,6 +139,7 @@ public class ViewExternalTaskActivity extends ListActivity{
                 JSONObject content = fullTask.getJSONObject("content");
                 String description = content.getString("description");
                 boolean reqPhoto = Boolean.valueOf(content.getString("reqPhoto"));
+                String owner = content.getString("owner");
                 int likes = content.getInt("likes");
                 DateFormat df = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
                 Date timestamp = df.parse(content.getString("timestamp"));

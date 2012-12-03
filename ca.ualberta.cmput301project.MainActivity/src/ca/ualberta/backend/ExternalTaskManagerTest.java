@@ -1,5 +1,10 @@
 package ca.ualberta.backend;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -62,8 +67,21 @@ public class ExternalTaskManagerTest extends TestCase
         try{
             jobj = new JSONObject(ExternalTaskManager.addTask(task));
             String id = jobj.getString("id");
+            jobj = new JSONObject(ExternalTaskManager.readTask(id));
+            JSONObject content = jobj.getJSONObject("content");
+            String description = content.getString("description");
+            boolean reqPhoto = Boolean.valueOf(content.getString("reqPhoto"));
+            String owner = content.getString("owner");
+            int likes = content.getInt("likes");
+            DateFormat df = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+            Date timestamp = df.parse(content.getString("timestamp"));
+            Task task = new Task(description, reqPhoto, owner, timestamp, id, likes);
             
         } catch (JSONException e){
+            e.printStackTrace();
+        } catch (ParseException e)
+        {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         fail("UpdateTask does not currently return any values");

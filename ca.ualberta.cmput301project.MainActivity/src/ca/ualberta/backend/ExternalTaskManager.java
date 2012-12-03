@@ -35,40 +35,10 @@ import android.os.AsyncTask;
 
 public class ExternalTaskManager
 {
-    static private String baseURL = "http://crowdsourcer.softwareprocess.es/F12/CMPUT301F12T02/";
     private static HttpClient httpclient = new DefaultHttpClient();
     public ExternalTaskManager(){
         
     }
-    /** convertStreamToString converts an InputStream object to a
-     * String object.
-     * @param InputStream is
-     * @return String
-     */
-    private static  String convertStreamToString(InputStream is) {
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        StringBuilder sb = new StringBuilder();
-
-        String line = null;
-        try {
-                while ((line = reader.readLine()) != null) {
-                        sb.append(line + "\n");
-                }
-        } 
-        catch (IOException e) {
-                e.printStackTrace();
-        } 
-        finally {
-                try {
-                        is.close();
-                } 
-                catch (IOException e) {
-                        e.printStackTrace();
-                }
-        }
-        return sb.toString();
-}
     /** internetFetch is a class that extends the AsyncTask
      * class to be able to access the internet in a separate
      * stream.  It assembles the URL from the NameValuePair
@@ -217,7 +187,7 @@ public class ExternalTaskManager
      * @return String
      */
     public static String addTask(Task task) {
-        String reqPhoto, reqAudio;
+        String reqPhoto;
         if(task.getReqPhoto()){
             reqPhoto = "true";
         }
@@ -228,6 +198,7 @@ public class ExternalTaskManager
             object.put("reqPhoto", reqPhoto);
             object.put("timestamp", task.getTimestamp());
             object.put("likes", task.getLikes());
+            object.put("owner", task.getOwner());
           } catch (JSONException e) {
             e.printStackTrace();
           }
