@@ -48,5 +48,16 @@
         android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
         android:text="@string/drafts_button" />
+    
+    <TextView
+        android:id="@+id/text_random"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/random_tasks" />
+    <Button
+        android:id="@+id/random_button"
+        android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+        android:text="@string/button_random" />
 
 </LinearLayout>

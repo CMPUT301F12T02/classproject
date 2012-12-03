@@ -19,11 +19,13 @@ public class StoredTasksActivity extends Activity implements OnClickListener {
         Button viewComId = (Button) findViewById(R.id.com_button);
         Button viewFavouritesdId = (Button) findViewById(R.id.favourites_button);
         Button viewDraftsId = (Button) findViewById(R.id.drafts_button);
+        Button viewRandomId = (Button) findViewById(R.id.random_button);
         
         viewLocaldId.setOnClickListener(this);
         viewComId.setOnClickListener(this);
         viewFavouritesdId.setOnClickListener(this);
         viewDraftsId.setOnClickListener(this);
+        viewRandomId.setOnClickListener(this);
     }
         
     public void onClick(View v){
@@ -47,7 +49,12 @@ public class StoredTasksActivity extends Activity implements OnClickListener {
 	        	break;
 	        case R.id.com_button:
 	        	intent = new Intent(this, ViewExternalTaskActivity.class);
+	        	intent.putExtra("file", "EXTERNAL");
 	        	break;
+	        case R.id.random_button:
+	                intent = new Intent(this, ViewExternalTaskActivity.class);
+	                intent.putExtra("file", "RANDOM");
+	                break;
         }
         startActivity(intent);
     }

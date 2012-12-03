@@ -30,6 +30,8 @@
     <string name="empty_list">No tasks found.</string>
     <string name="title_activity_com_task">Community Tasks</string>
     <string name="title_activity_local_task">Local Tasks</string>
+    <string name="random_tasks">Display Random Task</string>
+    <string name="button_random">RANDOM</string>
     <!-- Create Task to fulfill Request -->
     <string name="title_activity_fulfill_task">Fulfill Task Request</string>
     <string name="task_text">Enter text here.</string>

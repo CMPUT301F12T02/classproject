@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,7 +45,11 @@ public class ViewExternalTaskActivity extends ListActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasklist);
-
+        Bundle extras = getIntent().getExtras();
+        String file = extras.getString("file");
+        if (file.equals("RANDOM")){
+            viewRandomTask();
+        }
 
         refresh();
     }
@@ -67,7 +72,25 @@ public class ViewExternalTaskActivity extends ListActivity{
      */
     private void refresh() {
         tasks = readAllExtTasks();
+        
         setListAdapter(new ArrayAdapter<Task>(this,android.R.layout.simple_list_item_1,tasks));
+    }
+    /**viewRandomTask selects a random task from
+     * the list of all tasks and displays it to
+     * the user
+     */
+    public void viewRandomTask(){
+        tasks = readAllExtTasks();
+        Random generator = new Random();
+        int i = generator.nextInt(tasks.size());
+        Task task = tasks.get(i);
+        Intent intent = new Intent();
+        Bundle b = new Bundle();
+        b.putSerializable("task", task);
+        intent.putExtras(b);
+        intent.putExtra("file", "EXTERNAL");
+        intent.setClass(this, FulfillTaskActivity.class);
+        startActivity(intent);
     }
     /**onListItemClick handles the selection of a task from
      * the list view.
