@@ -223,4 +223,102 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			break;
     	}
     }
+
+	/**
+	 * @uml.property  name="viewExternalTaskActivity"
+	 * @uml.associationEnd  inverse="fulfillTaskActivity:ca.ualberta.frontend.ViewExternalTaskActivity"
+	 */
+	private ViewExternalTaskActivity viewExternalTaskActivity;
+
+	/**
+	 * Getter of the property <tt>viewExternalTaskActivity</tt>
+	 * @return  Returns the viewExternalTaskActivity.
+	 * @uml.property  name="viewExternalTaskActivity"
+	 */
+	public ViewExternalTaskActivity getViewExternalTaskActivity() {
+		return viewExternalTaskActivity;
+	}
+
+	/**
+	 * Setter of the property <tt>viewExternalTaskActivity</tt>
+	 * @param viewExternalTaskActivity  The viewExternalTaskActivity to set.
+	 * @uml.property  name="viewExternalTaskActivity"
+	 */
+	public void setViewExternalTaskActivity(
+			ViewExternalTaskActivity viewExternalTaskActivity) {
+				this.viewExternalTaskActivity = viewExternalTaskActivity;
+			}
+
+	/**
+	 * @uml.property  name="viewLocalTaskActivity"
+	 * @uml.associationEnd  inverse="fulfillTaskActivity:ca.ualberta.frontend.ViewLocalTaskActivity"
+	 */
+	private ViewLocalTaskActivity viewLocalTaskActivity;
+
+	/**
+	 * Getter of the property <tt>viewLocalTaskActivity</tt>
+	 * @return  Returns the viewLocalTaskActivity.
+	 * @uml.property  name="viewLocalTaskActivity"
+	 */
+	public ViewLocalTaskActivity getViewLocalTaskActivity() {
+		return viewLocalTaskActivity;
+	}
+
+	/**
+	 * Setter of the property <tt>viewLocalTaskActivity</tt>
+	 * @param viewLocalTaskActivity  The viewLocalTaskActivity to set.
+	 * @uml.property  name="viewLocalTaskActivity"
+	 */
+	public void setViewLocalTaskActivity(
+			ViewLocalTaskActivity viewLocalTaskActivity) {
+				this.viewLocalTaskActivity = viewLocalTaskActivity;
+			}
+
+	/**
+	 * @uml.property  name="takePhotoActivity"
+	 * @uml.associationEnd  aggregation="composite" inverse="fulfillTaskActivity:ca.ualberta.frontend.TakePhotoActivity"
+	 */
+	private TakePhotoActivity takePhotoActivity;
+
+	/**
+	 * Getter of the property <tt>takePhotoActivity</tt>
+	 * @return  Returns the takePhotoActivity.
+	 * @uml.property  name="takePhotoActivity"
+	 */
+	public TakePhotoActivity getTakePhotoActivity() {
+		return takePhotoActivity;
+	}
+
+	/**
+	 * Setter of the property <tt>takePhotoActivity</tt>
+	 * @param takePhotoActivity  The takePhotoActivity to set.
+	 * @uml.property  name="takePhotoActivity"
+	 */
+	public void setTakePhotoActivity(TakePhotoActivity takePhotoActivity) {
+		this.takePhotoActivity = takePhotoActivity;
+	}
+
+	/**
+	 * @uml.property  name="email"
+	 * @uml.associationEnd  aggregation="composite" inverse="fulfillTaskActivity:ca.ualberta.backend.Email"
+	 */
+	private Email email;
+
+	/**
+	 * Getter of the property <tt>email</tt>
+	 * @return  Returns the email.
+	 * @uml.property  name="email"
+	 */
+	public Email getEmail() {
+		return email;
+	}
+
+	/**
+	 * Setter of the property <tt>email</tt>
+	 * @param email  The email to set.
+	 * @uml.property  name="email"
+	 */
+	public void setEmail(Email email) {
+		this.email = email;
+	}
 }

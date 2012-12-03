@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="1359,719" id="ca.ualberta" metadata="uml2-1.0" initialized="true" zoom="0.75" tag="1000" key="32303037303533312D313030302063612E75616C62657274612E636D70757433303170726F6A6563742E4D61696E41637469766974792F63616369756C61">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.1" name="Email" location="600,1058" size="105,80" id="ca.ualberta.backend/Email" runTimeClassModel="SendEmail(Lca.ualberta.backend.Task;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="82,18">
+      <children xsi:type="editmodel:MethodEditModel" name="SendEmail" id="ca.ualberta.backend/Email#SendEmail(Lca.ualberta.backend.Task;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.1 //@children.3/@sourceConnections.2" name="ExternalTaskManager" location="974,210" size="188,170" id="ca.ualberta.backend/ExternalTaskManager" runTimeClassModel="readAllTasks(),addTask(Lca.ualberta.backend.Task;),removeTask(Ljava.lang.String;),readTask(Ljava.lang.String;),ExternalTaskManager(),updateTask(Lca.ualberta.backend.Task;Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="135,108">
+      <children xsi:type="editmodel:MethodEditModel" name="ExternalTaskManager" id="ca.ualberta.backend/ExternalTaskManager#ExternalTaskManager()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addTask" id="ca.ualberta.backend/ExternalTaskManager#addTask(Lca.ualberta.backend.Task;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="readAllTasks" id="ca.ualberta.backend/ExternalTaskManager#readAllTasks()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="readTask" id="ca.ualberta.backend/ExternalTaskManager#readTask(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="removeTask" id="ca.ualberta.backend/ExternalTaskManager#removeTask(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="updateTask" id="ca.ualberta.backend/ExternalTaskManager#updateTask(Lca.ualberta.backend.Task;Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="ca.ualberta.frontend/ViewExternalTaskActivity@viewExternalTaskActivity+ca.ualberta.backend/ExternalTaskManager@externalTaskManager" source="//@children.1" target="//@children.10" targetEnd="//@children.1/@sourceConnections.0/@children.1" label="//@children.1/@sourceConnections.0/@children.2" sourceEnd="//@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="externalTaskManager" location="94,169" id="ca.ualberta.frontend/ViewExternalTaskActivity@viewExternalTaskActivity+ca.ualberta.backend/ExternalTaskManager@externalTaskManager|ca.ualberta.backend/ExternalTaskManager#externalTaskManager" attachSource="true" multiplicityLabel="//@children.1/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.1/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - externalTaskManager" location="1075,387" size="115,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="1043,387" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="viewExternalTaskActivity" location="211,80" id="ca.ualberta.frontend/ViewExternalTaskActivity@viewExternalTaskActivity+ca.ualberta.backend/ExternalTaskManager@externalTaskManager|ca.ualberta.frontend/ViewExternalTaskActivity#viewExternalTaskActivity" multiplicityLabel="//@children.1/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.1/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - viewExternalTaskActivity" location="223,927" size="134,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="223,900" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.0 //@children.3/@sourceConnections.1" name="LocalTaskManager" location="660,353" size="166,350" id="ca.ualberta.backend/LocalTaskManager" runTimeClassModel="deleteFavourite(Lca.ualberta.backend.Task;Landroid.content.Context;),deleteDraft(Lca.ualberta.backend.Task;Landroid.content.Context;),saveDraft(Lca.ualberta.backend.Task;Landroid.content.Context;),saveLocalTask(Lca.ualberta.backend.Task;Landroid.content.Context;),loadDrafts(Landroid.content.Context;),loadFavourites(Landroid.content.Context;),existsLocalTask(Lca.ualberta.backend.Task;Landroid.content.Context;),existsFavourite(Lca.ualberta.backend.Task;Landroid.content.Context;),replaceDraft(Lca.ualberta.backend.Task;Lca.ualberta.backend.Task;Landroid.content.Context;),existsTask(Lca.ualberta.backend.Task;Landroid.content.Context;Ljava.lang.String;),replaceFavourite(Lca.ualberta.backend.Task;Lca.ualberta.backend.Task;Landroid.content.Context;),deleteLocalTask(Lca.ualberta.backend.Task;Landroid.content.Context;),saveFavourite(Lca.ualberta.backend.Task;Landroid.content.Context;),loadLocalTasks(Landroid.content.Context;),replaceLocalTask(Lca.ualberta.backend.Task;Lca.ualberta.backend.Task;Landroid.content.Context;),existsDraft(Lca.ualberta.backend.Task;Landroid.content.Context;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="115,288">
+      <children xsi:type="editmodel:MethodEditModel" name="deleteDraft" id="ca.ualberta.backend/LocalTaskManager#deleteDraft(Lca.ualberta.backend.Task;Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="deleteFavourite" id="ca.ualberta.backend/LocalTaskManager#deleteFavourite(Lca.ualberta.backend.Task;Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="deleteLocalTask" id="ca.ualberta.backend/LocalTaskManager#deleteLocalTask(Lca.ualberta.backend.Task;Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="existsDraft" id="ca.ualberta.backend/LocalTaskManager#existsDraft(Lca.ualberta.backend.Task;Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="existsFavourite" id="ca.ualberta.backend/LocalTaskManager#existsFavourite(Lca.ualberta.backend.Task;Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="existsLocalTask" id="ca.ualberta.backend/LocalTaskManager#existsLocalTask(Lca.ualberta.backend.Task;Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="existsTask" id="ca.ualberta.backend/LocalTaskManager#existsTask(Lca.ualberta.backend.Task;Landroid.content.Context;Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="loadDrafts" id="ca.ualberta.backend/LocalTaskManager#loadDrafts(Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="loadFavourites" id="ca.ualberta.backend/LocalTaskManager#loadFavourites(Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="loadLocalTasks" id="ca.ualberta.backend/LocalTaskManager#loadLocalTasks(Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="replaceDraft" id="ca.ualberta.backend/LocalTaskManager#replaceDraft(Lca.ualberta.backend.Task;Lca.ualberta.backend.Task;Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="replaceFavourite" id="ca.ualberta.backend/LocalTaskManager#replaceFavourite(Lca.ualberta.backend.Task;Lca.ualberta.backend.Task;Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="replaceLocalTask" id="ca.ualberta.backend/LocalTaskManager#replaceLocalTask(Lca.ualberta.backend.Task;Lca.ualberta.backend.Task;Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="saveDraft" id="ca.ualberta.backend/LocalTaskManager#saveDraft(Lca.ualberta.backend.Task;Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="saveFavourite" id="ca.ualberta.backend/LocalTaskManager#saveFavourite(Lca.ualberta.backend.Task;Landroid.content.Context;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="saveLocalTask" id="ca.ualberta.backend/LocalTaskManager#saveLocalTask(Lca.ualberta.backend.Task;Landroid.content.Context;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="ca.ualberta.frontend/ViewLocalTaskActivity@viewLocalTaskActivity+ca.ualberta.backend/LocalTaskManager@localTaskManager" source="//@children.2" target="//@children.11" targetEnd="//@children.2/@sourceConnections.0/@children.1" label="//@children.2/@sourceConnections.0/@children.2" sourceEnd="//@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="localTaskManager" location="85,349" id="ca.ualberta.frontend/ViewLocalTaskActivity@viewLocalTaskActivity+ca.ualberta.backend/LocalTaskManager@localTaskManager|ca.ualberta.backend/LocalTaskManager#localTaskManager" attachSource="true" multiplicityLabel="//@children.2/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.2/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - localTaskManager" location="751,709" size="98,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="719,709" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="viewLocalTaskActivity" location="189,31" id="ca.ualberta.frontend/ViewLocalTaskActivity@viewLocalTaskActivity+ca.ualberta.backend/LocalTaskManager@localTaskManager|ca.ualberta.frontend/ViewLocalTaskActivity#viewLocalTaskActivity" multiplicityLabel="//@children.2/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.2/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - viewLocalTaskActivity" location="507,771" size="120,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="507,744" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="ca.ualberta.frontend/TakePhotoActivity@takePhotoActivity+ca.ualberta.backend/LocalTaskManager@localTaskManager" source="//@children.2" target="//@children.9" targetEnd="//@children.2/@sourceConnections.1/@children.1" label="//@children.2/@sourceConnections.1/@children.2" sourceEnd="//@children.2/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="localTaskManager" location="152,349" id="ca.ualberta.frontend/TakePhotoActivity@takePhotoActivity+ca.ualberta.backend/LocalTaskManager@localTaskManager|ca.ualberta.backend/LocalTaskManager#localTaskManager" attachSource="true" multiplicityLabel="//@children.2/@sourceConnections.1/@children.0/@children.1" roleLabel="//@children.2/@sourceConnections.1/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - localTaskManager" location="819,709" size="98,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="787,709" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="takePhotoActivity" location="163,61" id="ca.ualberta.frontend/TakePhotoActivity@takePhotoActivity+ca.ualberta.backend/LocalTaskManager@localTaskManager|ca.ualberta.frontend/TakePhotoActivity#takePhotoActivity" multiplicityLabel="//@children.2/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.2/@sourceConnections.1/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - takePhotoActivity" location="495,1268" size="99,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="495,1241" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Task" location="382,210" size="132,494" id="ca.ualberta.backend/Task" runTimeClassModel="cloneTask(),getTimestamp(),isEqualTo(Lca.ualberta.backend.Task;),toString(),timestamp,getDescription(),getLikes(),incrementLikes(),description,getReqPhoto(),addPhoto(Landroid.graphics.Bitmap;),setResult(Ljava.lang.String;Ljava.util.ArrayList;),getResPhoto(),getID(),setOwner(Ljava.lang.String;),setDescription(Ljava.lang.String;),setResPhoto(Ljava.util.ArrayList;),setReqPhoto(Ljava.lang.Boolean;),likes,Task(Ljava.lang.String;Ljava.lang.String;Z),getOwner(),getResAnswer(),setTimestamp(Ljava.util.Date;),setResAnswer(Ljava.lang.String;),Task(Ljava.lang.String;ZLjava.lang.String;Ljava.util.Date;Ljava.lang.String;I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="109,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="description" id="ca.ualberta.backend/Task#description"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="likes" id="ca.ualberta.backend/Task#likes"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="timestamp" id="ca.ualberta.backend/Task#timestamp"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="107,378">
+      <children xsi:type="editmodel:MethodEditModel" name="Task" id="ca.ualberta.backend/Task#Task(Ljava.lang.String;Ljava.lang.String;Z)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="Task" id="ca.ualberta.backend/Task#Task(Ljava.lang.String;ZLjava.lang.String;Ljava.util.Date;Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="addPhoto" id="ca.ualberta.backend/Task#addPhoto(Landroid.graphics.Bitmap;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="cloneTask" id="ca.ualberta.backend/Task#cloneTask()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getDescription" id="ca.ualberta.backend/Task#getDescription()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getID" id="ca.ualberta.backend/Task#getID()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getLikes" location="1240,539" id="ca.ualberta.backend/Task#getLikes()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getOwner" id="ca.ualberta.backend/Task#getOwner()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getReqPhoto" id="ca.ualberta.backend/Task#getReqPhoto()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getResAnswer" id="ca.ualberta.backend/Task#getResAnswer()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getResPhoto" id="ca.ualberta.backend/Task#getResPhoto()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="getTimestamp" id="ca.ualberta.backend/Task#getTimestamp()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="incrementLikes" id="ca.ualberta.backend/Task#incrementLikes()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="isEqualTo" id="ca.ualberta.backend/Task#isEqualTo(Lca.ualberta.backend.Task;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setDescription" id="ca.ualberta.backend/Task#setDescription(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setOwner" id="ca.ualberta.backend/Task#setOwner(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setReqPhoto" id="ca.ualberta.backend/Task#setReqPhoto(Ljava.lang.Boolean;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setResAnswer" id="ca.ualberta.backend/Task#setResAnswer(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setResult" id="ca.ualberta.backend/Task#setResult(Ljava.lang.String;Ljava.util.ArrayList;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setTimestamp" id="ca.ualberta.backend/Task#setTimestamp(Ljava.util.Date;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="toString" id="ca.ualberta.backend/Task#toString()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ca.ualberta.frontend/NewRequestActivity@newRequestActivity+ca.ualberta.backend/Task@task" source="//@children.3" target="//@children.6" targetEnd="//@children.3/@sourceConnections.0/@children.1" label="//@children.3/@sourceConnections.0/@children.2" sourceEnd="//@children.3/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="task" location="65,0" id="ca.ualberta.frontend/NewRequestActivity@newRequestActivity+ca.ualberta.backend/Task@task|ca.ualberta.backend/Task#task" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.3/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - task" location="453,189" size="31,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="421,189" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="newRequestActivity" location="89,116" id="ca.ualberta.frontend/NewRequestActivity@newRequestActivity+ca.ualberta.backend/Task@task|ca.ualberta.frontend/NewRequestActivity#newRequestActivity" multiplicityLabel="//@children.3/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.3/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - newRequestActivity" location="453,143" size="109,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="421,143" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ca.ualberta.backend/LocalTaskManager@localTaskManager+ca.ualberta.backend/Task@task" source="//@children.3" target="//@children.2" targetEnd="//@children.3/@sourceConnections.1/@children.1" label="//@children.3/@sourceConnections.1/@children.2" sourceEnd="//@children.3/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="task" location="132,318" id="ca.ualberta.backend/LocalTaskManager@localTaskManager+ca.ualberta.backend/Task@task|ca.ualberta.backend/Task#task" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.1/@children.0/@children.1" roleLabel="//@children.3/@sourceConnections.1/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - task" location="520,508" size="31,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="520,535" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="localTaskManager" location="0,175" id="ca.ualberta.backend/LocalTaskManager@localTaskManager+ca.ualberta.backend/Task@task|ca.ualberta.backend/LocalTaskManager#localTaskManager" multiplicityLabel="//@children.3/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.3/@sourceConnections.1/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - localTaskManager" location="555,508" size="98,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="635,535" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ca.ualberta.backend/ExternalTaskManager@externalTaskManager+ca.ualberta.backend/Task@task" source="//@children.3" target="//@children.1" targetEnd="//@children.3/@sourceConnections.2/@children.1" label="//@children.3/@sourceConnections.2/@children.2" sourceEnd="//@children.3/@sourceConnections.2/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="task" location="132,85" id="ca.ualberta.backend/ExternalTaskManager@externalTaskManager+ca.ualberta.backend/Task@task|ca.ualberta.backend/Task#task" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.2/@children.0/@children.1" roleLabel="//@children.3/@sourceConnections.2/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - task" location="520,274" size="31,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="520,301" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="externalTaskManager" location="0,85" id="ca.ualberta.backend/ExternalTaskManager@externalTaskManager+ca.ualberta.backend/Task@task|ca.ualberta.backend/ExternalTaskManager#externalTaskManager" multiplicityLabel="//@children.3/@sourceConnections.2/@children.1/@children.1" roleLabel="//@children.3/@sourceConnections.2/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - externalTaskManager" location="851,274" size="115,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="948,301" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.11/@sourceConnections.0 //@children.10/@sourceConnections.0" name="FulfillTaskActivity" location="325,1049" size="160,98" id="ca.ualberta.frontend/FulfillTaskActivity" runTimeClassModel="onCreate(Landroid.os.Bundle;),onClick(Landroid.view.View;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="75,36">
+      <children xsi:type="editmodel:MethodEditModel" name="onClick" id="ca.ualberta.frontend/FulfillTaskActivity#onClick(Landroid.view.View;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onCreate" id="ca.ualberta.frontend/FulfillTaskActivity#onCreate(Landroid.os.Bundle;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ca.ualberta.frontend/TakePhotoActivity@takePhotoActivity+ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity" source="//@children.4" target="//@children.9" targetEnd="//@children.4/@sourceConnections.0/@children.1" label="//@children.4/@sourceConnections.0/@children.2" sourceEnd="//@children.4/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="fulfillTaskActivity" location="79,98" id="ca.ualberta.frontend/TakePhotoActivity@takePhotoActivity+ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity|ca.ualberta.frontend/FulfillTaskActivity#fulfillTaskActivity" attachSource="true" multiplicityLabel="//@children.4/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.4/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - fulfillTaskActivity" location="411,1153" size="95,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="379,1153" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="takePhotoActivity" location="79,0" id="ca.ualberta.frontend/TakePhotoActivity@takePhotoActivity+ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity|ca.ualberta.frontend/TakePhotoActivity#takePhotoActivity" multiplicityLabel="//@children.4/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.4/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - takePhotoActivity" location="411,1180" size="99,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="379,1180" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ca.ualberta.backend/Email@email+ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity" source="//@children.4" target="//@children.0" targetEnd="//@children.4/@sourceConnections.1/@children.1" label="//@children.4/@sourceConnections.1/@children.2" sourceEnd="//@children.4/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="fulfillTaskActivity" location="160,49" id="ca.ualberta.backend/Email@email+ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity|ca.ualberta.frontend/FulfillTaskActivity#fulfillTaskActivity" attachSource="true" multiplicityLabel="//@children.4/@sourceConnections.1/@children.0/@children.1" roleLabel="//@children.4/@sourceConnections.1/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - fulfillTaskActivity" location="491,1077" size="95,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="491,1104" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="email" location="0,40" id="ca.ualberta.backend/Email@email+ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity|ca.ualberta.backend/Email#email" multiplicityLabel="//@children.4/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.4/@sourceConnections.1/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - email" location="555,1077" size="38,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="575,1104" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="MainActivity" location="29,30" size="127,98" id="ca.ualberta.frontend/MainActivity" runTimeClassModel="onCreate(Landroid.os.Bundle;),onClick(Landroid.view.View;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="75,36">
+      <children xsi:type="editmodel:MethodEditModel" name="onClick" id="ca.ualberta.frontend/MainActivity#onClick(Landroid.view.View;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onCreate" id="ca.ualberta.frontend/MainActivity#onCreate(Landroid.os.Bundle;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ca.ualberta.frontend/NewRequestActivity@newRequestActivity+ca.ualberta.frontend/MainActivity@mainActivity" source="//@children.5" target="//@children.6" targetEnd="//@children.5/@sourceConnections.0/@children.1" label="//@children.5/@sourceConnections.0/@children.2" sourceEnd="//@children.5/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="mainActivity" location="127,49" id="ca.ualberta.frontend/NewRequestActivity@newRequestActivity+ca.ualberta.frontend/MainActivity@mainActivity|ca.ualberta.frontend/MainActivity#mainActivity" attachSource="true" multiplicityLabel="//@children.5/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.5/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - mainActivity" location="163,58" size="74,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="163,85" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="newRequestActivity" location="0,58" id="ca.ualberta.frontend/NewRequestActivity@newRequestActivity+ca.ualberta.frontend/MainActivity@mainActivity|ca.ualberta.frontend/NewRequestActivity#newRequestActivity" multiplicityLabel="//@children.5/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.5/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - newRequestActivity" location="241,58" size="109,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="332,85" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ca.ualberta.frontend/StoredTasksActivity@storedTasksActivity+ca.ualberta.frontend/MainActivity@mainActivity" source="//@children.5" target="//@children.8" targetEnd="//@children.5/@sourceConnections.1/@children.1" label="//@children.5/@sourceConnections.1/@children.2" sourceEnd="//@children.5/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="mainActivity" location="63,98" id="ca.ualberta.frontend/StoredTasksActivity@storedTasksActivity+ca.ualberta.frontend/MainActivity@mainActivity|ca.ualberta.frontend/MainActivity#mainActivity" attachSource="true" multiplicityLabel="//@children.5/@sourceConnections.1/@children.0/@children.1" roleLabel="//@children.5/@sourceConnections.1/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - mainActivity" location="99,135" size="74,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="67,135" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="storedTasksActivity" location="87,0" id="ca.ualberta.frontend/StoredTasksActivity@storedTasksActivity+ca.ualberta.frontend/MainActivity@mainActivity|ca.ualberta.frontend/StoredTasksActivity#storedTasksActivity" multiplicityLabel="//@children.5/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.5/@sourceConnections.1/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - storedTasksActivity" location="99,429" size="106,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="67,429" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.0 //@children.3/@sourceConnections.0" name="NewRequestActivity" location="358,21" size="179,116" id="ca.ualberta.frontend/NewRequestActivity" runTimeClassModel="create_task(),onCreate(Landroid.os.Bundle;),onClick(Landroid.view.View;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="88,54">
+      <children xsi:type="editmodel:MethodEditModel" name="create_task" location="7,78" id="ca.ualberta.frontend/NewRequestActivity#create_task()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onClick" id="ca.ualberta.frontend/NewRequestActivity#onClick(Landroid.view.View;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onCreate" id="ca.ualberta.frontend/NewRequestActivity#onCreate(Landroid.os.Bundle;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ca.ualberta.frontend/RequestSummaryActivity@requestSummaryActivity+ca.ualberta.frontend/NewRequestActivity@newRequestActivity" source="//@children.6" target="//@children.7" targetEnd="//@children.6/@sourceConnections.0/@children.1" label="//@children.6/@sourceConnections.0/@children.2" sourceEnd="//@children.6/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="newRequestActivity" location="179,58" id="ca.ualberta.frontend/RequestSummaryActivity@requestSummaryActivity+ca.ualberta.frontend/NewRequestActivity@newRequestActivity|ca.ualberta.frontend/NewRequestActivity#newRequestActivity" attachSource="true" multiplicityLabel="//@children.6/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.6/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - newRequestActivity" location="543,58" size="109,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="543,85" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="requestSummaryActivity" location="0,58" id="ca.ualberta.frontend/RequestSummaryActivity@requestSummaryActivity+ca.ualberta.frontend/NewRequestActivity@newRequestActivity|ca.ualberta.frontend/RequestSummaryActivity#requestSummaryActivity" multiplicityLabel="//@children.6/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.6/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - requestSummaryActivity" location="648,58" size="134,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="764,85" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.6/@sourceConnections.0" name="RequestSummaryActivity" location="790,21" size="216,116" id="ca.ualberta.frontend/RequestSummaryActivity" runTimeClassModel="onCreate(Landroid.os.Bundle;),post_description(),onClick(Landroid.view.View;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="111,54">
+      <children xsi:type="editmodel:MethodEditModel" name="onClick" id="ca.ualberta.frontend/RequestSummaryActivity#onClick(Landroid.view.View;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onCreate" id="ca.ualberta.frontend/RequestSummaryActivity#onCreate(Landroid.os.Bundle;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="post_description" id="ca.ualberta.frontend/RequestSummaryActivity#post_description()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ca.ualberta.backend/LocalTaskManager@localTaskManager+ca.ualberta.frontend/RequestSummaryActivity@requestSummaryActivity" source="//@children.7" target="//@children.2" targetEnd="//@children.7/@sourceConnections.0/@children.1" label="//@children.7/@sourceConnections.0/@children.2" sourceEnd="//@children.7/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="requestSummaryActivity" location="17,116" id="ca.ualberta.backend/LocalTaskManager@localTaskManager+ca.ualberta.frontend/RequestSummaryActivity@requestSummaryActivity|ca.ualberta.frontend/RequestSummaryActivity#requestSummaryActivity" attachSource="true" multiplicityLabel="//@children.7/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.7/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - requestSummaryActivity" location="813,143" size="134,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="781,143" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="localTaskManager" location="147,0" id="ca.ualberta.backend/LocalTaskManager@localTaskManager+ca.ualberta.frontend/RequestSummaryActivity@requestSummaryActivity|ca.ualberta.backend/LocalTaskManager#localTaskManager" multiplicityLabel="//@children.7/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.7/@sourceConnections.0/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - localTaskManager" location="813,332" size="98,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="781,332" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ca.ualberta.backend/ExternalTaskManager@externalTaskManager+ca.ualberta.frontend/RequestSummaryActivity@requestSummaryActivity" source="//@children.7" target="//@children.1" targetEnd="//@children.7/@sourceConnections.1/@children.1" label="//@children.7/@sourceConnections.1/@children.2" sourceEnd="//@children.7/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="requestSummaryActivity" location="199,116" id="ca.ualberta.backend/ExternalTaskManager@externalTaskManager+ca.ualberta.frontend/RequestSummaryActivity@requestSummaryActivity|ca.ualberta.frontend/RequestSummaryActivity#requestSummaryActivity" attachSource="true" multiplicityLabel="//@children.7/@sourceConnections.1/@children.0/@children.1" roleLabel="//@children.7/@sourceConnections.1/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - requestSummaryActivity" location="995,143" size="134,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="963,143" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="externalTaskManager" location="15,0" id="ca.ualberta.backend/ExternalTaskManager@externalTaskManager+ca.ualberta.frontend/RequestSummaryActivity@requestSummaryActivity|ca.ualberta.backend/ExternalTaskManager#externalTaskManager" multiplicityLabel="//@children.7/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.7/@sourceConnections.1/@children.1/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - externalTaskManager" location="995,189" size="115,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="963,189" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.5/@sourceConnections.1" name="StoredTasksActivity" location="5,450" size="176,98" id="ca.ualberta.frontend/StoredTasksActivity" runTimeClassModel="onCreate(Landroid.os.Bundle;),onClick(Landroid.view.View;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="75,36">
+      <children xsi:type="editmodel:MethodEditModel" name="onClick" id="ca.ualberta.frontend/StoredTasksActivity#onClick(Landroid.view.View;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onCreate" id="ca.ualberta.frontend/StoredTasksActivity#onCreate(Landroid.os.Bundle;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ca.ualberta.frontend/ViewExternalTaskActivity@viewExternalTaskActivity+ca.ualberta.frontend/StoredTasksActivity@storedTasksActivity" source="//@children.8" target="//@children.10" targetEnd="//@children.8/@sourceConnections.0/@children.1" label="//@children.8/@sourceConnections.0/@children.2" sourceEnd="//@children.8/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="storedTasksActivity" location="87,98" id="ca.ualberta.frontend/ViewExternalTaskActivity@viewExternalTaskActivity+ca.ualberta.frontend/StoredTasksActivity@storedTasksActivity|ca.ualberta.frontend/StoredTasksActivity#storedTasksActivity" attachSource="true" multiplicityLabel="//@children.8/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.8/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - storedTasksActivity" location="99,555" size="106,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="67,555" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="viewExternalTaskActivity" location="87,0" id="ca.ualberta.frontend/ViewExternalTaskActivity@viewExternalTaskActivity+ca.ualberta.frontend/StoredTasksActivity@storedTasksActivity|ca.ualberta.frontend/ViewExternalTaskActivity#viewExternalTaskActivity" multiplicityLabel="//@children.8/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.8/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - viewExternalTaskActivity" location="99,820" size="134,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="67,820" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="ca.ualberta.frontend/ViewLocalTaskActivity@viewLocalTaskActivity+ca.ualberta.frontend/StoredTasksActivity@storedTasksActivity" source="//@children.8" target="//@children.11" targetEnd="//@children.8/@sourceConnections.1/@children.1" label="//@children.8/@sourceConnections.1/@children.2" sourceEnd="//@children.8/@sourceConnections.1/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="storedTasksActivity" location="175,75" id="ca.ualberta.frontend/ViewLocalTaskActivity@viewLocalTaskActivity+ca.ualberta.frontend/StoredTasksActivity@storedTasksActivity|ca.ualberta.frontend/StoredTasksActivity#storedTasksActivity" attachSource="true" multiplicityLabel="//@children.8/@sourceConnections.1/@children.0/@children.1" roleLabel="//@children.8/@sourceConnections.1/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - storedTasksActivity" location="187,504" size="106,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="187,531" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="viewLocalTaskActivity" location="21,-1" id="ca.ualberta.frontend/ViewLocalTaskActivity@viewLocalTaskActivity+ca.ualberta.frontend/StoredTasksActivity@storedTasksActivity|ca.ualberta.frontend/ViewLocalTaskActivity#viewLocalTaskActivity" multiplicityLabel="//@children.8/@sourceConnections.1/@children.1/@children.1" roleLabel="//@children.8/@sourceConnections.1/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - viewLocalTaskActivity" location="339,713" size="120,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="307,713" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.0 //@children.2/@sourceConnections.1" name="TakePhotoActivity" location="325,1184" size="164,134" id="ca.ualberta.frontend/TakePhotoActivity" runTimeClassModel="imageFileUri,onCreate(Landroid.os.Bundle;),takePhoto(),onClick(Landroid.view.View;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="101,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="imageFileUri" id="ca.ualberta.frontend/TakePhotoActivity#imageFileUri"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="80,54">
+      <children xsi:type="editmodel:MethodEditModel" name="onClick" id="ca.ualberta.frontend/TakePhotoActivity#onClick(Landroid.view.View;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onCreate" id="ca.ualberta.frontend/TakePhotoActivity#onCreate(Landroid.os.Bundle;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="takePhoto" id="ca.ualberta.frontend/TakePhotoActivity#takePhoto()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.8/@sourceConnections.0 //@children.1/@sourceConnections.0" name="ViewExternalTaskActivity" location="5,840" size="212,224" id="ca.ualberta.frontend/ViewExternalTaskActivity" runTimeClassModel="rEQDESCRIPTION,rEQAUDIO,rEQPHOTO,onListItemClick(Landroid.widget.ListView;Landroid.view.View;IJ),onCreate(Landroid.os.Bundle;),onRestart(),onResume(),viewRandomTask(),eXTRA_MESSAGE">
+    <children xsi:type="editmodel:CompartmentEditModel" size="142,72">
+      <children xsi:type="editmodel:AttributeEditModel" name="eXTRA_MESSAGE" id="ca.ualberta.frontend/ViewExternalTaskActivity#eXTRA_MESSAGE"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rEQAUDIO" id="ca.ualberta.frontend/ViewExternalTaskActivity#rEQAUDIO"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rEQDESCRIPTION" id="ca.ualberta.frontend/ViewExternalTaskActivity#rEQDESCRIPTION"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rEQPHOTO" location="-13,91" id="ca.ualberta.frontend/ViewExternalTaskActivity#rEQPHOTO"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="115,90">
+      <children xsi:type="editmodel:MethodEditModel" name="onCreate" id="ca.ualberta.frontend/ViewExternalTaskActivity#onCreate(Landroid.os.Bundle;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onListItemClick" id="ca.ualberta.frontend/ViewExternalTaskActivity#onListItemClick(Landroid.widget.ListView;Landroid.view.View;IJ)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onRestart" id="ca.ualberta.frontend/ViewExternalTaskActivity#onRestart()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onResume" id="ca.ualberta.frontend/ViewExternalTaskActivity#onResume()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="viewRandomTask" id="ca.ualberta.frontend/ViewExternalTaskActivity#viewRandomTask()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity+ca.ualberta.frontend/ViewExternalTaskActivity@viewExternalTaskActivity" source="//@children.10" target="//@children.4" targetEnd="//@children.10/@sourceConnections.0/@children.1" label="//@children.10/@sourceConnections.0/@children.2" sourceEnd="//@children.10/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="viewExternalTaskActivity" location="95,224" id="ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity+ca.ualberta.frontend/ViewExternalTaskActivity@viewExternalTaskActivity|ca.ualberta.frontend/ViewExternalTaskActivity#viewExternalTaskActivity" attachSource="true" multiplicityLabel="//@children.10/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.10/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - viewExternalTaskActivity" location="-41,1071" size="134,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="107,1071" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="fulfillTaskActivity" location="-1,56" id="ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity+ca.ualberta.frontend/ViewExternalTaskActivity@viewExternalTaskActivity|ca.ualberta.frontend/FulfillTaskActivity#fulfillTaskActivity" multiplicityLabel="//@children.10/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.10/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - fulfillTaskActivity" location="222,1111" size="95,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="299,1084" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0 //@children.8/@sourceConnections.1" name="ViewLocalTaskActivity" location="311,734" size="190,134" id="ca.ualberta.frontend/ViewLocalTaskActivity" runTimeClassModel="onListItemClick(Landroid.widget.ListView;Landroid.view.View;IJ),onCreate(Landroid.os.Bundle;),onRestart(),onResume()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="108,72">
+      <children xsi:type="editmodel:MethodEditModel" name="onCreate" id="ca.ualberta.frontend/ViewLocalTaskActivity#onCreate(Landroid.os.Bundle;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onListItemClick" id="ca.ualberta.frontend/ViewLocalTaskActivity#onListItemClick(Landroid.widget.ListView;Landroid.view.View;IJ)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onRestart" id="ca.ualberta.frontend/ViewLocalTaskActivity#onRestart()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="onResume" id="ca.ualberta.frontend/ViewLocalTaskActivity#onResume()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity+ca.ualberta.frontend/ViewLocalTaskActivity@viewLocalTaskActivity" source="//@children.11" target="//@children.4" targetEnd="//@children.11/@sourceConnections.0/@children.1" label="//@children.11/@sourceConnections.0/@children.2" sourceEnd="//@children.11/@sourceConnections.0/@children.0" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" name="viewLocalTaskActivity" location="93,134" id="ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity+ca.ualberta.frontend/ViewLocalTaskActivity@viewLocalTaskActivity|ca.ualberta.frontend/ViewLocalTaskActivity#viewLocalTaskActivity" attachSource="true" multiplicityLabel="//@children.11/@sourceConnections.0/@children.0/@children.1" roleLabel="//@children.11/@sourceConnections.0/@children.0/@children.0" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - viewLocalTaskActivity" location="411,875" size="120,13" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="379,875" size="18,13" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="fulfillTaskActivity" location="79,0" id="ca.ualberta.frontend/FulfillTaskActivity@fulfillTaskActivity+ca.ualberta.frontend/ViewLocalTaskActivity@viewLocalTaskActivity|ca.ualberta.frontend/FulfillTaskActivity#fulfillTaskActivity" multiplicityLabel="//@children.11/@sourceConnections.0/@children.1/@children.1" roleLabel="//@children.11/@sourceConnections.0/@children.1/@children.0" aggregationKind="Composition" navigable="true">
+        <children xsi:type="editmodel:LabelEditModel" name=" - fulfillTaskActivity" location="411,1028" size="95,13" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="0..1" location="379,1028" size="18,13" anchorKind="LastPart"/>
+      </children>
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,13" anchorKind="MiddlePart"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=1;Product=eUML2" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>

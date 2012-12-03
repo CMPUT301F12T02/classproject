@@ -44,4 +44,52 @@ public class MainActivity extends Activity implements OnClickListener {
 			e.printStackTrace();
 		}
     }
+
+	/** 
+	 * @uml.property name="newRequestActivity"
+	 * @uml.associationEnd aggregation="composite" inverse="mainActivity:ca.ualberta.frontend.NewRequestActivity"
+	 */
+	private NewRequestActivity newRequestActivity;
+
+	/** 
+	 * Getter of the property <tt>newRequestActivity</tt>
+	 * @return  Returns the newRequestActivity.
+	 * @uml.property  name="newRequestActivity"
+	 */
+	public NewRequestActivity getNewRequestActivity() {
+		return newRequestActivity;
+	}
+
+	/** 
+	 * Setter of the property <tt>newRequestActivity</tt>
+	 * @param newRequestActivity  The newRequestActivity to set.
+	 * @uml.property  name="newRequestActivity"
+	 */
+	public void setNewRequestActivity(NewRequestActivity newRequestActivity) {
+		this.newRequestActivity = newRequestActivity;
+	}
+
+	/**
+	 * @uml.property  name="storedTasksActivity"
+	 * @uml.associationEnd  aggregation="composite" inverse="mainActivity:ca.ualberta.frontend.StoredTasksActivity"
+	 */
+	private StoredTasksActivity storedTasksActivity;
+
+	/**
+	 * Getter of the property <tt>storedTasksActivity</tt>
+	 * @return  Returns the storedTasksActivity.
+	 * @uml.property  name="storedTasksActivity"
+	 */
+	public StoredTasksActivity getStoredTasksActivity() {
+		return storedTasksActivity;
+	}
+
+	/**
+	 * Setter of the property <tt>storedTasksActivity</tt>
+	 * @param storedTasksActivity  The storedTasksActivity to set.
+	 * @uml.property  name="storedTasksActivity"
+	 */
+	public void setStoredTasksActivity(StoredTasksActivity storedTasksActivity) {
+		this.storedTasksActivity = storedTasksActivity;
+	}
 }

@@ -65,5 +65,71 @@ public class RequestSummaryActivity extends Activity implements OnClickListener 
         TextView text;
         text =  (TextView)findViewById(R.id.requestsummary);
         text.setText(details);
-    };
+    }
+	/**
+	 * @uml.property  name="newRequestActivity"
+	 * @uml.associationEnd  inverse="requestSummaryActivity:ca.ualberta.frontend.NewRequestActivity"
+	 */
+	private NewRequestActivity newRequestActivity;
+	/**
+	 * Getter of the property <tt>newRequestActivity</tt>
+	 * @return  Returns the newRequestActivity.
+	 * @uml.property  name="newRequestActivity"
+	 */
+	public NewRequestActivity getNewRequestActivity() {
+		return newRequestActivity;
+	}
+
+	/**
+	 * Setter of the property <tt>newRequestActivity</tt>
+	 * @param newRequestActivity  The newRequestActivity to set.
+	 * @uml.property  name="newRequestActivity"
+	 */
+	public void setNewRequestActivity(NewRequestActivity newRequestActivity) {
+		this.newRequestActivity = newRequestActivity;
+	}
+	/**
+	 * @uml.property  name="localTaskManager"
+	 * @uml.associationEnd  inverse="requestSummaryActivity:ca.ualberta.backend.LocalTaskManager"
+	 */
+	private LocalTaskManager localTaskManager;
+	/**
+	 * Getter of the property <tt>localTaskManager</tt>
+	 * @return  Returns the localTaskManager.
+	 * @uml.property  name="localTaskManager"
+	 */
+	public LocalTaskManager getLocalTaskManager() {
+		return localTaskManager;
+	}
+
+	/**
+	 * Setter of the property <tt>localTaskManager</tt>
+	 * @param localTaskManager  The localTaskManager to set.
+	 * @uml.property  name="localTaskManager"
+	 */
+	public void setLocalTaskManager(LocalTaskManager localTaskManager) {
+		this.localTaskManager = localTaskManager;
+	}
+	/**
+	 * @uml.property  name="externalTaskManager"
+	 * @uml.associationEnd  inverse="requestSummaryActivity:ca.ualberta.backend.ExternalTaskManager"
+	 */
+	private ExternalTaskManager externalTaskManager;
+	/**
+	 * Getter of the property <tt>externalTaskManager</tt>
+	 * @return  Returns the externalTaskManager.
+	 * @uml.property  name="externalTaskManager"
+	 */
+	public ExternalTaskManager getExternalTaskManager() {
+		return externalTaskManager;
+	}
+
+	/**
+	 * Setter of the property <tt>externalTaskManager</tt>
+	 * @param externalTaskManager  The externalTaskManager to set.
+	 * @uml.property  name="externalTaskManager"
+	 */
+	public void setExternalTaskManager(ExternalTaskManager externalTaskManager) {
+		this.externalTaskManager = externalTaskManager;
+	};
 }

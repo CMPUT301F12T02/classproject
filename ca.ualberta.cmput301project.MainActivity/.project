@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>ca.ualberta.cmput301project.TaskApp</name>
-	<comment></comment>
+	<comment>@key 32303037303533312D313030302063612E75616C62657274612E636D70757433303170726F6A6563742E4D61696E41637469766974792F63616369756C61 </comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -25,9 +25,15 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+		<buildCommand>
+			<name>com.soyatec.additional.Builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>com.soyatec.additional.Nature</nature>
 	</natures>
 </projectDescription>

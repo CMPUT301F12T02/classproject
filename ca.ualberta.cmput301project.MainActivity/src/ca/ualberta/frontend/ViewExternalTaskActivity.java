@@ -155,4 +155,70 @@ public class ViewExternalTaskActivity extends ListActivity{
         }
         return tasks;
     }
+	/**
+	 * @uml.property  name="storedTasksActivity"
+	 * @uml.associationEnd  inverse="viewExternalTaskActivity:ca.ualberta.frontend.StoredTasksActivity"
+	 */
+	private StoredTasksActivity storedTasksActivity;
+
+	/**
+	 * Getter of the property <tt>storedTasksActivity</tt>
+	 * @return  Returns the storedTasksActivity.
+	 * @uml.property  name="storedTasksActivity"
+	 */
+	public StoredTasksActivity getStoredTasksActivity() {
+		return storedTasksActivity;
+	}
+	/**
+	 * Setter of the property <tt>storedTasksActivity</tt>
+	 * @param storedTasksActivity  The storedTasksActivity to set.
+	 * @uml.property  name="storedTasksActivity"
+	 */
+	public void setStoredTasksActivity(StoredTasksActivity storedTasksActivity) {
+		this.storedTasksActivity = storedTasksActivity;
+	}
+	/**
+	 * @uml.property  name="fulfillTaskActivity"
+	 * @uml.associationEnd  aggregation="composite" inverse="viewExternalTaskActivity:ca.ualberta.frontend.FulfillTaskActivity"
+	 */
+	private FulfillTaskActivity fulfillTaskActivity;
+
+	/**
+	 * Getter of the property <tt>fulfillTaskActivity</tt>
+	 * @return  Returns the fulfillTaskActivity.
+	 * @uml.property  name="fulfillTaskActivity"
+	 */
+	public FulfillTaskActivity getFulfillTaskActivity() {
+		return fulfillTaskActivity;
+	}
+	/**
+	 * Setter of the property <tt>fulfillTaskActivity</tt>
+	 * @param fulfillTaskActivity  The fulfillTaskActivity to set.
+	 * @uml.property  name="fulfillTaskActivity"
+	 */
+	public void setFulfillTaskActivity(FulfillTaskActivity fulfillTaskActivity) {
+		this.fulfillTaskActivity = fulfillTaskActivity;
+	}
+	/**
+	 * @uml.property  name="externalTaskManager"
+	 * @uml.associationEnd  inverse="viewExternalTaskActivity:ca.ualberta.backend.ExternalTaskManager"
+	 */
+	private ExternalTaskManager externalTaskManager;
+
+	/**
+	 * Getter of the property <tt>externalTaskManager</tt>
+	 * @return  Returns the externalTaskManager.
+	 * @uml.property  name="externalTaskManager"
+	 */
+	public ExternalTaskManager getExternalTaskManager() {
+		return externalTaskManager;
+	}
+	/**
+	 * Setter of the property <tt>externalTaskManager</tt>
+	 * @param externalTaskManager  The externalTaskManager to set.
+	 * @uml.property  name="externalTaskManager"
+	 */
+	public void setExternalTaskManager(ExternalTaskManager externalTaskManager) {
+		this.externalTaskManager = externalTaskManager;
+	}
 }
