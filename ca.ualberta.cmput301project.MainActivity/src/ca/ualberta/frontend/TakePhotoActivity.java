@@ -55,7 +55,9 @@ public class TakePhotoActivity extends Activity implements OnClickListener {
 			Bitmap photo = (Bitmap) data.getExtras().get("data");
 			button.setImageBitmap(photo);
 			tv.setText("Took photo.");
-
+			Intent returnIntent = new Intent();
+			returnIntent.putExtra("newphoto", photo);
+			setResult(Activity.RESULT_OK,returnIntent);
 
 			break;
 		case RESULT_CANCELED:
