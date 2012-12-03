@@ -31,6 +31,7 @@ public class Task implements Serializable {
         this.timestamp = timestamp;
         this.id = id;
         this.likes = likes;
+        this.result_photo = new ArrayList<Bitmap>();
     }
     
     public Task(String newOwner, String description, boolean isPhotoRequired) {
@@ -40,6 +41,7 @@ public class Task implements Serializable {
         this.timestamp = new java.util.Date();
         this.id = "local";
         this.likes = 0;
+        this.result_photo = new ArrayList<Bitmap>();
     }
     /**getDescription returns the description value
      * @return String
