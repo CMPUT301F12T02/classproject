@@ -111,6 +111,10 @@ public class Task implements Serializable {
         return likes;
     }
     
+    public void addPhoto(Bitmap image) {
+    	this.result_photo.add(image);
+    }
+    
     public Task cloneTask() {
     	Task task = new Task(this.description, this.isPhotoRequired, this.ownerEmail, this.timestamp, this.id, this.likes);
     	task.setResult(this.result_answer, this.result_photo);
