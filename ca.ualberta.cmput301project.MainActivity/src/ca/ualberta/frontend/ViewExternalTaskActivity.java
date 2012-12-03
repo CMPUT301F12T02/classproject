@@ -140,10 +140,10 @@ public class ViewExternalTaskActivity extends ListActivity{
                 JSONObject content = fullTask.getJSONObject("content");
                 String description = content.getString("description");
                 boolean reqPhoto = Boolean.valueOf(content.getString("reqPhoto"));
-                boolean reqAudio = Boolean.valueOf(content.getString("reqAudio"));
                 DateFormat df = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
                 Date timestamp = df.parse(content.getString("timestamp"));
-                Task task = new Task(description, reqPhoto, reqAudio, owner, timestamp, id);
+                int likes = 0;
+                Task task = new Task(description, reqPhoto, owner, timestamp, id, likes);
                 tasks.add(task);
             } catch (JSONException e)
             {

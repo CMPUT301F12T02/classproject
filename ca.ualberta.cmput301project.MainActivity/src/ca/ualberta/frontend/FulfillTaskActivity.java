@@ -43,10 +43,8 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 
         //If image/audio required, make button clickable.
         boolean requestPhotos = oldtask.getReqPhoto();
-        boolean requestAudio = oldtask.getReqAudio();
 
         Button photoButton = (Button) findViewById(R.id.get_image);
-        Button audioButton = (Button) findViewById(R.id.get_audio);
         Button doneButton = (Button) findViewById(R.id.taskdone);
         Button saveButton = (Button) findViewById(R.id.save_progress);
         Button addToFavouritesButton = (Button) findViewById(R.id.add_to_favourites);
@@ -54,20 +52,12 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         Button removeTask = (Button) findViewById(R.id.remove_task);
         
         photoButton.setClickable(false);
-        audioButton.setClickable(false);
         //Logic to gray-out Button so it's non-selectable
         if (requestPhotos){
         	photoButton.setOnClickListener(this);
         	photoButton.setClickable(true);
         } else {
         	photoButton.setTextColor(getResources().getColor(R.color.White));
-        }
-        
-        if (requestAudio){
-         	audioButton.setOnClickListener(this);
-        	audioButton.setClickable(true);
-        } else {
-        	audioButton.setTextColor(getResources().getColor(R.color.White));
         }
         
         if (file.equals("EXTERNAL") || file.equals("DRAFTS")) {
@@ -107,8 +97,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 		String answer = answerBox.getText().toString();
     	
     	Task oldtask = (Task) getIntent().getSerializableExtra("task");
-    	ArrayList<Bitmap> photofile = oldtask.getResPhoto();
-    	String audiofile = oldtask.getResAudio();
+    	ArrayList<Bitmap> photos = oldtask.getResPhoto();
     	
     	Task newtask = oldtask.cloneTask();
     	
@@ -125,7 +114,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			
     			break;
     		case R.id.save_progress:
-    			newtask.setResult(answer, photofile, audiofile);
+    			newtask.setResult(answer, photos);
     			
     			if (LocalTaskManager.existsDraft(oldtask, this)) {
     				LocalTaskManager.replaceDraft(oldtask, newtask, this);
@@ -139,7 +128,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			finish();
     			break;
     		case R.id.add_to_favourites:
-    			newtask.setResult(answer, photofile, audiofile);
+    			newtask.setResult(answer, photos);
     			
     			if (file.equals("EXTERNAL")) {
     				//the task was taken from the webservice and needs to be added or updated to drafts
@@ -176,7 +165,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			finish();
     			break;
     		case R.id.taskdone:
-    			newtask.setResult(answer, photofile, audiofile);
+    			newtask.setResult(answer, photos);
     			
     			Dialog dialog = new Dialog(this);
     			if (newtask.getResAnswer().length()==0){
@@ -185,10 +174,6 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			} else if ((newtask.getReqPhoto() && newtask.getResPhoto() == null)) {
     				//No picture taken
     				dialog.setTitle("Missing photo");
-    				dialog.show();
-    			} else if (newtask.getReqAudio() && newtask.getResAudio().equals("none")){
-    				//No audio
-    				dialog.setTitle("Missing audio");
     				dialog.show();
     			} else {
     				//task is completed, remove it and send it back to owner

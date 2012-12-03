@@ -41,9 +41,6 @@ public class Email {
 		if (task.getReqPhoto()){
 			
 		}
-		if (task.getReqAudio()){
-			
-		}
 		return intent;
 	} 
 	/** Parses task and creates an email from task attributes.

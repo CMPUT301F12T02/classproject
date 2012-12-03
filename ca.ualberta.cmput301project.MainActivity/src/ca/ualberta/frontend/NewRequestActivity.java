@@ -65,13 +65,7 @@ public class NewRequestActivity extends Activity implements OnClickListener {
              photo_needed = true;
         }
         
-        boolean audio_needed = false;
-        final CheckBox checkaudio = (CheckBox) findViewById(R.id.require_audio);
-        if (checkaudio.isChecked()) {
-             audio_needed = true;
-        }
-        
-        Task newtask = new Task(ownerEmail, desc, photo_needed, audio_needed);
+        Task newtask = new Task(ownerEmail, desc, photo_needed);
         
         return newtask;
     };
