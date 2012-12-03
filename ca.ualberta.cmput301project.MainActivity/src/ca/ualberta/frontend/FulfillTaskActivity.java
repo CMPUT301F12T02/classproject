@@ -1,19 +1,21 @@
 package ca.ualberta.frontend;
 
-import ca.ualberta.backend.Email;
-import ca.ualberta.backend.ExternalTaskManager;
-import ca.ualberta.backend.LocalTaskManager;
-import ca.ualberta.backend.Task;
-import ca.ualberta.frontend.R;
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import ca.ualberta.backend.Email;
+import ca.ualberta.backend.ExternalTaskManager;
+import ca.ualberta.backend.LocalTaskManager;
+import ca.ualberta.backend.Task;
 /**
  * FulfillTaskActivity is the interface to submit all
  * required media for the task, 'fulfilling' the task
@@ -105,8 +107,8 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 		String answer = answerBox.getText().toString();
     	
     	Task oldtask = (Task) getIntent().getSerializableExtra("task");
-    	String photofile = oldtask.getResPhotoName();
-    	String audiofile = oldtask.getResAudioName();
+    	ArrayList<Bitmap> photofile = oldtask.getResPhoto();
+    	String audiofile = oldtask.getResAudio();
     	
     	Task newtask = oldtask.cloneTask();
     	
@@ -180,11 +182,11 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			if (newtask.getResAnswer().length()==0){
     				dialog.setTitle("Missing text");
     				dialog.show();
-    			} else if ((newtask.getReqPhoto() && newtask.getResPhotoName().equals("none"))) {
+    			} else if ((newtask.getReqPhoto() && newtask.getResPhoto() == null)) {
     				//No picture taken
     				dialog.setTitle("Missing photo");
     				dialog.show();
-    			} else if (newtask.getReqAudio() && newtask.getResAudioName().equals("none")){
+    			} else if (newtask.getReqAudio() && newtask.getResAudio().equals("none")){
     				//No audio
     				dialog.setTitle("Missing audio");
     				dialog.show();

@@ -24,7 +24,7 @@ import org.json.JSONObject;
 import android.content.Context;
 import android.os.AsyncTask;
 
-/** ExternalTaskManager handles all online access for storing and
+/** ExternalTaskManager handl}es all online access for storing and
  * accessing tasks.  It has functions for each of the Crowdsourcer
  * commands, except for nuke, in the interest of not setting it off
  * accidentally.  It also contains a private class that handles http
@@ -40,35 +40,7 @@ public class ExternalTaskManager
     public ExternalTaskManager(){
         
     }
-    /** convertStreamToString converts an InputStream object to a
-     * String object.
-     * @param InputStream is
-     * @return String
-     */
-    private static  String convertStreamToString(InputStream is) {
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        StringBuilder sb = new StringBuilder();
-
-        String line = null;
-        try {
-                while ((line = reader.readLine()) != null) {
-                        sb.append(line + "\n");
-                }
-        } 
-        catch (IOException e) {
-                e.printStackTrace();
-        } 
-        finally {
-                try {
-                        is.close();
-                } 
-                catch (IOException e) {
-                        e.printStackTrace();
-                }
-        }
-        return sb.toString();
-}
     /** internetFetch is a class that extends the AsyncTask
      * class to be able to access the internet in a separate
      * stream.  It assembles the URL from the NameValuePair
@@ -245,45 +217,5 @@ public class ExternalTaskManager
             internetFetch ifetch = ext.new internetFetch(nvps);
             String rtv = ifetch.execute(c).toString();
             return rtv;
-    }
-    /** updateTask uses the update action from
-     * Crowdsourcer, and updates a task from the
-     * service when given the updated Task object
-     * and the string id.
-     * @param Task task
-     * @param String id
-     */
-    public static void updateTask(Task task, String id){
-        JSONObject object = null;
-        try
-        {
-            object = new JSONObject(readTask(id));
-        } catch (JSONException e1)
-        {
-            e1.printStackTrace();
-        }
-        JSONObject oldContent = null;
-        try
-        {
-            oldContent = new JSONObject(object.getString("content"));
-        } catch (JSONException e1)
-        {
-            e1.printStackTrace();
-        }
-        try {
-            oldContent.put("updatesummary", task.getResAnswer());
-            oldContent.put("photofile", task.getResPhotoName());
-            oldContent.put("audiofile", task.getResAudioName());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        List<NameValuePair> nvps = new ArrayList <NameValuePair>();
-        nvps.add(new BasicNameValuePair("action", "update"));
-        nvps.add(new BasicNameValuePair("summary", "Task Finished"));
-        nvps.add(new BasicNameValuePair("content", oldContent.toString()));
-        Context c = null;
-        ExternalTaskManager ext = new ExternalTaskManager();
-        internetFetch ifetch = ext.new internetFetch(nvps);
-        String rtv = ifetch.execute(c).toString();
     }
 }
