@@ -19,16 +19,15 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout1=0x7f070000;
-        public static final int TakeAAudio=0x7f07001f;
-        public static final int TakeAPhoto=0x7f070021;
+        public static final int TakeAPhoto=0x7f07001f;
         public static final int add_to_favourites=0x7f070007;
         public static final int answer_text=0x7f070002;
-        public static final int camera_status=0x7f070020;
+        public static final int camera_status=0x7f070021;
         public static final int com_button=0x7f070016;
         public static final int createrequest_button=0x7f070010;
         public static final int drafts_button=0x7f07001c;
         public static final int favourites_button=0x7f07001a;
-        public static final int finishButton=0x7f070022;
+        public static final int finishButton=0x7f070020;
         public static final int get_audio=0x7f070003;
         public static final int get_image=0x7f070004;
         public static final int local_button=0x7f070018;
@@ -60,9 +59,8 @@ public final class R {
         public static final int activity_newrequest=0x7f030002;
         public static final int activity_requestsummary=0x7f030003;
         public static final int activity_storedtasks=0x7f030004;
-        public static final int activity_takeaudio=0x7f030005;
-        public static final int activity_takephoto=0x7f030006;
-        public static final int activity_tasklist=0x7f030007;
+        public static final int activity_takephoto=0x7f030005;
+        public static final int activity_tasklist=0x7f030006;
     }
     public static final class string {
         public static final int TakeAPhoto=0x7f040028;
