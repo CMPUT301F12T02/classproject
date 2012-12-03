@@ -61,6 +61,9 @@ public class TakePhotoActivity extends Activity implements OnClickListener {
 		case RESULT_OK:
 			ImageButton button = (ImageButton) findViewById(R.id.TakeAPhoto);
 			Bitmap photo = (Bitmap) data.getExtras().get("data");
+			if (photo != null){
+			    System.out.println("Null exception");
+			}
 			newTask.addPhoto(photo);
 			
 			LocalTaskManager.replaceDraft(oldTask, newTask, this);
