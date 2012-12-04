@@ -3,7 +3,7 @@ package ca.ualberta.backend;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import android.graphics.Bitmap;
+import android.net.Uri;
 import ca.ualberta.frontend.NewRequestActivity;
 import ca.ualberta.frontend.MainActivity;
 
@@ -24,7 +24,7 @@ public class Task implements Serializable {
     private int likes;
     
     private String result_answer;
-    private ArrayList<Bitmap> result_photo;
+    private ArrayList<String> result_uri_string = new ArrayList<String>();
     
     public Task(String description, boolean isPhotoRequired, String ownerEmail, java.util.Date timestamp, String id, int likes) {
     	this.description = description;
@@ -33,7 +33,6 @@ public class Task implements Serializable {
         this.timestamp = timestamp;
         this.id = id;
         this.likes = likes;
-        this.result_photo = new ArrayList<Bitmap>();
     }
     
     public Task(String newOwner, String description, boolean isPhotoRequired) {
@@ -43,7 +42,6 @@ public class Task implements Serializable {
         this.timestamp = new java.util.Date();
         this.id = "local";
         this.likes = 0;
-        this.result_photo = new ArrayList<Bitmap>();
     }
     /**getDescription returns the description value
      * @return String
@@ -119,15 +117,15 @@ public class Task implements Serializable {
     /**getResPhoto returns the resulting photo value
      * @return String
      */
-    public ArrayList<Bitmap> getResPhoto() {
-        return this.result_photo;
+    public ArrayList<String> getResUri() {
+        return this.result_uri_string;
     }
     /**setResPhoto attaches a photo to the
      * task upon completion
      * @param result_photo
      */
-    public void setResPhoto(ArrayList<Bitmap> result_photo) {
-    	this.result_photo = result_photo;
+    public void setResUri(ArrayList<String> result_uri_string) {
+    	this.result_uri_string = result_uri_string;
     }
     /**getID returns the ID value from the webservice
      * @return String
@@ -147,14 +145,11 @@ public class Task implements Serializable {
      * 
      * @param image
      */
-    public void addPhoto(Bitmap image) {
-        if (image != null){
-            System.out.println("reaches here");
+    public void addUri(Uri uri) {
+        if (result_uri_string == null){
+            result_uri_string = new ArrayList<String>();
         }
-        if (result_photo == null){
-            result_photo = new ArrayList<Bitmap>();
-        }
-            this.result_photo.add(image);
+        this.result_uri_string.add(uri.toString());
     }
     /**cloneTask creates an identical Task
      * to be used when the task needs to be modified
@@ -162,7 +157,7 @@ public class Task implements Serializable {
      */
     public Task cloneTask() {
     	Task task = new Task(this.description, this.isPhotoRequired, this.ownerEmail, this.timestamp, this.id, this.likes);
-    	task.setResult(this.result_answer, this.result_photo);
+    	task.setResult(this.result_answer, this.result_uri_string);
     	return task;
     }
     /**setResult attaches the description and resulting
@@ -170,9 +165,8 @@ public class Task implements Serializable {
      * @param answer
      * @param result_photo
      */
-    public void setResult(String answer, ArrayList<Bitmap> result_photo) {
-    	this.setResAnswer(answer);
-    	this.setResPhoto(result_photo);
+    public void setResult(String answer, ArrayList<String> result_uri_string) {
+    	this.setResUri(result_uri_string);
     }
     /**isEqualTo determines if the timestamps of two tasks are
      * equal to each other

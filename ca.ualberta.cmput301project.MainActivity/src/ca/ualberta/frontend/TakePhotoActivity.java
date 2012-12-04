@@ -2,12 +2,16 @@ package ca.ualberta.frontend;
 
 
 
+import java.io.ByteArrayOutputStream;
+
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.provider.MediaStore.Images;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -46,26 +50,26 @@ public class TakePhotoActivity extends Activity implements OnClickListener {
 	 */
 	public void takePhoto(){   	
 		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
 		startActivityForResult(intent, 1888);
 	}
-
+	public Uri getImageUri(Bitmap inImage, Context inContext) {
+            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+            inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+            String path = Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+            return Uri.parse(path);
+        }
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data){
 		Task oldTask = (Task) getIntent().getSerializableExtra("task");
 		Task newTask = oldTask.cloneTask();
-
 		TextView tv = (TextView) findViewById(R.id.camera_status);
 		switch (resultCode){
 		case RESULT_OK:
 			ImageButton button = (ImageButton) findViewById(R.id.TakeAPhoto);
 			Bitmap photo = (Bitmap) data.getExtras().get("data");
-			if (photo != null){
-			    System.out.println("Null exception");
-			}
-			newTask.addPhoto(photo);
-			
+			imageFileUri = getImageUri(photo, this);
+			newTask.addUri(imageFileUri);
 			LocalTaskManager.replaceDraft(oldTask, newTask, this);
 			LocalTaskManager.replaceLocalTask(oldTask, newTask, this);
 			LocalTaskManager.replaceFavourite(oldTask, newTask, this);

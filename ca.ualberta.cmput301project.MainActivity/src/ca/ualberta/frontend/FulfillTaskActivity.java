@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,9 +36,8 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
         String file = null;
         Bundle extras = getIntent().getExtras();
     	file = extras.getString("file");
-
         Task oldtask = (Task) getIntent().getSerializableExtra("task");
-        
+
         TextView likes = (TextView) findViewById(R.id.likes);
         likes.setText("Likes: " + oldtask.getLikes());
         
@@ -112,7 +112,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
 		String answer = answerBox.getText().toString();
     	
     	Task oldtask = (Task) getIntent().getSerializableExtra("task");
-    	ArrayList<Bitmap> photos = oldtask.getResPhoto();
+    	ArrayList<String> uris = oldtask.getResUri();
     	
     	Task newtask = oldtask.cloneTask();
     	
@@ -133,7 +133,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			
     			break;
     		case R.id.save_progress:
-    			newtask.setResult(answer, photos);
+    			newtask.setResult(answer, uris);
     			
     			if (LocalTaskManager.existsDraft(oldtask, this)) {
     				LocalTaskManager.replaceDraft(oldtask, newtask, this);
@@ -147,7 +147,7 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			finish();
     			break;
     		case R.id.add_to_favourites:
-    			newtask.setResult(answer, photos);
+    			newtask.setResult(answer, uris);
     			
     			if (file.equals("EXTERNAL")) {
     				//the task was taken from the webservice and needs to be added or updated to drafts
@@ -184,13 +184,13 @@ public class FulfillTaskActivity extends Activity implements OnClickListener {
     			finish();
     			break;
     		case R.id.taskdone:
-    			newtask.setResult(answer, photos);
+    			newtask.setResAnswer(answer);
     			
     			Dialog dialog = new Dialog(this);
     			if (newtask.getResAnswer().length()==0){
     				dialog.setTitle("Missing text");
     				dialog.show();
-    			} else if ((newtask.getReqPhoto() && newtask.getResPhoto() == null)) {
+    			} else if ((newtask.getReqPhoto() && newtask.getResUri() == null)) {
     				//No picture taken
     				dialog.setTitle("Missing photo");
     				dialog.show();

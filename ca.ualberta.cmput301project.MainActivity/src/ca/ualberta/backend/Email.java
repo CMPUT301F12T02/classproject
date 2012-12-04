@@ -1,9 +1,13 @@
 package ca.ualberta.backend;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore.Images;
 import ca.ualberta.backend.Task;
 import ca.ualberta.frontend.FulfillTaskActivity;
 
@@ -43,14 +47,20 @@ public class Email {
 	
 	private static Intent AttachMedia(Intent intent, Task task){
 		if (task.getReqPhoto()){
-			ArrayList<Bitmap> arr = task.getResPhoto();
+			ArrayList<String> arr = task.getResUri();
+			ArrayList<Uri> uris = new ArrayList<Uri>();
+			Uri uri = null;
 			for (int i = 0; i < arr.size(); i++){
-			    Bitmap image = arr.get(i);
-			    intent.putExtra(Intent.EXTRA_STREAM, image);
+			    String string = arr.get(i);
+			    uri = Uri.parse(string);
+			    uris.add(uri);
 			}
+			intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
 		}
 		return intent;
-	} 
+	}
+	
+        
 	/** Parses task and creates an email from task attributes.
 	 *  Lets user choose email client to use to send email.
 	 * 
@@ -93,4 +103,5 @@ public class Email {
 	public void setFulfillTaskActivity(FulfillTaskActivity fulfillTaskActivity) {
 		this.fulfillTaskActivity = fulfillTaskActivity;
 	}
+
 }
