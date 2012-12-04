@@ -36,7 +36,6 @@ public class ViewExternalTaskActivity extends ListActivity{
         public final static String REQAUDIO = "ca.ualberta.cmput301project.AUDIO";
         public final static String EXTRA_MESSAGE = "ca.ualberta.cmput301project.MESSAGE";
         private ArrayList<Task> tasks;
-        private ArrayList<String> ids;
     
         /** onCreate calls the superclass constructor,
          * sets content view, and starts the custom display.

@@ -52,6 +52,13 @@ public class TakePhotoActivity extends Activity implements OnClickListener {
 		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 		startActivityForResult(intent, 1888);
 	}
+	/**getImageUri is meant to convert a Bitmap image
+	 * into Uri format, which can be converted to a string
+	 * to make it serializable
+	 * @param inImage
+	 * @param inContext
+	 * @return
+	 */
 	public Uri getImageUri(Bitmap inImage, Context inContext) {
             ByteArrayOutputStream bytes = new ByteArrayOutputStream();
             inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);

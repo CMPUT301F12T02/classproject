@@ -1,13 +1,9 @@
 package ca.ualberta.backend;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
-import android.provider.MediaStore.Images;
 import ca.ualberta.backend.Task;
 import ca.ualberta.frontend.FulfillTaskActivity;
 
